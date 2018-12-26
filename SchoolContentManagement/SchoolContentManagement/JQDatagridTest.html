@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <link href="css/jquery-ui.css" rel="stylesheet" />
+    <style type="text/css">
+        .txtBox {
+            background-color: red;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(function () {
+                var tableOpts = {
+                    "sPaginationType": "full_numbers",
+                    "sScrollY": "150px",
+                    "bFilter": false,
+                    "fnCreatedRow": function (nRow, aData, iDataIndex) {
+                        $(nRow).attr('id', aData[0]);
+
+                        var txtBox = $(nRow).find("input[type=text]");
+                        txtBox.attr('id', 'text-' + aData[0]);
+
+                        var checkBox = $(nRow).find("input[type=checkbox]");
+                        checkBox.attr('id', 'check-' + aData[0]);
+                    }
+                }
+                var table1 = $('#table1').dataTable(tableOpts);
+                var textbox = '<input type="text" class="txtBox">';
+                var checkbox = '<input type="checkbox">';
+                console.log(table1.fnSettings().fnRecordsTotal());
+                $('#divButton').find('.toggle').on('click', function () {
+                    table1.fnAddData([table1.fnSettings().fnRecordsTotal() + 1, 'Windows 7', 7.1, textbox, checkbox]);
+                });
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th></th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+    </table>
+
+
+
+</body>
+</html>

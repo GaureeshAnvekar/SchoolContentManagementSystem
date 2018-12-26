@@ -1,0 +1,256 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminPageAfterLogin.master.cs" Inherits="SchoolContentManagement.AdminPageAfterLogin" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Admin Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/npm.js"></script>
+
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <link href="css/stylesForStudentPageUnclickedButtons.css" rel="stylesheet" />
+    <link href="css/jquery-ui.min.css" rel="stylesheet" />
+    <link href="css/jquery-ui.css" rel="stylesheet" />
+    <script src="js/jquery-ui.min.js"></script>
+   <%-- <link rel="stylesheet" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+    <script type="text/javascript" src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>--%>
+    <link href="css/jquery-ui.theme.css" rel="stylesheet" />
+   <link href="css/datatables.min.css" rel="stylesheet" />
+    <script src="js/datatables.min.js"></script>
+    <asp:ContentPlaceHolder ID="libraryPageHead" runat="server"></asp:ContentPlaceHolder>
+   
+    <%--<!-- <link href="css/stylesAfterLogin.css" rel="stylesheet" /> --> --%>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            //$("img").attr("src", "data:Image/png;base64," + sessionStorage.getItem('studentPhoto' + $.cookie('StudentID')));
+
+            if ($(window).width() > 900) {
+                $("#navbar").css("display", "none");
+                $("#buttonMenu").css("display", "inline-block");
+            } else {
+                $("#buttonMenu").css("display", "none");
+                $("#navbar").css("display", "block");
+            }
+
+            $('.studentRegistration').click(function () {
+                $.ajax({
+                    success: function () {
+                        window.location.href = 'AdminPageStudentAdmission';
+                    }
+                });
+            });
+
+            $('.employeeRegistration').click(function () {
+                $.ajax({
+                    success: function () {
+                        window.location.href = 'AdminPageEmployeeRegistration';
+                    }
+                });
+            });
+
+            $('.searchStudent').click(function () {
+                $.ajax({
+                    success: function () {
+                        window.location.href = 'AdminPageSearchStudent';
+                    }
+                });
+            });
+
+            $('.classPromotion').click(function () {
+                $.ajax({
+                    success: function () {
+                        window.location.href = 'AdminPageClassPromotion';
+                    }
+                });
+            });
+
+            $('.sectionTransfer').click(function () {
+                $.ajax({
+                    success: function () {
+                        window.location.href = 'AdminPageSectionTransfer';
+                    }
+                });
+            });
+
+
+            $('.transportDetails').click(function () {
+                $.ajax({
+                    success: function () {
+                        window.location.href = 'Transport';
+                    }
+                });
+            });
+
+
+            $('.libraryBooks').click(function () {
+                $.ajax({
+                    success: function () {
+                        window.location.href = 'Library';
+                    }
+                });
+            });
+
+            $('.addressDetails').click(function () {
+                $.ajax({
+                    success: function () {
+                        window.location.href = 'Address';
+                    }
+                });
+            });
+
+            $('.contactDetails').click(function () {
+                $.ajax({
+                    success: function () {
+                        window.location.href = 'Contact';
+                    }
+                });
+            });
+
+            $('.logout').click(function () {
+                $.cookie('SchoolID', null);
+                $.removeCookie('SchoolID');
+                sessionStorage.removeItem("studentPhoto");
+                $.ajax({
+                    success: function () {
+                        window.location.href = 'SchoolLogin';
+                    }
+                });
+            });
+
+
+        });
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+    
+      <div class="container-fluid">
+             <div class="row" style="background-color:#3b5998; background-image: linear-gradient(#4e69a2, #3b5998 50%); border-bottom: 1px solid #133783;">
+                <div class="col-lg-12" style="padding:20px;">
+                    <img id="logo" src="images/jclogo.png" style="margin: 0 auto;display:block;" />
+                    <h1 style="text-align:center;color:white;font-family:Cinzel;">
+                        BUXI JAGABANDHU ENGLISH MEDIUM SCHOOL
+                    </h1>
+                   <%-- <div class="row">
+                    <div class="col-lg-offset-1 col-lg-10" style="height:100px;background-color:white;border-radius:10px;">
+                        <h1 style="font-family:Verdana;">
+                            SRI JAYACHAMARAJENDRA
+                        </h1>
+                    </div>
+                        </div>--%>
+
+                </div>
+            </div>
+            <div class="row" style="padding-top: 15px; margin-bottom: 15px;">
+                <div class="col-lg-offset-1 col-lg-10" id="libraryHeader">
+                    <button class="btn btn-primary" style="border-radius: 50%; position:absolute;right:18px;top:28px"><span class="glyphicon glyphicon-off" style="color: white; font-size: 20px;"></span></button>
+                    <span style="position: absolute; right: 20px; top: 69px; font-size: 10px;"><a class="logout"><b>LOGOUT</b></a></span>
+
+                    <%--<asp:ContentPlaceHolder ID="welcomeLine" runat="server"><h2 style="padding: 0px; margin: 0px;">Welcome to Student page!</h2></asp:ContentPlaceHolder>
+                        <hr style="height: 1px; background-color: black; color: black; margin-top: 5px; margin-bottom: 5px;">--%>
+                    <div id="whiteBox">
+                        
+                            <h2 style="padding: 0px; margin: 0px;">Welcome to Admin Page!</h2>
+                     
+                       
+                    </div>
+                    <%--  <asp:ContentPlaceHolder ID="welcomeLine" runat="server"><h2 style="padding: 0px; margin: 0px;">Welcome to Student page!</h2></asp:ContentPlaceHolder>
+                        <hr style="height: 1px; background-color: black; color: black; margin-top: 5px; margin-bottom: 5px;">
+                       
+                        <div id="detailsWhiteBox">
+                            <asp:ContentPlaceHolder ID="basicData" runat="server">
+                                <label class="dataLabels">FirstName:</label><asp:Label runat="server" ID="fName"></asp:Label>
+                                <label class="dataLabels">LastName:</label><asp:Label runat="server" ID="lName"></asp:Label>
+                                <label class="dataLabels">RollNo:</label><asp:Label runat="server" ID="rollNo"></asp:Label><br />
+                                <label class="dataLabels">Standard:</label><asp:Label runat="server" ID="standard"></asp:Label>
+
+
+                            </asp:ContentPlaceHolder>
+                        </div>--%>
+                </div>
+            </div>
+
+
+        
+        <div class="row">
+            <div class="col-lg-offset-1 col-lg-10" id="libraryBody" style="padding: 20px;">
+
+                <nav class="navbar navbar-default" id="navbar" style="display: none;">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" id="navbar-button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" style="background-color: transparent !important;">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+
+                        </div>
+                        <div class="collapse navbar-collapse" id="myNavbar">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a class="studentRegistration">Student Registration</a></li>
+                                <li><a class="employeeRegistration">Employee Registration</a></li>
+                                <li><a class="searchStudent">Search Student</a></li>
+                                <li><a class="receiveBook">Class Promotion</a></li>
+                                <li><a class="searchBook">Section Transfer</a></li>
+                               
+                            </ul>
+
+                        </div>
+                    </div>
+                </nav>
+                <div id="buttonMenu">
+                    <div class="buttonContainer">
+                        <button class="btn btn-primary btn-block studentRegistration">Student Registration</button>
+                    </div>
+                    <div class="buttonContainer">
+                        <button class="btn btn-primary btn-block employeeRegistration">Employee Registration</button>
+                    </div>
+                     <div class="buttonContainer">
+                        <button class="btn btn-primary btn-block searchStudent">Search Student</button>
+                    </div>
+                    <div class="buttonContainer">
+                        <button class="btn btn-primary btn-block classPromotion">Class Promotion</button>
+                    </div>
+                    <div class="buttonContainer">
+                        <button class="btn btn-primary btn-block sectionTransfer">Section Transfer</button>
+                    </div>
+              
+                </div>
+                <asp:ContentPlaceHolder ID="libraryPageBody" runat="server"></asp:ContentPlaceHolder>
+            </div>
+
+        </div>
+        <%-- <asp:ContentPlaceHolder ID="studentPageBody" runat="server">
+                <div class="row">
+                    <div class="col-lg-offset-1 col-lg-10" id="body">
+
+                        <div class="buttonContainer">
+                            <button class="btn btn-primary">Attendance Status</button>
+                        </div>
+                        <div class="buttonContainer">
+                            <button class="btn btn-primary">Parent Details</button>
+                        </div>
+                    </div>
+                    <div id="Div1" runat="server" style="display: none; height: 20px; border: 1px solid black"></div>
+                    <button id="second">second</button>
+                    <div id="Div2" runat="server" style="display: none; height: 20px; border: 1px solid black"></div>
+                </div>
+
+            </asp:ContentPlaceHolder>--%>
+        </div>
+    
+    </form>
+</body>
+</html>
+

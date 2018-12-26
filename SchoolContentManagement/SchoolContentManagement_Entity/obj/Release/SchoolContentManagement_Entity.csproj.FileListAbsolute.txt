@@ -1,0 +1,4 @@
+C:\Users\Gaureesh Anvekar\Desktop\DSSStudentInformationSystem\SchoolContentManagement\SchoolContentManagement_Entity\bin\Release\SchoolContentManagement_Entity.dll
+C:\Users\Gaureesh Anvekar\Desktop\DSSStudentInformationSystem\SchoolContentManagement\SchoolContentManagement_Entity\bin\Release\SchoolContentManagement_Entity.pdb
+C:\Users\Gaureesh Anvekar\Desktop\DSSStudentInformationSystem\SchoolContentManagement\SchoolContentManagement_Entity\obj\Release\SchoolContentManagement_Entity.dll
+C:\Users\Gaureesh Anvekar\Desktop\DSSStudentInformationSystem\SchoolContentManagement\SchoolContentManagement_Entity\obj\Release\SchoolContentManagement_Entity.pdb

@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LastUsedBuildConfiguration>Release</LastUsedBuildConfiguration>
+    <LastUsedPlatform>Any CPU</LastUsedPlatform>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/SchoolContentManagement.dll">
+      <publishTime>01/21/2016 19:20:00</publishTime>
+    </File>
+    <File Include="bin/SchoolContentManagement_BAL.dll">
+      <publishTime>01/21/2016 19:19:59</publishTime>
+    </File>
+    <File Include="bin/SchoolContentManagement_DAL.dll">
+      <publishTime>01/21/2016 19:19:58</publishTime>
+    </File>
+    <File Include="bin/SchoolContentManagement_Entity.dll">
+      <publishTime>01/21/2016 19:19:57</publishTime>
+    </File>
+    <File Include="ContentManagement.asmx">
+      <publishTime>12/22/2015 15:52:46</publishTime>
+    </File>
+    <File Include="css/bootstrap-theme.css">
+      <publishTime>12/22/2015 16:21:14</publishTime>
+    </File>
+    <File Include="css/bootstrap-theme.min.css">
+      <publishTime>12/22/2015 16:21:14</publishTime>
+    </File>
+    <File Include="css/bootstrap.css">
+      <publishTime>12/22/2015 16:21:14</publishTime>
+    </File>
+    <File Include="css/bootstrap.min.css">
+      <publishTime>12/22/2015 16:21:14</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>12/22/2015 16:21:14</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>12/22/2015 16:21:14</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>12/22/2015 16:21:14</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>12/22/2015 16:21:14</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>12/22/2015 16:21:14</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>12/22/2015 15:52:15</publishTime>
+    </File>
+    <File Include="images/Daikoku_Logo.jpg">
+      <publishTime>01/06/2016 19:56:54</publishTime>
+    </File>
+    <File Include="js/bootstrap.js">
+      <publishTime>12/22/2015 16:21:14</publishTime>
+    </File>
+    <File Include="js/bootstrap.min.js">
+      <publishTime>12/22/2015 16:21:14</publishTime>
+    </File>
+    <File Include="js/jquery-1.11.3.js">
+      <publishTime>12/22/2015 16:21:14</publishTime>
+    </File>
+    <File Include="js/jquery.cookie.js">
+      <publishTime>12/22/2015 16:21:14</publishTime>
+    </File>
+    <File Include="js/jquery.validate.min.js">
+      <publishTime>12/22/2015 16:21:14</publishTime>
+    </File>
+    <File Include="js/npm.js">
+      <publishTime>12/22/2015 16:21:14</publishTime>
+    </File>
+    <File Include="SchoolContentManagementLogin.aspx">
+      <publishTime>01/06/2016 20:32:28</publishTime>
+    </File>
+    <File Include="SchoolInformationToUpdate.aspx">
+      <publishTime>01/21/2016 19:17:42</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>01/21/2016 19:20:14</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

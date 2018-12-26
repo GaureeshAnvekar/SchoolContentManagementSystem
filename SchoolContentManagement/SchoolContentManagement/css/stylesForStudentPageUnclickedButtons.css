@@ -1,0 +1,124 @@
+﻿body {
+    /*background-color: rgba(176,224,230,0.8);*/
+      background-color: rgb(223,224,228);
+}
+
+#header {
+    /*height: 180px;*/
+    background-color: rgba(255,255,255,0.8);
+    /*background-color:rgb(246,247,249);*/
+    border-radius: 10px;
+    padding: 20px;
+    border: 2px solid;
+    border-color: rgb(229,230,233);
+   
+
+}
+
+#body {
+    /*height: 500px;*/
+    /*height: 50%;*/
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 10px;
+    border: 2px solid;
+    border-color: rgb(229,230,233);
+}
+
+#userBasicDetails {
+    display: inline-block;
+    vertical-align: top;
+    width: 75%;
+    text-align: center;
+    padding-left: 30px;
+}
+
+#detailsWhiteBox {
+    background-color: white;
+    /*height: 100px;*/
+    height: 50%;
+    border-radius: 10px;
+    text-align: left;
+    padding: 10px;
+    border: 2px solid;
+    border-color: rgb(229,230,233);
+}
+
+.buttonContainer {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+button /*,input*/ {
+    background-color: rgba(46,109,164,0.8) !important;
+    /*border-radius: 0px;*/
+}
+
+.staffButtons {
+    background-color: ButtonFace !important;
+}
+/*.dataLabels {
+    margin-left: 9%;
+}*/
+
+.basicDataCols {
+    display: inline-block;
+    padding-left: 40px;
+    padding-right: 30px;
+}
+
+#buttonMenu {
+    padding: 15px;
+    width: 20%;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid;
+    border-color: rgb(229,230,233);
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#queryResultContainer {
+    width: 75%;
+    /*height: 400px;*/
+    background-color: white;
+    border-radius: 10px;
+    display: inline-block;
+    vertical-align: top;
+    border: 2px solid rgb(229,230,233);
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#navbar-button {
+    background-color: transparent !important;
+}
+
+#whiteBox {
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    border: 2px solid;
+    border-color: rgb(229,230,233);
+    text-align: center;
+}
+
+#libraryHeader {
+    position: relative;
+    padding-left: 120px;
+    padding-right: 120px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 10px;
+     border: 2px solid;
+    border-color: rgb(229,230,233);
+}
+
+#libraryBody {
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 10px;
+     border: 2px solid;
+    border-color: rgb(229,230,233);
+}

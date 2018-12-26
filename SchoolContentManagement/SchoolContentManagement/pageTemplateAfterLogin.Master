@@ -1,0 +1,295 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="pageTemplateAfterLogin.Master.cs" Inherits="SchoolContentManagement.StudentPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>STUDENT PAGE</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/npm.js"></script>
+
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <link href="css/stylesForStudentPageUnclickedButtons.css" rel="stylesheet" />
+    <link href="css/jquery-ui.min.css" rel="stylesheet" />
+    <link href="css/jquery-ui.css" rel="stylesheet" />
+    <script src="js/jquery-ui.min.js"></script>
+     <link href="css/datatables.min.css" rel="stylesheet" />
+    <script src="js/datatables.min.js"></script>
+    <%-- End --%>
+
+    <asp:ContentPlaceHolder ID="studentPageHead" runat="server">
+    </asp:ContentPlaceHolder>
+    <!-- <link href="css/stylesAfterLogin.css" rel="stylesheet" /> -->
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#studid").attr("src", "data:Image/png;base64," + sessionStorage.getItem('studentPhoto' + $.cookie('StudentID')));
+            $("#logoid").attr("src", "data:Image/png;base64," + sessionStorage.getItem('SchoolLogo' + $.cookie('SchoolLogo')));
+            $('#Schoolname').text($.cookie('SchoolName'));
+
+            if ($(window).width() > 900) {
+                $("#navbar").css("display", "none");
+                $("#buttonMenu").css("display", "inline-block");
+            } else {
+                $("#buttonMenu").css("display", "none");
+                $("#navbar").css("display", "block");
+            }
+            console.log($.cookie('DOB'));
+            $('.attendanceStatus').click(function () {
+                $.ajax({
+                    success: function () {
+                        window.location.href = 'Attendance';
+                    }
+                });
+            });
+
+            $('.assignmentDetails').click(function () {
+                $.ajax({
+                    success: function () {
+                        window.location.href = 'AssignmentDetails';
+                    }
+                });
+            });
+
+            $('.parentDetails').click(function () {
+                $.ajax({
+                    success: function () {
+                        window.location.href = 'Parent';
+                    }
+                });
+            });
+
+            $('.feesDetails').click(function () {
+                $.ajax({
+                    success: function () {
+                        window.location.href = 'Fees';
+                    }
+                });
+            });
+
+            $('.resultDetails').click(function () {
+                $.ajax({
+                    success: function () {
+                        window.location.href = 'Result';
+                    }
+                });
+            });
+
+            $('.schoolEvents').click(function () {
+                $.ajax({
+                    success: function () {
+                        window.location.href = 'Events';
+                    }
+                });
+            });
+
+
+            $('.transportDetails').click(function () {
+                $.ajax({
+                    success: function () {
+                        window.location.href = 'Transport';
+                    }
+                });
+            });
+
+
+            $('.libraryBooks').click(function () {
+                $.ajax({
+                    success: function () {
+                        window.location.href = 'Library';
+                    }
+                });
+            });
+
+            $('.addressDetails').click(function () {
+                $.ajax({
+                    success: function () {
+                        window.location.href = 'Address';
+                    }
+                });
+            });
+
+            $('.contactDetails').click(function () {
+                $.ajax({
+                    success: function () {
+                        window.location.href = 'Contact';
+                    }
+                });
+            });
+
+
+            $('.logout').click(function () {
+                $.cookie('SchoolID', null);
+                $.removeCookie('SchoolID');
+                sessionStorage.removeItem("studentPhoto");
+                $.ajax({
+                    success: function () {
+                        window.location.href = 'SchoolLogin';
+                    }
+                });
+            });
+
+
+        });
+    </script>
+
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container-fluid">
+            <div class="row" style="background-color: /*rgba(54,88,153,1)*/#3b5998; background-image: linear-gradient(#4e69a2, #3b5998 50%); border-bottom: 1px solid #133783; background-attachment: scroll;">
+                <div class="col-lg-12" style="padding: 20px;">
+                    <img src="alt" id="logoid" style="margin: 0 auto; display: block;" />
+                    <h1 style="text-align: center; color: white; font-family: Cinzel;" id="Schoolname"></h1>
+                </div>
+            </div>
+        
+        <div class="row" style="padding-top: 15px; margin-bottom: 15px;">
+            <div class="col-lg-offset-1 col-lg-10" id="header">
+                <button class="btn btn-primary" style="border-radius: 50%; float: right;"><span class="glyphicon glyphicon-off" style="color: white; font-size: 20px;"></span></button>
+                <span style="position: absolute; right: 20px; top: 61px; font-size: 10px;"><a class="logout"><b>LOGOUT</b></a></span>
+
+
+                <img id="studid" src="#" style="margin-left: 15px; border: 0.5px solid black;" />
+
+                <%--<asp:ContentPlaceHolder ID="welcomeLine" runat="server"><h2 style="padding: 0px; margin: 0px;">Welcome to Student page!</h2></asp:ContentPlaceHolder>
+                        <hr style="height: 1px; background-color: black; color: black; margin-top: 5px; margin-bottom: 5px;">--%>
+                <div id="userBasicDetails">
+
+                    <h2 style="padding: 0px; margin: 0px;">Welcome to Student page!</h2>
+
+                    <hr style="height: 1px; background-color: black; color: black; margin-top: 5px; margin-bottom: 5px;" />
+                    <div id="detailsWhiteBox">
+                        <div id="basicDataCol1" class="basicDataCols">
+                            <label class="dataLabels">FirstName:</label><asp:Label runat="server" ID="fName"></asp:Label><br />
+                            <label class="dataLabels">MiddleName:</label><asp:Label runat="server" ID="mName"></asp:Label><br />
+                            <label class="dataLabels">LastName:</label><asp:Label runat="server" ID="lName"></asp:Label>
+                        </div>
+                        <div id="basicDataCol2" class="basicDataCols">
+                            <label class="dataLabels">RollNo:</label><asp:Label runat="server" ID="rollNo"></asp:Label><br />
+                            <label class="dataLabels">Standard:</label><asp:Label runat="server" ID="standard"></asp:Label><br />
+                            <label class="dataLabels">DateOfBirth:</label><asp:Label runat="server" ID="dateOfBirth"></asp:Label>
+                        </div>
+                        <div id="basicDataCol3" class="basicDataCols" style="vertical-align: top;">
+                            <label class="dataLabels">BloodGroup:</label><asp:Label runat="server" ID="bloodGroup"></asp:Label><br />
+                            <label class="dataLabels">Gender:</label><asp:Label runat="server" ID="gender"></asp:Label>
+                        </div>
+                    </div>
+                </div>
+                <%--  <asp:ContentPlaceHolder ID="welcomeLine" runat="server"><h2 style="padding: 0px; margin: 0px;">Welcome to Student page!</h2></asp:ContentPlaceHolder>
+                        <hr style="height: 1px; background-color: black; color: black; margin-top: 5px; margin-bottom: 5px;">
+                       
+                        <div id="detailsWhiteBox">
+                            <asp:ContentPlaceHolder ID="basicData" runat="server">
+                                <label class="dataLabels">FirstName:</label><asp:Label runat="server" ID="fName"></asp:Label>
+                                <label class="dataLabels">LastName:</label><asp:Label runat="server" ID="lName"></asp:Label>
+                                <label class="dataLabels">RollNo:</label><asp:Label runat="server" ID="rollNo"></asp:Label><br />
+                                <label class="dataLabels">Standard:</label><asp:Label runat="server" ID="standard"></asp:Label>
+
+
+                            </asp:ContentPlaceHolder>
+                        </div>--%>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-lg-offset-1 col-lg-10" id="body" style="padding: 20px;">
+
+                <nav class="navbar navbar-default" id="navbar" style="display: none;">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" id="navbar-button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" style="background-color: transparent !important;">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+
+                        </div>
+                        <div class="collapse navbar-collapse" id="myNavbar">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a class="attendanceStatus">Attendance Status</a></li>
+                                <li><a class="assignmentDetails">Assignment Details</a></li>
+                                <li><a class="parentDetails">Parent Details</a></li>
+                                <li><a class="feesDetails">Fees Details</a></li>
+                                <li><a class="resultDetails">Result Details</a></li>
+                                <li><a class="schoolEvents">School Events</a></li>
+                                <li><a class="transportDetails">Transport Details</a></li>
+                                <li><a class="libraryBooks">Library Books</a></li>
+                                <li><a class="addressDetails">Address Details</a></li>
+                                <li><a class="contactDetails">Contact Details</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </nav>
+                <div id="buttonMenu">
+                    <div class="buttonContainer">
+                        <button class="btn btn-primary btn-block attendanceStatus">Attendance Status</button>
+                    </div>
+                    <div class="buttonContainer">
+                        <button class="btn btn-primary btn-block assignmentDetails">Assignment Details</button>
+                    </div>
+                    <div class="buttonContainer">
+                        <button class="btn btn-primary btn-block parentDetails">Parent Details</button>
+                    </div>
+                    <div class="buttonContainer">
+                        <button class="btn btn-primary btn-block feesDetails">Fees Details</button>
+                    </div>
+                    <div class="buttonContainer">
+                        <button class="btn btn-primary btn-block resultDetails">Result Details</button>
+                    </div>
+                    <div class="buttonContainer">
+                        <button class="btn btn-primary btn-block schoolEvents">School Events</button>
+                    </div>
+                    <div class="buttonContainer">
+                        <button class="btn btn-primary btn-block transportDetails">Transport Details</button>
+                    </div>
+                    <div class="buttonContainer">
+                        <button class="btn btn-primary btn-block libraryBooks">Library Books</button>
+                    </div>
+                    <div class="buttonContainer">
+                        <button class="btn btn-primary btn-block addressDetails">Address Details</button>
+                    </div>
+                    <div class="buttonContainer">
+                        <button class="btn btn-primary btn-block contactDetails">Contact Details</button>
+                    </div>
+                </div>
+
+                <asp:ContentPlaceHolder ID="studentPageBody" runat="server"></asp:ContentPlaceHolder>
+            </div>
+
+        </div>
+    </div>
+        <%-- <asp:ContentPlaceHolder ID="studentPageBody" runat="server">
+                <div class="row">
+                    <div class="col-lg-offset-1 col-lg-10" id="body">
+
+                        <div class="buttonContainer">
+                            <button class="btn btn-primary">Attendance Status</button>
+                        </div>
+                        <div class="buttonContainer">
+                            <button class="btn btn-primary">Parent Details</button>
+                        </div>
+                    </div>
+                    <div id="Div1" runat="server" style="display: none; height: 20px; border: 1px solid black"></div>
+                    <button id="second">second</button>
+                    <div id="Div2" runat="server" style="display: none; height: 20px; border: 1px solid black"></div>
+                </div>
+
+            </asp:ContentPlaceHolder>--%>
+    </form>
+</body>
+</html>

@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8169EA7F-0F4A-4E49-89D4-0A93C3F55CBB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SchoolContentManagement_Entity</RootNamespace>
+    <AssemblyName>SchoolContentManagement_Entity</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AcademicYearEntity.cs" />
+    <Compile Include="AccountHeadTypeEntity.cs" />
+    <Compile Include="AddressDetails.cs" />
+    <Compile Include="AssignmentDetailsParams.cs" />
+    <Compile Include="Assignments.cs" />
+    <Compile Include="Book.cs" />
+    <Compile Include="BorrowedBook.cs" />
+    <Compile Include="ClassPromotionEntity.cs" />
+    <Compile Include="ClassStudentNames.cs" />
+    <Compile Include="ContactDetails.cs" />
+    <Compile Include="EachDayAttendance.cs" />
+    <Compile Include="EmployeeRegistrationEntity.cs" />
+    <Compile Include="EventDetails.cs" />
+    <Compile Include="EventWithDate.cs" />
+    <Compile Include="FeeCollectionPeriodEntity.cs" />
+    <Compile Include="FeeDiscountEntity.cs" />
+    <Compile Include="FeeFineEntity.cs" />
+    <Compile Include="FeePaymentModeEntity.cs" />
+    <Compile Include="FeesDetails.cs" />
+    <Compile Include="FeesEntity.cs" />
+    <Compile Include="FeesTypeAndAmountEntity.cs" />
+    <Compile Include="FeeTypeEntity.cs" />
+    <Compile Include="IssueBook.cs" />
+    <Compile Include="LibraryBook.cs" />
+    <Compile Include="LibraryDetails.cs" />
+    <Compile Include="MonthlyAttendance.cs" />
+    <Compile Include="MonthsEachDayAttendance.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="OccupationEntity.cs" />
+    <Compile Include="ParentDetails.cs" />
+    <Compile Include="PeriodAttendance.cs" />
+    <Compile Include="PeriodsEachDayAttendance.cs" />
+    <Compile Include="ResultDetails.cs" />
+    <Compile Include="SchoolLoginInformation.cs" />
+    <Compile Include="SchoolLogoEntity.cs" />
+    <Compile Include="SchoolSectionValues.cs" />
+    <Compile Include="SearchStudentEntity.cs" />
+    <Compile Include="SectionDetailsEntity.cs" />
+    <Compile Include="SectionToUpdate.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SectionTransferEntity.cs" />
+    <Compile Include="SetAttendanceParams.cs" />
+    <Compile Include="StandardEntity.cs" />
+    <Compile Include="Student.cs" />
+    <Compile Include="StudentDetailsEntity.cs" />
+    <Compile Include="StudentRegistrationDetails.cs" />
+    <Compile Include="SubjectWithMarks.cs" />
+    <Compile Include="TillDateAttendance.cs" />
+    <Compile Include="TillDateEachDayAttendance.cs" />
+    <Compile Include="TransportDetails.cs" />
+    <Compile Include="UploadAssigment.cs" />
+    <Compile Include="userData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\SchoolContentManagement_Entity.dll" />
+    <Content Include="bin\Debug\SchoolContentManagement_Entity.pdb" />
+    <Content Include="bin\Release\SchoolContentManagement_Entity.dll" />
+    <Content Include="bin\Release\SchoolContentManagement_Entity.pdb" />
+    <Content Include="obj\Release\SchoolContentManagement_Entity.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Release\SchoolContentManagement_Entity.dll" />
+    <Content Include="obj\Release\SchoolContentManagement_Entity.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Release\TempPE\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
