@@ -1,0 +1,5 @@
+{
+  "mongoURI": "mongodb+srv://root123:root123@mumbaiaws-pfbuq.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtAdminPrivateKey": "adminprivatekey",
+  "jwtStudentPrivateKey": "studentprivatekey"
+}
