@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+
+<body style="background-color:rgb(223,224,228)">
+  <div class="fluid-container">
+    <div class="row" style="background-color:#3b5950;background-image: linear-gradient(#4e69a2, #3b5998 50%);">
+      <div class="col-sm-12" style="padding:20px;">
+        <img id="logo" src="images/jcLogo.png" style="margin: 0 auto;display:block;height:90px;" />
+        </br>
+        <h1 id="schoolName" style="text-align:center;color:white;font-family:Cinzel;">
+          BUXI JAGABANDHU ENGLISH MEDIUM SCHOOL
+        </h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-sm-8 offset-sm-2 col-lg-6 offset-lg-3" style="padding-top: 70px;">
+        <div class="container-fluid" id="detailsBox" style="padding:30px;">
+          <div class="row">
+            <div class="col-sm-12">
+              <form>
+                <div class="form-group" id="innerDetailsBox">
+                  <h2 style="text-align: center;">
+
+                    WELCOME
+                    <hr style="height: 1px; background-color: black; color: black;">
+                  </h2>
+                  <div class="form-group input-group">
+
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fa fa-user fa-fw"></i></span>
+                    </div>
+                    <!--<asp:TextBox ID="txtUserID" runat="server" CssClass="form-control" placeholder="Enter Username" Style="margin-bottom: 20px; padding-left: 25px;"></asp:TextBox> -->
+                    <input type="text" class="form-control" placeholder="Enter Username" />
+
+
+
+                  </div>
+                  <div class="form-group input-group">
+
+                    <!--  <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" CssClass="form-control" placeholder="Enter Password" Style="margin-bottom: 20px; padding-left: 25px;"></asp:TextBox> -->
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fa fa-key fa-fw"></i></span>
+                    </div>
+                    <input type="password" class="form-control" placeholder="Enter Password" />
+
+                  </div>
+                </div>
+            </div>
+            </form>
+          </div>
+          <div class="row" id="loginPeople">
+            <div class="col-sm-3">
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="optradio">
+                <label class="form-check-label">Student
+                </label>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="optradio">
+                <label class="form-check-label">Staff
+                </label>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="optradio">
+                <label class="form-check-label">
+                  Library
+                </label>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-check form-check-line">
+                <input type="radio" class="form-check-input" name="optradio">
+                <label class="form-check-label">
+                  Admin
+                </label>
+              </div>
+            </div>
+
+          </div>
+          <div class="row" style="margin-top:40px;">
+            <div class="col-12" style="text-align:center;">
+              <button type="button" id="btnLogin" class="btn btn-primary btn-lg" style="background-color: #3b5950;background-image: linear-gradient(#4e69a2, #3b5998 50%); border-style: none;"><b>LOGIN</b></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--    <div id="loginPeople">
+                            <label class="radio-inline">
+                                <input id="type" type="radio" name="optradio" value="student" /><b>STUDENT</b></label>
+                            <label class="radio-inline">
+                                <input id="Radio1" type="radio" name="optradio" value="parent" /><b>PARENT</b></label>
+                            <label class="radio-inline">
+                                <input id="Radio2" type="radio" name="optradio" value="staff" /><b>STAFF</b></label>
+                            <label class="radio-inline">
+                                <input id="Radio3" type="radio" name="optradio" value="librarian" /><b>LIBRARY</b>
+                            </label>
+                            <label class="radio-inline">
+                                <input id="Radio4" type="radio" name="optradio" value="admin" /><b>ADMIN</b>
+                            </label>
+                        </div>
+                       <%-- <div id="adminRadioDiv" style="">
+                            <label class="radio-inline">
+                                <input type="radio" id="adminRadio" value="admin" /><b>ADMIN</b>
+                            </label>
+                        </div>--%>
+                        <div>
+                            <label id="uncheckedError"></label>
+                        </div>
+                        <div style="width: 100px; margin: 0 auto;">
+                            <button type="button" id="btnLogin" class="btn btn-primary btn-lg" style="width: 100px; background-color: rgba(46,109,164,0.8); border-style: none; margin-bottom: 10PX;"><b>LOGIN</b></button>
+                        </div>
+                    </div>
+                </div>
+              </div> -->
+
+
+
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+</body>
+
+</html>
