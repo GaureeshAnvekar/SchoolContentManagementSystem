@@ -9,3 +9,35 @@
     border-radius: 10px;
     margin: 0 auto;
   }
+
+
+.steps {
+  box-sizing:border-box;
+  background-color: #e9ecef;
+  border-radius: 10px;
+  padding: 20px;
+  margin-left:20px;
+  margin-right:20px;
+  margin-bottom:20px;
+
+
+}
+
+.button--primary {
+    background-color: #ce973e;
+}
+
+.button {
+    border-radius: 0.2em;
+    box-shadow: 0 0.05em 0.25em 0 rgba(0,0,0,0.5);
+    color: #fff;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: bold;
+    letter-spacing: 0.2px;
+    padding: 1rem 3.5rem;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+}

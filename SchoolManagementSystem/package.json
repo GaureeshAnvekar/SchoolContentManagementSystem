@@ -4,18 +4,23 @@
   "description": "Managment System for multiple schools",
   "main": "server.js",
   "scripts": {
-    "server": "nodemon server"
+    "start": "node server",
+    "server": "nodemon server",
+    "client": "npm run --prefix client start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Gaurish Anvekar",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "bootstrap": "^4.4.1",
     "config": "^3.2.5",
     "express": "^4.17.1",
     "express-validator": "^6.3.1",
     "gravatar": "^1.8.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.8.7",
+    "react-bootstrap": "^1.0.0-beta.16",
     "request": "^2.88.0"
   },
   "devDependencies": {
