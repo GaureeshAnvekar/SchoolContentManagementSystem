@@ -30,7 +30,7 @@ const Home = () => {
         </div>
       </div>
       <div className='row' style={{ marginTop: "20px", marginBottom: "100px" }}>
-        <div class='col-sm-0 col-md-4'></div>
+        <div className='col-sm-0 col-md-4'></div>
         <div className='col-sm-12 col-md-4'>
           <p
             style={{
