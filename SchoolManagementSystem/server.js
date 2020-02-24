@@ -1,5 +1,6 @@
 const express = require("express");
 const connectDB = require("./config/db");
+const cors = require("cors");
 
 //Connect DB
 connectDB();
@@ -12,6 +13,7 @@ app.use(express.json({ extended: false })); //This is a middleware which took th
 //can directly be used inside console.log()
 const PORT = process.env.PORT || 5000;
 
+app.use(cors());
 // School registration router
 const schoolRegRoute = require("./routes/api/schools/registration");
 app.use("/api/schools/registration", schoolRegRoute);

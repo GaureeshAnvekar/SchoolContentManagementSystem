@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { setAlert, removeAlert } from "../../../actions/alert";
+import { setAlert, removeAlert } from "../../../actions/alert"; // alert actions
+import { register } from "../../../actions/auth"; // register action
 import { SET_ALERT, REMOVE_ALERT } from "../../../actions/types";
 import PropTypes from "prop-types";
 import Alert from "./Alert";
 
 const CreateAccount = props => {
   const [formData, setFormData] = useState({
-    name: "",
+    schoolName: "",
     adminName: "",
     adminPassword1: "",
     adminPassword2: "",
@@ -18,7 +19,7 @@ const CreateAccount = props => {
   });
 
   const {
-    name,
+    schoolName,
     adminName,
     adminPassword1,
     adminPassword2,
@@ -35,14 +36,16 @@ const CreateAccount = props => {
 
   const onSubmit = e => {
     e.preventDefault();
-    if (adminPassword1 != adminPassword2) {
-      if (props.alerts.length == 0) {
-        // dispatch action only during first time
-        props.setAlert("Passwords do not match", "danger");
-      }
-    } else {
-      props.removeAlert();
-    }
+
+    props.register({
+      schoolName,
+      adminName,
+      adminPassword1,
+      adminPassword2,
+      address,
+      contact,
+      template: 1
+    });
   };
 
   return (
@@ -64,8 +67,8 @@ const CreateAccount = props => {
                   type='text'
                   className='input form-control'
                   placeholder='Enter School Name'
-                  name='name'
-                  value={name}
+                  name='schoolName'
+                  value={schoolName}
                   onChange={e => onChange(e)}
                   required
                 />
@@ -179,12 +182,14 @@ const CreateAccount = props => {
 
 CreateAccount.propTypes = {
   setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
+  removeAlert: PropTypes.func.isRequired,
   mapStateToProps: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
   alerts: state.alert
 });
-export default connect(mapStateToProps, { setAlert, removeAlert })(
+export default connect(mapStateToProps, { setAlert, removeAlert, register })(
   CreateAccount
 );

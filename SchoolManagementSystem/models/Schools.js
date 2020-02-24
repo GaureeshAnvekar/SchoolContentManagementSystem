@@ -5,10 +5,6 @@ const SchoolsSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  password: {
-    type: String,
-    required: true
-  },
   adminname: {
     type: String,
     required: true
@@ -28,6 +24,9 @@ const SchoolsSchema = new mongoose.Schema({
   logo: {
     data: Buffer,
     contentType: String
+  },
+  template: {
+    type: Number
   },
   date: {
     type: Date,

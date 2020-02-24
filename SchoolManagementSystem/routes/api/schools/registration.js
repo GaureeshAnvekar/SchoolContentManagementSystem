@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const config = require("config");
 const router = express.Router();
 const { check, validationResult } = require("express-validator/check");
+const { body } = require("express-validator");
 
 const Schools = require("../../../models/Schools");
 
@@ -13,18 +14,14 @@ const Schools = require("../../../models/Schools");
 router.post(
   "/",
   [
-    check("name", "School name is required")
+    check("schoolName", "School name is required")
       .not()
       .isEmpty(),
-    check(
-      "password",
-      "Please enter a school password with 6 or more characters"
-    ).isLength({ min: 6 }),
     check("adminName", "Admin name is required")
       .not()
       .isEmpty(),
     check(
-      "adminPassword",
+      "adminPassword1",
       "Please enter an admin password with 6 or more characters"
     ).isLength({ min: 6 }),
     check("address", "Please enter the school address")
@@ -32,26 +29,38 @@ router.post(
       .isEmpty(),
     check("contact", "Please enter school's contact number")
       .not()
-      .isEmpty()
+      .isEmpty(),
+    check("template", "Please select a template")
+      .not()
+      .isEmpty(),
+
+    body("adminPassword2").custom((value, { req }) => {
+      if (value != req.body.adminPassword1) {
+        throw new Error("Passwords do not match");
+      }
+      return true;
+    })
   ],
   async (req, res) => {
+    console.log(req.body.adminName);
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({ errors: errors.array() });
     }
 
     try {
       // See if school exists
       const {
-        name,
-        password,
+        schoolName,
         adminName,
-        adminPassword,
+        adminPassword1,
+        adminPassword2,
         address,
-        contact
+        contact,
+        template
       } = req.body;
-
-      let school = await Schools.findOne({ name });
+      console.log("this " + adminPassword1);
+      let school = await Schools.findOne({ schoolName });
       // console.log("admin name " + adminPassword);
       if (school) {
         return res
@@ -60,17 +69,16 @@ router.post(
       }
 
       school = new Schools({
-        name: name,
-        password: password,
+        name: schoolName,
+        adminpassword: adminPassword1,
         adminname: adminName,
-        adminpassword: adminPassword,
         address: address,
-        contact: contact
+        contact: contact,
+        tempalte: template
       });
 
       // Encrypt password using bcrypt
       const salt = await bcrypt.genSalt(10);
-      school.password = await bcrypt.hash(password, salt);
       school.adminpassword = await bcrypt.hash(adminPassword, salt);
 
       await school.save();
@@ -90,7 +98,7 @@ router.post(
         }
       );
     } catch (err) {
-      console.error(err.message);
+      console.error("Error here " + err.message);
       res.status(500).send("Server error");
     }
   }
