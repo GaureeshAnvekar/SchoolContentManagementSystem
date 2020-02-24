@@ -79,7 +79,7 @@ router.post(
 
       // Encrypt password using bcrypt
       const salt = await bcrypt.genSalt(10);
-      school.adminpassword = await bcrypt.hash(adminPassword, salt);
+      school.adminpassword = await bcrypt.hash(adminPassword1, salt);
 
       await school.save();
 
