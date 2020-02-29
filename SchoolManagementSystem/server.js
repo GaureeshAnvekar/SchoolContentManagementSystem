@@ -22,6 +22,9 @@ app.use("/api/schools/registration", schoolRegRoute);
 const schoolAuthRoute = require("./routes/api/schools/authentication");
 app.use("/api/schools/authentication", schoolAuthRoute);
 
+const schoolInfoRoute = require("./routes/api/schools/schoolInfo");
+app.use("/api/schools/schoolInfo", schoolInfoRoute);
+
 // Student registration router
 const studentRegRoute = require("./routes/api/students/registration");
 app.use("/api/students/registration", studentRegRoute);
