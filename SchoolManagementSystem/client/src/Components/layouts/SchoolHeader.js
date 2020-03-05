@@ -1,13 +1,18 @@
 import React from "react";
 import logo from "../../images/jcLogo.png";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
-const SchoolHeader = () => {
+const SchoolHeader = props => {
   return (
     <div
       className='row'
+      id='schoolHeader'
       style={{
-        backgroundColor: "#3b5950",
-        backgroundImage: "linear-gradient(#4e69a2, #3b5998 50%)"
+        backgroundColor: props.template.backgroundColor,
+        backgroundImage: props.template.backgroundImage,
+        width: "100%",
+        margin: "0px"
       }}
     >
       <div className='col-sm-12' style={{ padding: "20px" }}>
@@ -28,4 +33,12 @@ const SchoolHeader = () => {
   );
 };
 
-export default SchoolHeader;
+SchoolHeader.propTypes = {
+  template: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  template: state.setTemplate
+});
+
+export default connect(mapStateToProps, null)(SchoolHeader);

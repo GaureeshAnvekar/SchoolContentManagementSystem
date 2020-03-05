@@ -1,6 +1,14 @@
 @font-face {
   font-family: Cinzel;
-  src: url("/fonts/cinzel.regular.otf");
+  src: url("./fonts/Cinzel-Regular.otf");
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
 }
 
 :root {

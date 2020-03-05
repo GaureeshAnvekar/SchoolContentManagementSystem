@@ -1,11 +1,20 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
-const LoginSection = () => {
+const LoginSection = props => {
   return (
-    <div className='row'>
+    <div
+      className='row'
+      style={{
+        backgroundColor: "rgb(223, 224, 228)",
+        width: "100%",
+        margin: "0px"
+      }}
+    >
       <div
         className='col-12 col-sm-8 offset-sm-2 col-lg-6 offset-lg-3'
-        style={{ paddingTop: "70px" }}
+        style={{ paddingTop: "100px" }}
       >
         <div
           className='container-fluid'
@@ -26,16 +35,16 @@ const LoginSection = () => {
                       }}
                     />
                   </h2>
-                  <div class='form-group input-group'>
-                    <div class='input-group-prepend'>
-                      <span class='input-group-text'>
-                        <i class='fa fa-user fa-fw'></i>
+                  <div className='form-group input-group'>
+                    <div className='input-group-prepend'>
+                      <span className='input-group-text'>
+                        <i className='fa fa-user fa-fw'></i>
                       </span>
                     </div>
 
                     <input
                       type='text'
-                      class='form-control'
+                      className='form-control'
                       placeholder='Enter Username'
                     />
                   </div>
@@ -112,10 +121,10 @@ const LoginSection = () => {
               <button
                 type='button'
                 id='btnLogin'
-                className='btn btn-primary btn-lg'
+                className='btn btn-dark btn-lg'
                 style={{
-                  backgroundColor: "#3b5950",
-                  backgroundImage: "linear-gradient(#4e69a2, #3b5998 50%)",
+                  backgroundColor: props.template.backgroundColor,
+                  backgroundImage: props.template.backgroundImage,
                   borderStyle: "none"
                 }}
               >
@@ -129,4 +138,12 @@ const LoginSection = () => {
   );
 };
 
-export default LoginSection;
+LoginSection.propTypes = {
+  template: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  template: state.setTemplate
+});
+
+export default connect(mapStateToProps, null)(LoginSection);
