@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import alert from "./alert";
-import register from "./auth";
+import register from "./register";
 import setSchoolInfo from "./setSchoolInfo";
 import setTemplate from "./setTemplate";
 

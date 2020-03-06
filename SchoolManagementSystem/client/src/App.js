@@ -95,7 +95,7 @@ function extractSubDomain(hostName) {
 const App = props => {
   console.log(props.schoolInfo.id);
   if (props.schoolInfo.id == null) {
-    let url = "www.pauls.easyschool.com";
+    let url = window.location.href;
     let hostName = extractHostname(url);
     let subDomain = extractSubDomain(hostName); // This will be subdomain for a school.
     // For now avoid PSL, as it is used to validate if a domain exists and returns it if it exists or returns null

@@ -1,23 +1,25 @@
 import { REGISTER_SUCCESS, REGISTER_FAIL } from "../actions/types";
 
 const initialState = {
-  token: localStorage.getItem("token"),
   isAuthenticated: null,
   loading: true,
-  school: null
+  subdomain: null
 };
 
 export default function(state = initialState, action) {
   const { type, payload } = action;
-
+  console.log("inside auth reducer " + payload);
   switch (type) {
     case REGISTER_SUCCESS:
-      localStorage.setItem("token", payload.token);
+      window.open(
+        "http://www." + payload.school.subdomain + ".easyschool.com:3000/school"
+      );
       return {
         ...state,
         ...payload,
         isAuthenticated: true,
-        loading: false
+        loading: false,
+        subdomain: payload.school.subdomain
       };
 
     case REGISTER_FAIL:
@@ -26,7 +28,8 @@ export default function(state = initialState, action) {
         ...state,
         token: null,
         isAuthenticated: false,
-        loading: false
+        loading: false,
+        subdomain: null
       };
     default:
       return state;

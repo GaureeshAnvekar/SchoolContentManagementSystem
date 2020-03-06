@@ -6,6 +6,7 @@ import { setAlert, removeAlert } from "./alert";
 // Register school
 export const register = ({
   schoolName,
+  subdomain,
   adminName,
   adminPassword1,
   adminPassword2,
@@ -20,6 +21,7 @@ export const register = ({
   };
   const body = JSON.stringify({
     schoolName,
+    subdomain,
     adminName,
     adminPassword1,
     adminPassword2,

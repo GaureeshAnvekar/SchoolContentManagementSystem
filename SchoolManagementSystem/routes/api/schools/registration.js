@@ -17,6 +17,9 @@ router.post(
     check("schoolName", "School name is required")
       .not()
       .isEmpty(),
+    check("subdomain", "Short school name is required")
+      .not()
+      .isEmpty(),
     check("adminName", "Admin name is required")
       .not()
       .isEmpty(),
@@ -29,7 +32,8 @@ router.post(
       .isEmpty(),
     check("contact", "Please enter school's contact number")
       .not()
-      .isEmpty(),
+      .isEmpty()
+      .isNumeric(),
     check("template", "Please select a template")
       .not()
       .isEmpty(),
@@ -52,6 +56,7 @@ router.post(
       // See if school exists
       const {
         schoolName,
+        subdomain,
         adminName,
         adminPassword1,
         adminPassword2,
@@ -68,13 +73,21 @@ router.post(
           .json({ errors: [{ msg: "School already exists" }] });
       }
 
+      school = await Schools.findOne({ subdomain });
+      if (school) {
+        return res
+          .status(400)
+          .json({ errors: [{ msg: "Short name already exists" }] });
+      }
+
       school = new Schools({
         name: schoolName,
+        subdomain: subdomain,
         adminpassword: adminPassword1,
         adminname: adminName,
         address: address,
         contact: contact,
-        tempalte: template
+        template: template
       });
 
       // Encrypt password using bcrypt
@@ -83,20 +96,12 @@ router.post(
 
       await school.save();
 
-      // Return jsonwebtoken
+      // Just return the subdomain, so the new school page will be opened in new tab
       const payload = {
-        school: { id: school.id, adminName: school.adminname }
+        school: { subdomain: subdomain }
       };
 
-      jwt.sign(
-        payload,
-        config.get("jwtAdminPrivateKey"),
-        { expiresIn: 360000 },
-        (err, token) => {
-          if (err) throw err;
-          res.json({ token });
-        }
-      );
+      return res.json(payload);
     } catch (err) {
       console.error("Error here " + err.message);
       res.status(500).send("Server error");

@@ -18,7 +18,7 @@ module.exports = function(req, res, next) {
     decoded = null;
 
     if (req.body.jwtType == "school") {
-      decoced = jwt.verify(token, config.get("jwtAdminPrivateKey"));
+      decoded = jwt.verify(token, config.get("jwtAdminPrivateKey"));
     } else {
       decoded = jwt.verify(token, config.get("jwtStudentPrivateKey"));
     }

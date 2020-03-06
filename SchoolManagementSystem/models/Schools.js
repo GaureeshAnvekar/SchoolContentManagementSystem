@@ -5,6 +5,10 @@ const SchoolsSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  subdomain: {
+    type: String,
+    required: true
+  },
   adminname: {
     type: String,
     required: true

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { setAlert, removeAlert } from "../../../actions/alert"; // alert actions
-import { register } from "../../../actions/auth"; // register action
+import { register } from "../../../actions/registration"; // register action
 import { SET_ALERT, REMOVE_ALERT } from "../../../actions/types";
 import PropTypes from "prop-types";
 import Alert from "./Alert";
@@ -10,6 +10,7 @@ import Alert from "./Alert";
 const CreateAccount = props => {
   const [formData, setFormData] = useState({
     schoolName: "",
+    subdomain: "",
     adminName: "",
     adminPassword1: "",
     adminPassword2: "",
@@ -20,6 +21,7 @@ const CreateAccount = props => {
 
   const {
     schoolName,
+    subdomain,
     adminName,
     adminPassword1,
     adminPassword2,
@@ -37,8 +39,10 @@ const CreateAccount = props => {
   const onSubmit = e => {
     e.preventDefault();
 
+    // Dispatch register action
     props.register({
       schoolName,
+      subdomain,
       adminName,
       adminPassword1,
       adminPassword2,
@@ -69,6 +73,23 @@ const CreateAccount = props => {
                   placeholder='Enter School Name'
                   name='schoolName'
                   value={schoolName}
+                  onChange={e => onChange(e)}
+                  required
+                />
+              </div>
+              <div className='form-group input-group'>
+                <div className='input-group-prepend'>
+                  <span className='input-group-text'>
+                    <i className='fa fa-link fa-fw'></i>
+                  </span>
+                </div>
+
+                <input
+                  type='text'
+                  className='input form-control'
+                  placeholder='Enter short school name for url'
+                  name='subdomain'
+                  value={subdomain}
                   onChange={e => onChange(e)}
                   required
                 />
