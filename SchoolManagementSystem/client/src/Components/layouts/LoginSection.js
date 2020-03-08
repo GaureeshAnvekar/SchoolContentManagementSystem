@@ -1,8 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import Alert from "./Landing/Alert";
+import { auth } from "../../actions/auth";
 
 const LoginSection = props => {
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+    loginType: ""
+  });
+
+  const { username, password, loginType } = formData;
+
+  const onChange = e => {
+    console.log(e.target.name);
+    console.log(e.target.value);
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const onSubmit = e => {
+    e.preventDefault();
+
+    // Dispatch auth action
+    props.auth({
+      schoolId: props.schoolInfo.id,
+      username,
+      password,
+      loginType
+    });
+  };
   return (
     <div
       className='row'
@@ -21,9 +48,9 @@ const LoginSection = props => {
           id='detailsBox'
           style={{ padding: "30px" }}
         >
-          <div className='row'>
-            <div className='col-sm-12'>
-              <form>
+          <form id='authDetails' onSubmit={e => onSubmit(e)}>
+            <div className='row'>
+              <div className='col-sm-12'>
                 <div className='form-group' id='innerDetailsBox'>
                   <h2 style={{ textAlign: "center" }}>
                     WELCOME
@@ -46,6 +73,10 @@ const LoginSection = props => {
                       type='text'
                       className='form-control'
                       placeholder='Enter Username'
+                      name='username'
+                      value={username}
+                      onChange={e => onChange(e)}
+                      required
                     />
                   </div>
                   <div className='form-group input-group'>
@@ -58,70 +89,85 @@ const LoginSection = props => {
                       type='password'
                       className='form-control'
                       placeholder='Enter Password'
+                      name='password'
+                      value={password}
+                      onChange={e => onChange(e)}
+                      required
                     />
                   </div>
                 </div>
-              </form>
-            </div>
-          </div>
-          <div className='row' id='loginPeople'>
-            <div className='col-sm-3'>
-              <div className='form-check form-check-inline'>
-                <input
-                  type='radio'
-                  className='form-check-input'
-                  name='optradio'
-                />
-                <label
-                  className='form-check-label'
-                  style={{ marginTop: "1px" }}
-                >
-                  Student
-                </label>
               </div>
             </div>
-            <div className='col-sm-3'>
-              <div className='form-check form-check-inline'>
-                <input
-                  type='radio'
-                  className='form-check-input'
-                  name='optradio'
-                />
-                <label
-                  className='form-check-label'
-                  style={{ marginTop: "1px" }}
-                >
-                  Staff
-                </label>
+            <div className='row' id='loginPeople'>
+              <div className='col-sm-3'>
+                <div className='form-check form-check-inline'>
+                  <input
+                    type='radio'
+                    className='form-check-input'
+                    name='loginType'
+                    value='student'
+                    onChange={e => onChange(e)}
+                    required
+                  />
+                  <label
+                    className='form-check-label'
+                    style={{ marginTop: "1px" }}
+                  >
+                    Student
+                  </label>
+                </div>
+              </div>
+              <div className='col-sm-3'>
+                <div className='form-check form-check-inline'>
+                  <input
+                    type='radio'
+                    className='form-check-input'
+                    name='loginType'
+                    value='staff'
+                    onChange={e => onChange(e)}
+                  />
+                  <label
+                    className='form-check-label'
+                    style={{ marginTop: "1px" }}
+                  >
+                    Staff
+                  </label>
+                </div>
+              </div>
+              <div className='col-sm-3'>
+                <div className='form-check form-check-inline'>
+                  <input
+                    type='radio'
+                    className='form-check-input'
+                    name='loginType'
+                    value='library'
+                    onChange={e => onChange(e)}
+                  />
+                  <label className='form-check-label'>Library</label>
+                </div>
+              </div>
+              <div className='col-sm-3'>
+                <div className='form-check form-check-line'>
+                  <input
+                    type='radio'
+                    className='form-check-input'
+                    name='loginType'
+                    value='admin'
+                    onChange={e => onChange(e)}
+                  />
+                  <label className='form-check-label'>Admin</label>
+                </div>
               </div>
             </div>
-            <div className='col-sm-3'>
-              <div className='form-check form-check-inline'>
-                <input
-                  type='radio'
-                  className='form-check-input'
-                  name='optradio'
-                />
-                <label className='form-check-label'>Library</label>
-              </div>
-            </div>
-            <div className='col-sm-3'>
-              <div className='form-check form-check-line'>
-                <input
-                  type='radio'
-                  className='form-check-input'
-                  name='optradio'
-                />
-                <label className='form-check-label'>Admin</label>
-              </div>
-            </div>
-          </div>
+          </form>
           <div className='row' style={{ marginTop: "40px" }}>
             <div className='col-12' style={{ textAlign: "center" }}>
+              <Alert />
               <button
-                type='button'
+                type='submit'
                 id='btnLogin'
                 className='btn btn-dark btn-lg'
+                form='authDetails'
                 style={{
                   backgroundColor: props.template.backgroundColor,
                   backgroundImage: props.template.backgroundImage,
@@ -139,11 +185,14 @@ const LoginSection = props => {
 };
 
 LoginSection.propTypes = {
-  template: PropTypes.object.isRequired
+  template: PropTypes.object.isRequired,
+  schoolInfo: PropTypes.object.isRequired,
+  auth: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-  template: state.setTemplate
+  template: state.setTemplate,
+  schoolInfo: state.setSchoolInfo
 });
 
-export default connect(mapStateToProps, null)(LoginSection);
+export default connect(mapStateToProps, { auth })(LoginSection);

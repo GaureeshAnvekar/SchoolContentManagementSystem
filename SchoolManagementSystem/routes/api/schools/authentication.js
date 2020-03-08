@@ -7,6 +7,7 @@ const { check, validationResult } = require("express-validator/check");
 const jwt = require("jsonwebtoken");
 const config = require("config");
 const bcrypt = require("bcryptjs");
+const ObjectID = require("mongodb").ObjectID;
 
 // @route     GET api/schools/authentication (Temporary)
 // @desc      To verify jwt. No data coming from request body
@@ -15,7 +16,10 @@ const bcrypt = require("bcryptjs");
 router.get("/", authVerify, async (req, res) => {
   try {
     const school = await Schools.findById(req.schoolId).select("-password");
-    res.json("School authentication verified by admin");
+    const payload = {
+      school: school
+    };
+    res.json(payload);
   } catch (err) {
     console.log(err.message);
     res.status(500).send("Server error");
@@ -29,10 +33,15 @@ router.get("/", authVerify, async (req, res) => {
 router.post(
   "/",
   [
-    check("adminName", "Admin name is required")
+    check("username", "User name is required")
       .not()
       .isEmpty(),
-    check("adminPassword", "Admin password is required").exists()
+    check("password", "Password is required")
+      .not()
+      .isEmpty(),
+    check("loginType", "Login type is required")
+      .not()
+      .isEmpty()
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -42,42 +51,60 @@ router.post(
 
     try {
       // See if school exists
-      const { adminName, adminPassword } = req.body;
-      let school = await Schools.findOne({
-        name: "St. Xavier's High School",
-        adminname: adminName
-      });
-
-      if (!school) {
-        return res
-          .status(400)
-          .json({ errors: [{ msg: "Invalid credentials" }] });
-      }
-      //console.log(school.adminpassword);
-      //console.log(adminPassword);
-      // Once school exists is cleared, then check password
-      const isMatch = await bcrypt.compare(adminPassword, school.adminpassword);
-
-      if (!isMatch) {
-        return res
-          .status(400)
-          .json({ errors: [{ msg: "Invalid credentials" }] });
-      }
-
-      // Details to create jwt
-      const payload = {
-        school: { id: school.id, adminName: school.adminname }
-      };
-
-      jwt.sign(
-        payload,
-        config.get("jwtAdminPrivateKey"),
-        { expiresIn: 360000 },
-        (err, token) => {
-          if (err) throw err;
-          res.json({ token });
-        }
+      const { username, password, loginType, schoolId } = req.body;
+      console.log(
+        "username is " +
+          username +
+          " password is " +
+          password +
+          " login type is " +
+          loginType +
+          " school id is " +
+          schoolId
       );
+
+      if (loginType == "admin") {
+        let school = await Schools.findOne({
+          _id: new ObjectID(schoolId),
+          adminname: username
+        });
+
+        if (!school) {
+          console.log("school not found");
+          return res
+            .status(400)
+            .json({ errors: [{ msg: "Invalid credentials" }] });
+        }
+
+        // Once school exists is cleared, then check password
+        const isMatch = await bcrypt.compare(password, school.adminpassword);
+
+        if (!isMatch) {
+          console.log(" password wrong");
+          return res
+            .status(400)
+            .json({ errors: [{ msg: "Invalid credentials" }] });
+        }
+
+        // Details to create jwt
+        const payload = {
+          school: {
+            username: school.adminname,
+            loginType: loginType
+          }
+        };
+
+        jwt.sign(
+          payload,
+          config.get("jwtAdminPrivateKey"),
+          { expiresIn: 360000 },
+          (err, token) => {
+            if (err) throw err;
+            payload.school["token"] = token;
+            res.json(payload);
+          }
+        );
+      } // else do it for students, employee, library.
     } catch (err) {
       console.error(err.message);
       res.status(500).send("Server error");

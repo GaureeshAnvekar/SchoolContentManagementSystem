@@ -93,7 +93,7 @@ function extractSubDomain(hostName) {
 }
 
 const App = props => {
-  console.log(props.schoolInfo.id);
+  console.log("First request " + props.schoolInfo.id);
   if (props.schoolInfo.id == null) {
     let url = window.location.href;
     let hostName = extractHostname(url);
@@ -101,7 +101,13 @@ const App = props => {
     // For now avoid PSL, as it is used to validate if a domain exists and returns it if it exists or returns null
 
     // Call school info api, which will store the school id and template num used.
+    console.log("The marys subdomain is " + subDomain);
     schoolInfoApi(subDomain, props);
+  } else {
+    // Dispatch setTemplate as we already have template num stored
+    console.log("School info present");
+    console.log("Now template is " + props.schoolInfo.template);
+    props.setTemplate({ template: props.schoolInfo.template });
   }
 
   return (
