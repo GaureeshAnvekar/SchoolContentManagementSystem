@@ -15,14 +15,10 @@ const ObjectID = require("mongodb").ObjectID;
 // 2 callbacks used
 router.get("/", authVerify, async (req, res) => {
   try {
-    const school = await Schools.findById(req.schoolId).select("-password");
-    const payload = {
-      school: school
-    };
-    res.json(payload);
+    return res.json(res.locals.payload);
   } catch (err) {
-    console.log(err.message);
-    res.status(500).send("Server error");
+    console.log("Auth verfiy error " + err.message);
+    return res.status(500).send("Server error");
   }
 });
 
@@ -89,6 +85,7 @@ router.post(
         // Details to create jwt
         const payload = {
           school: {
+            id: schoolId,
             username: school.adminname,
             loginType: loginType
           }

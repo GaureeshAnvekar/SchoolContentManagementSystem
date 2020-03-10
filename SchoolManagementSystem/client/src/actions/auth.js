@@ -12,27 +12,25 @@ export const auth = ({
   loginType
 }) => async dispatch => {
   // Just send back the jwt for verification. This will be in header.
-  if (localStorage.token) {
+  if (localStorage.getItem("token")) {
     setAuthToken(localStorage.token);
 
     try {
       const res = await axios.get("/api/schools/authentication");
-
+      console.log("before dispatch");
       dispatch({
         type: AUTH_SUCCESS,
-        paylod: res.data
+        payload: res.data
       });
     } catch (err) {
+      console.log(JSON.stringify(err));
       const errors = err.response.data.errors; // This are the validation (check) errors performed at express backend
       // Before dispatching setAlert, dispatch removeAlert to remove already displayed errors
       dispatch(removeAlert());
-      if (errors) {
-        // dispatch an alert action for each msg
-        errors.forEach(error => dispatch(setAlert(error.msg, "danger")));
-        dispatch({
-          type: AUTH_FAIL
-        });
-      }
+
+      dispatch({
+        type: AUTH_FAIL
+      });
     }
   } else {
     // If no JWT present, then manually entered username and password must be sent to server

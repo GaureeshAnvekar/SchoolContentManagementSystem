@@ -3,6 +3,7 @@ import SchoolHeader from "./Components/layouts/SchoolHeader";
 import LoginSection from "./Components/layouts/LoginSection";
 import Home from "./Components/layouts/Landing/Home";
 import CreateAccount from "./Components/layouts/Landing/CreateAccount";
+import DashBoard from "./Components/layouts/SchoolMainPage/DashBoard";
 import MainPage from "./Components/layouts/SchoolMainPage/MainPage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import psl from "psl";
@@ -15,6 +16,7 @@ import store from "./store";
 import { connect } from "react-redux";
 import { setSchoolInfo } from "./actions/setSchoolInfo";
 import { setTemplate } from "./actions/setTemplate";
+import { auth } from "./actions/auth";
 
 import "./App.css";
 
@@ -93,40 +95,53 @@ function extractSubDomain(hostName) {
 }
 
 const App = props => {
-  console.log("First request " + props.schoolInfo.id);
-  if (props.schoolInfo.id == null) {
-    let url = window.location.href;
-    let hostName = extractHostname(url);
-    let subDomain = extractSubDomain(hostName); // This will be subdomain for a school.
-    // For now avoid PSL, as it is used to validate if a domain exists and returns it if it exists or returns null
+  // Check if localStorage has a jwt token. If yes, directly take to that page
+  /* if (localStorage.getItem("token")) {
+    // Decode the token and redirect.
+  } else */
+  var url = window.location.href;
+  if (url.split(".").length >= 3) {
+    // This is to check if incoming request is from landing page OR School home page
+    if (props.schoolInfo.id == null) {
+      // Open the home page
+      console.log(url);
+      let hostName = extractHostname(url);
+      let subDomain = extractSubDomain(hostName); // This will be subdomain for a school.
+      // For now avoid PSL, as it is used to validate if a domain exists and returns it if it exists or returns null
 
-    // Call school info api, which will store the school id and template num used.
-    console.log("The marys subdomain is " + subDomain);
-    schoolInfoApi(subDomain, props);
-  } else {
-    // Dispatch setTemplate as we already have template num stored
-    console.log("School info present");
-    console.log("Now template is " + props.schoolInfo.template);
-    props.setTemplate({ template: props.schoolInfo.template });
-  }
-
+      // Call school info api, which will store the school id and template num used.
+      console.log("The marys subdomain is " + subDomain);
+      schoolInfoApi(subDomain, props);
+    }
+    // Now check if localstorage has jwt token. If yes, verify it, if successful, then set isAuthenticated to true and redirect to inner page
+    if (localStorage.getItem("token")) {
+      console.log("token is there");
+      props.auth({});
+    }
+  } // else the incoming request is from landing page i.e. easyschool.com
   return (
     <Router>
       <Switch>
         <Route path='/CreateAccount' exact component={CreateAccount}></Route>
         <Route path='/' exact component={Home}></Route>
         <Route path='/School' exact component={MainPage}></Route>
+        <Route path='/DashBoard' exact component={DashBoard}></Route>
       </Switch>
     </Router>
   );
 };
 
 App.propTypes = {
-  schoolInfo: PropTypes.object.isRequired
+  schoolInfo: PropTypes.object.isRequired,
+  setSchoolInfo: PropTypes.func.isRequired,
+  setTemplate: PropTypes.func.isRequired,
+  auth: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
   schoolInfo: state.setSchoolInfo
 });
 
-export default connect(mapStateToProps, { setSchoolInfo, setTemplate })(App);
+export default connect(mapStateToProps, { setSchoolInfo, setTemplate, auth })(
+  App
+);

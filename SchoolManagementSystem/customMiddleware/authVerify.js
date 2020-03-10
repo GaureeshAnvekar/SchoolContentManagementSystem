@@ -10,22 +10,31 @@ module.exports = function(req, res, next) {
 
   // Check if no token
   if (!token) {
-    return res.status(401).json({ msg: "No token, authentication failed" });
+    return res.status(401).json({ errors: [{ msg: "No token sent" }] });
   }
 
   // Verify token
   try {
     decoded = null;
 
-    if (req.body.jwtType == "school") {
-      decoded = jwt.verify(token, config.get("jwtAdminPrivateKey"));
-    } else {
-      decoded = jwt.verify(token, config.get("jwtStudentPrivateKey"));
-    }
+    decoded = jwt.verify(token, config.get("jwtAdminPrivateKey"));
 
+    const payload = {
+      school: {
+        id: decoded.school.id,
+        username: decoded.school.username,
+        loginType: decoded.school.loginType,
+        token: token
+      }
+    };
+
+    console.log("token verified");
+    console.log(decoded);
+
+    res.locals.payload = payload;
     next();
   } catch (err) {
     console.log(err.message);
-    res.status(401).json({ msg: "Token is not valid" });
+    res.status(401).json({ errors: [{ msg: "Invalid token" }] });
   }
 };
