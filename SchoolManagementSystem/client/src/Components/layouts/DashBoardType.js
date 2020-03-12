@@ -1,16 +1,29 @@
 import React from "react";
 import dummyPic from "../../images/dummyPic.png";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
-const DashBoardType = () => {
+const DashBoardType = props => {
   return (
     <div
       className='row'
-      style={{ paddingTop: "15px", marginBottom: "15px", width: "100%" }}
+      style={{
+        paddingTop: "15px",
+        marginBottom: "15px",
+        width: "100%",
+        marginLeft: "0px",
+        marginRight: "0px"
+      }}
     >
       <div className='col-lg-10 offset-lg-1' id='header'>
         <button
           className='btn btn-primary btn-lg'
-          style={{ borderRadius: "50%", float: "right" }}
+          style={{
+            borderRadius: "50%",
+            float: "right",
+            backgroundColor: props.template.backgroundColor,
+            backgroundImage: props.template.backgroundImage
+          }}
         >
           <i
             className='fa fa-power-off'
@@ -30,16 +43,18 @@ const DashBoardType = () => {
             <b>LOGOUT</b>
           </a>
         </span>
+
         <img
           id='studid'
           src={dummyPic}
           style={{
             marginLeft: "15px",
-            border: "0.5px solid black",
+            //border: "0.5px solid black",
             width: "150px",
-            height: "150px"
+            height: "160px"
           }}
         />
+
         <div id='userBasicDetails'>
           <h2 style={{ padding: "0px", margin: "0px" }}>
             Welcome to Student page!
@@ -60,7 +75,7 @@ const DashBoardType = () => {
               <br />
               <label className='dataLabels'>MiddleName: Gurudas</label>
               <br />
-              <label className='dataLabels'>LastName:Anvekar</label>
+              <label className='dataLabels'>LastName: Anvekar</label>
             </div>
             <div id='basicDataCol2' className='basicDataCols'>
               <label className='dataLabels'>RollNo:</label>
@@ -85,4 +100,12 @@ const DashBoardType = () => {
   );
 };
 
-export default DashBoardType;
+DashBoardType.propTypes = {
+  template: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  template: state.setTemplate
+});
+
+export default connect(mapStateToProps, null)(DashBoardType);

@@ -2,11 +2,16 @@
 import React from "react";
 import DashBoardMenu from "./DashBoardMenu";
 
-const DashBoardContainer = () => {
+const DashBoardMenuDataContainer = () => {
   return (
     <div
       className='row'
-      style={{ backgroundColor: "rgb(223, 224, 228)", width: "100%" }}
+      style={{
+        backgroundColor: "rgb(223, 224, 228)",
+        width: "100%",
+        marginLeft: "0px",
+        marginRight: "0px"
+      }}
     >
       <div
         className='offset-lg-1 col-lg-10'
@@ -19,4 +24,4 @@ const DashBoardContainer = () => {
   );
 };
 
-export default DashBoardContainer;
+export default DashBoardMenuDataContainer;

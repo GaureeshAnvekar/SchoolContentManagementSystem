@@ -1,7 +1,7 @@
 import React from "react";
 import SchoolHeader from "../SchoolHeader";
 import DashBoardType from "../DashBoardType";
-import DashBoardContainer from "../DashBoardContainer";
+import DashBoardMenuDataContainer from "../DashBoardMenuDataContainer";
 
 const Dashboard = () => {
   return (
@@ -16,7 +16,7 @@ const Dashboard = () => {
     >
       <SchoolHeader />
       <DashBoardType />
-      <DashBoardContainer />
+      <DashBoardMenuDataContainer />
     </div>
   );
 };
