@@ -5,6 +5,7 @@ import Home from "./Components/layouts/Landing/Home";
 import CreateAccount from "./Components/layouts/Landing/CreateAccount";
 import DashBoard from "./Components/layouts/SchoolMainPage/DashBoard";
 import MainPage from "./Components/layouts/SchoolMainPage/MainPage";
+import AttendanceStatus from "./Components/layouts/StudentPage/AttendanceStatus";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import psl from "psl";
 import PropTypes from "prop-types";
@@ -126,6 +127,11 @@ const App = props => {
         <Route path='/' exact component={Home}></Route>
         <Route path='/School' exact component={MainPage}></Route>
         <Route path='/DashBoard' exact component={DashBoard}></Route>
+        <Route
+          path='/AttendanceStatus'
+          exact
+          component={AttendanceStatus}
+        ></Route>
       </Switch>
     </Router>
   );
