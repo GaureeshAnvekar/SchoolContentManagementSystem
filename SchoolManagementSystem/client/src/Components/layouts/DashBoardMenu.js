@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import AttendanceStatus from "./StudentPage/AttendanceStatus";
 
 const DashBoardMenu = props => {
   const styles = {
@@ -92,6 +93,8 @@ const DashBoardMenu = props => {
           </button>
         </div>
       </div>
+
+      <AttendanceStatus styles={styles} />
     </div>
   );
 };

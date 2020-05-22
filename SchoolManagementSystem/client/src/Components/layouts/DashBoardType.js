@@ -15,7 +15,7 @@ const DashBoardType = props => {
         marginRight: "0px"
       }}
     >
-      <div className='col-lg-10 offset-lg-1' id='header'>
+      <div className='col-xl-10 offset-xl-1' id='header'>
         <button
           className='btn btn-primary btn-lg'
           style={{

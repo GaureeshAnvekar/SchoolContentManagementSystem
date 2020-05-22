@@ -14,7 +14,7 @@ const DashBoardMenuDataContainer = () => {
       }}
     >
       <div
-        className='offset-lg-1 col-lg-10'
+        className='offset-xl-1 col-xl-10'
         id='DashBoardContainer'
         style={{ padding: "20px" }}
       >
