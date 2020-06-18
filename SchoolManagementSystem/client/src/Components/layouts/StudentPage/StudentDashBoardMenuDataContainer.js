@@ -1,9 +1,8 @@
 // Contains the DashBoardMenu and DashBoardMenuData components
 import React from "react";
 import DashBoardMenu from "./DashBoardMenu";
-import PropTypes from "prop-types";
 
-const DashBoardMenuDataContainer = (props) => {
+const DashBoardMenuDataContainer = () => {
   return (
     <div
       className='row'
@@ -11,7 +10,7 @@ const DashBoardMenuDataContainer = (props) => {
         backgroundColor: "rgb(223, 224, 228)",
         width: "100%",
         marginLeft: "0px",
-        marginRight: "0px",
+        marginRight: "0px"
       }}
     >
       <div
@@ -19,14 +18,10 @@ const DashBoardMenuDataContainer = (props) => {
         id='DashBoardContainer'
         style={{ padding: "20px" }}
       >
-        <DashBoardMenu templateInfo={props.templateInfo} />
+        <DashBoardMenu />
       </div>
     </div>
   );
-};
-
-DashBoardMenuDataContainer.propTypes = {
-  templateInfo: PropTypes.object.isRequired,
 };
 
 export default DashBoardMenuDataContainer;

@@ -4,7 +4,7 @@
 const jwt = require("jsonwebtoken");
 const config = require("config");
 
-module.exports = function(req, res, next) {
+module.exports = function (req, res, next) {
   // Get token from header of req
   const token = req.header("x-auth-token");
 
@@ -17,21 +17,20 @@ module.exports = function(req, res, next) {
   try {
     decoded = null;
 
-    decoded = jwt.verify(token, config.get("jwtAdminPrivateKey"));
+    decoded = jwt.verify(token, config.get("jwtStudentPrivateKey"));
 
-    const payload = {
-      school: {
-        id: decoded.school.id,
-        username: decoded.school.username,
-        loginType: decoded.school.loginType,
-        token: token
-      }
+    decoded = {
+      userId: decoded.userId,
+      userName: decoded.userName,
+      schoolId: decoded.schoolId,
+      token: token,
+      loginType: decoded.loginType,
     };
 
     console.log("token verified");
     console.log(decoded);
 
-    res.locals.payload = payload;
+    res.locals.decoded = decoded;
     next();
   } catch (err) {
     console.log(err.message);

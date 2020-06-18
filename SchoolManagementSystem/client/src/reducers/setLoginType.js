@@ -1,21 +1,18 @@
-import { SCHOOL_FOUND } from "../actions/types";
+import { SET_LOGIN_TYPE } from "../actions/types";
 
 const initialState = {
-  id: null,
-  subDomain: null,
-  template: null,
+  loginType: null,
 };
 
 export default function (state = initialState, action) {
   const { type, payload } = action;
-
+  console.log("ACTION ");
+  console.log(JSON.stringify(action));
   switch (type) {
-    case SCHOOL_FOUND:
+    case SET_LOGIN_TYPE:
       return {
         ...state,
-        id: payload.id,
-        subDomain: payload.subDomain,
-        template: payload.template,
+        loginType: payload.loginType,
       };
     default:
       return state;

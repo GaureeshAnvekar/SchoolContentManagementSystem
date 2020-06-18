@@ -6,11 +6,11 @@ import rootReducer from "./reducers";
 const initialState = {};
 
 const middleware = [thunk];
-
+const composeEnhancer = composeWithDevTools({ trace: true });
 const store = createStore(
   rootReducer,
   initialState,
-  composeWithDevTools(applyMiddleware(...middleware))
+  composeEnhancer(applyMiddleware(...middleware))
 );
 
 export default store;

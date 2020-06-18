@@ -3,7 +3,7 @@ import dummyPic from "../../images/dummyPic.png";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-const DashBoardType = (props) => {
+const DashBoardType = props => {
   return (
     <div
       className='row'
@@ -12,7 +12,7 @@ const DashBoardType = (props) => {
         marginBottom: "15px",
         width: "100%",
         marginLeft: "0px",
-        marginRight: "0px",
+        marginRight: "0px"
       }}
     >
       <div className='col-xl-10 offset-xl-1' id='header'>
@@ -21,8 +21,8 @@ const DashBoardType = (props) => {
           style={{
             borderRadius: "50%",
             float: "right",
-            backgroundColor: props.templateInfo.backgroundColor,
-            backgroundImage: props.templateInfo.backgroundImage,
+            backgroundColor: props.template.backgroundColor,
+            backgroundImage: props.template.backgroundImage
           }}
         >
           <i
@@ -36,7 +36,7 @@ const DashBoardType = (props) => {
             position: "absolute",
             right: "20px",
             top: "70px",
-            fontSize: "12px",
+            fontSize: "12px"
           }}
         >
           <a className='logout'>
@@ -51,7 +51,7 @@ const DashBoardType = (props) => {
             marginLeft: "15px",
             //border: "0.5px solid black",
             width: "150px",
-            height: "160px",
+            height: "160px"
           }}
         />
 
@@ -66,7 +66,7 @@ const DashBoardType = (props) => {
               backgroundColor: "black",
               color: "black",
               marginTop: "5px",
-              marginBottom: "5px",
+              marginBottom: "5px"
             }}
           />
           <div id='detailsWhiteBox'>
@@ -101,7 +101,11 @@ const DashBoardType = (props) => {
 };
 
 DashBoardType.propTypes = {
-  templateInfo: PropTypes.object.isRequired,
+  template: PropTypes.object.isRequired
 };
 
-export default DashBoardType;
+const mapStateToProps = state => ({
+  template: state.setTemplate
+});
+
+export default connect(mapStateToProps, null)(DashBoardType);

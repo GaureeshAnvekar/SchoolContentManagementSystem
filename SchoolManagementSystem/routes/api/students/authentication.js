@@ -13,6 +13,7 @@ const express = require("express");
 const router = express.Router();
 const authVerify = require("../../../customMiddleware/authVerify");
 const { check, validationResult } = require("express-validator/check");
+const ObjectID = require("mongodb").ObjectID;
 
 // @route     GET api/students/authentication
 // @desc      If jwt present on client side (student) then use this route to verify jwt. No data coming from request body.
@@ -20,10 +21,29 @@ const { check, validationResult } = require("express-validator/check");
 // 2 callbacks used
 router.get("/", authVerify, async (req, res) => {
   try {
-    // const student = await Students.findOne({
-    //  school: req.schoolId
-    // }).populate("schools", ["name"]);
-    res.json("Student verified");
+    const decoded = res.locals.decoded;
+
+    let student = await Students.findOne({
+      school: new ObjectID(decoded.schoolId),
+      username: decoded.userName,
+      _id: decoded.userId,
+    });
+
+    const payload = {
+      jwt: decoded.token,
+      userName: decoded.userName,
+      firstName: student.firstname,
+      lastName: student.lastname,
+      rollNo: student.rollno,
+      classGrade: student.classgrade,
+      section: student.section,
+      dob: student.dob,
+      bloodGroup: student.bloodgroup,
+      email: student.email,
+      loginType: decoded.loginType,
+    };
+    console.log("Get 1 time");
+    res.json(payload);
     //if (!student) {
     //  return res
     //  .status(400)
@@ -43,10 +63,9 @@ router.get("/", authVerify, async (req, res) => {
 router.post(
   "/",
   [
-    check("name", "Student name is required")
-      .not()
-      .isEmpty(),
-    check("password", "Password is required").exists()
+    check("username", "User name is required").not().isEmpty(),
+    check("password", "Password is required").not().isEmpty(),
+    check("loginType", "Login type is required").not().isEmpty(),
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -56,15 +75,18 @@ router.post(
 
     try {
       // See if school exists
-      const { name, password } = req.body;
-      let student = await Students.findOne({ firstname: name });
-
+      const { schoolId, username, password, loginType } = req.body;
+      let student = await Students.findOne({
+        school: new ObjectID(schoolId),
+        username: username,
+      });
+      console.log(schoolId + " " + username + " " + password);
       if (!student) {
         return res
           .status(400)
           .json({ errors: [{ msg: "Invalid credentials" }] });
       }
-
+      console.log(schoolId + " " + username + " " + password);
       // If student name is matched, now check password
       const isMatch = await bcrypt.compare(password, student.password);
 
@@ -75,15 +97,34 @@ router.post(
       }
 
       // Details to create jwt. Separate private key is used for student login jwt.
-      const payload = { student: { id: student.id, name: student.name } };
+      const jwtPayload = {
+        userId: student.id,
+        userName: username,
+        schoolId: schoolId,
+        loginType: loginType,
+      };
 
       jwt.sign(
-        payload,
+        jwtPayload,
         config.get("jwtStudentPrivateKey"),
         { expiresIn: 360000 },
         (err, token) => {
           if (err) throw err;
-          return res.json({ token });
+          const payload = {
+            jwt: token,
+            userName: username,
+            firstName: student.firstname,
+            lastName: student.lastname,
+            rollNo: student.rollno,
+            classGrade: student.classgrade,
+            section: student.section,
+            dob: student.dob,
+            bloodGroup: student.bloodgroup,
+            email: student.email,
+            loginType: loginType,
+          };
+
+          return res.json(payload);
         }
       );
     } catch (err) {

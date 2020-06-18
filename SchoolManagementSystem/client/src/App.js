@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import SchoolHeader from "./Components/layouts/SchoolHeader";
 import LoginSection from "./Components/layouts/LoginSection";
 import Home from "./Components/layouts/Landing/Home";
@@ -6,7 +6,13 @@ import CreateAccount from "./Components/layouts/Landing/CreateAccount";
 import DashBoard from "./Components/layouts/SchoolMainPage/DashBoard";
 import MainPage from "./Components/layouts/SchoolMainPage/MainPage";
 import AttendanceStatus from "./Components/layouts/StudentPage/AttendanceStatus";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import PrivateRoute from "./Components/Routing/PrivateRoute";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 import psl from "psl";
 import PropTypes from "prop-types";
 import axios from "axios";
@@ -18,6 +24,8 @@ import { connect } from "react-redux";
 import { setSchoolInfo } from "./actions/setSchoolInfo";
 import { setTemplate } from "./actions/setTemplate";
 import { auth } from "./actions/auth";
+import { studentAuth } from "./actions/Student/studentAuth";
+import { decodeJWT } from "./actions/decodeJWT";
 
 import "./App.css";
 
@@ -28,23 +36,24 @@ var templateNum;
 const schoolInfoApi = async (subDomain, props) => {
   const config = {
     headers: {
-      "Content-Type": "application/json"
-    }
+      "Content-Type": "application/json",
+    },
   };
 
   const body = JSON.stringify({
-    subDomain
+    subDomain,
   });
 
   try {
     //Before creating action object and dispatching, make an http request.
+    console.log("Calling schoolINfo api");
     const res = await axios.post(
       "http://localhost:5000/api/schools/schoolInfo",
       body,
       {
         headers: {
-          "Content-Type": "application/json"
-        }
+          "Content-Type": "application/json",
+        },
       }
     );
 
@@ -52,9 +61,13 @@ const schoolInfoApi = async (subDomain, props) => {
     templateNum = res.data.schoolInfo.template;
 
     // Dispatch "setSchoolInfo" action to store data in store.
+
+    // console.log("App set school action " + props.schoolInfo.id);
     props.setSchoolInfo({ payload: res.data.schoolInfo });
+    //console.log("App set school action " + props.schoolInfo.id);
     // Dispatch action "setTemplate" which will select appropriate colors according to the template of the school
     props.setTemplate({ template: templateNum });
+    return schoolId;
   } catch (err) {
     //console.log("here" + err.response.data.errors);
     //const errors = err.response.data.errors; // This are the validation (check) errors performed at express backend
@@ -95,38 +108,43 @@ function extractSubDomain(hostName) {
   }
 }
 
-const App = props => {
-  // Check if localStorage has a jwt token. If yes, directly take to that page
-  /* if (localStorage.getItem("token")) {
-    // Decode the token and redirect.
-  } else */
+const App = (props) => {
   var url = window.location.href;
+
+  //Check if url is easyschool.com OR some school main page like pauls.easyschool.com
   if (url.split(".").length >= 3) {
-    // This is to check if incoming request is from landing page OR School home page
     if (props.schoolInfo.id == null) {
-      // Open the home page
-      console.log(url);
       let hostName = extractHostname(url);
       let subDomain = extractSubDomain(hostName); // This will be subdomain for a school.
       // For now avoid PSL, as it is used to validate if a domain exists and returns it if it exists or returns null
 
-      // Call school info api, which will store the school id and template num used.
-      console.log("The marys subdomain is " + subDomain);
-      schoolInfoApi(subDomain, props);
+      // Dispatch "schoolInfo" action & "templateInfo" action
+      let id = schoolInfoApi(subDomain, props);
     }
-    // Now check if localstorage has jwt token. If yes, verify it, if successful, then set isAuthenticated to true and redirect to inner page
-    if (localStorage.getItem("token")) {
-      console.log("token is there");
-      props.auth({});
-    }
-  } // else the incoming request is from landing page i.e. easyschool.com
+  }
   return (
     <Router>
       <Switch>
         <Route path='/CreateAccount' exact component={CreateAccount}></Route>
         <Route path='/' exact component={Home}></Route>
-        <Route path='/School' exact component={MainPage}></Route>
-        <Route path='/DashBoard' exact component={DashBoard}></Route>
+        <Route
+          path='/School'
+          exact
+          render={() => (
+            <MainPage
+              schoolInfo={props.schoolInfo}
+              templateInfo={props.templateInfo}
+            />
+          )}
+        />
+        <PrivateRoute
+          path='/dashBoard'
+          exact
+          schoolInfo={props.schoolInfo}
+          templateInfo={props.templateInfo}
+          component={DashBoard}
+        />
+
         <Route
           path='/AttendanceStatus'
           exact
@@ -138,16 +156,15 @@ const App = props => {
 };
 
 App.propTypes = {
-  schoolInfo: PropTypes.object.isRequired,
   setSchoolInfo: PropTypes.func.isRequired,
   setTemplate: PropTypes.func.isRequired,
-  auth: PropTypes.func.isRequired
 };
 
-const mapStateToProps = state => ({
-  schoolInfo: state.setSchoolInfo
+const mapStateToProps = (state) => ({
+  schoolInfo: state.setSchoolInfo,
+  templateInfo: state.setTemplate,
 });
-
-export default connect(mapStateToProps, { setSchoolInfo, setTemplate, auth })(
-  App
-);
+export default connect(mapStateToProps, {
+  setSchoolInfo,
+  setTemplate,
+})(App);

@@ -18,6 +18,10 @@ app.use(cors());
 const schoolRegRoute = require("./routes/api/schools/registration");
 app.use("/api/schools/registration", schoolRegRoute);
 
+// Decode jwt router
+const decodeJWTRoute = require("./routes/api/decodeJWT");
+app.use("/api/decodeJWT", decodeJWTRoute);
+
 // School authentication router (authentication means get request for particular school)
 const schoolAuthRoute = require("./routes/api/schools/authentication");
 app.use("/api/schools/authentication", schoolAuthRoute);

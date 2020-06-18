@@ -5,12 +5,11 @@ const initialState = {
   isAuthenticated: null,
   loading: true,
   username: null,
-  loginType: null
+  loginType: null,
 };
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   const { type, payload } = action;
-  console.log("Auth payload is " + JSON.stringify(payload));
   switch (type) {
     case AUTH_SUCCESS:
       localStorage.setItem("token", payload.school.token);
@@ -21,7 +20,7 @@ export default function(state = initialState, action) {
         isAuthenticated: true,
         loading: false,
         username: payload.school.username,
-        loginType: payload.school.loginType
+        loginType: payload.school.loginType,
       };
 
     case AUTH_FAIL:
@@ -32,7 +31,7 @@ export default function(state = initialState, action) {
         isAuthenticated: false,
         loading: false,
         username: null,
-        loginType: null
+        loginType: null,
       };
     default:
       return state;

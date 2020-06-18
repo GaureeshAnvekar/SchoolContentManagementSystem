@@ -3,32 +3,34 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Alert from "./Landing/Alert";
 import { auth } from "../../actions/auth";
+import { studentAuth } from "../../actions/Student/studentAuth";
+import { setLoginType } from "../../actions/setLoginType";
+import { Redirect } from "react-router-dom";
 
-const LoginSection = props => {
+const LoginSection = (props) => {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
-    loginType: ""
+    loginType: "",
   });
 
   const { username, password, loginType } = formData;
 
-  const onChange = e => {
+  const onChange = (e) => {
     console.log(e.target.name);
     console.log(e.target.value);
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
-  const onSubmit = e => {
+  console.log(JSON.stringify(props));
+  const onSubmit = (e) => {
     e.preventDefault();
 
+    if (loginType == "student") {
+      //Dispatch student auth action
+      props.studentAuth(props.schoolInfo.id, username, password, loginType);
+      //console.log("login button " + props.studentIsAuthenticated);
+    }
     // Dispatch auth action
-    props.auth({
-      schoolId: props.schoolInfo.id,
-      username,
-      password,
-      loginType
-    });
   };
   return (
     <div
@@ -36,7 +38,7 @@ const LoginSection = props => {
       style={{
         backgroundColor: "rgb(223, 224, 228)",
         width: "100%",
-        margin: "0px"
+        margin: "0px",
       }}
     >
       <div
@@ -48,7 +50,7 @@ const LoginSection = props => {
           id='detailsBox'
           style={{ padding: "30px" }}
         >
-          <form id='authDetails' onSubmit={e => onSubmit(e)}>
+          <form id='authDetails' onSubmit={(e) => onSubmit(e)}>
             <div className='row'>
               <div className='col-sm-12'>
                 <div className='form-group' id='innerDetailsBox'>
@@ -58,7 +60,7 @@ const LoginSection = props => {
                       style={{
                         height: "1px",
                         backgroundColor: "black",
-                        color: "black"
+                        color: "black",
                       }}
                     />
                   </h2>
@@ -75,7 +77,7 @@ const LoginSection = props => {
                       placeholder='Enter Username'
                       name='username'
                       value={username}
-                      onChange={e => onChange(e)}
+                      onChange={(e) => onChange(e)}
                       required
                     />
                   </div>
@@ -91,7 +93,7 @@ const LoginSection = props => {
                       placeholder='Enter Password'
                       name='password'
                       value={password}
-                      onChange={e => onChange(e)}
+                      onChange={(e) => onChange(e)}
                       required
                     />
                   </div>
@@ -106,7 +108,7 @@ const LoginSection = props => {
                     className='form-check-input'
                     name='loginType'
                     value='student'
-                    onChange={e => onChange(e)}
+                    onChange={(e) => onChange(e)}
                     required
                   />
                   <label
@@ -124,7 +126,7 @@ const LoginSection = props => {
                     className='form-check-input'
                     name='loginType'
                     value='staff'
-                    onChange={e => onChange(e)}
+                    onChange={(e) => onChange(e)}
                   />
                   <label
                     className='form-check-label'
@@ -141,7 +143,7 @@ const LoginSection = props => {
                     className='form-check-input'
                     name='loginType'
                     value='library'
-                    onChange={e => onChange(e)}
+                    onChange={(e) => onChange(e)}
                   />
                   <label className='form-check-label'>Library</label>
                 </div>
@@ -153,7 +155,7 @@ const LoginSection = props => {
                     className='form-check-input'
                     name='loginType'
                     value='admin'
-                    onChange={e => onChange(e)}
+                    onChange={(e) => onChange(e)}
                   />
                   <label className='form-check-label'>Admin</label>
                 </div>
@@ -169,9 +171,9 @@ const LoginSection = props => {
                 className='btn btn-dark btn-lg'
                 form='authDetails'
                 style={{
-                  backgroundColor: props.template.backgroundColor,
-                  backgroundImage: props.template.backgroundImage,
-                  borderStyle: "none"
+                  backgroundColor: props.templateInfo.backgroundColor,
+                  backgroundImage: props.templateInfo.backgroundImage,
+                  borderStyle: "none",
                 }}
               >
                 <b>LOGIN</b>
@@ -185,14 +187,7 @@ const LoginSection = props => {
 };
 
 LoginSection.propTypes = {
-  template: PropTypes.object.isRequired,
-  schoolInfo: PropTypes.object.isRequired,
-  auth: PropTypes.func.isRequired
+  studentAuth: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({
-  template: state.setTemplate,
-  schoolInfo: state.setSchoolInfo
-});
-
-export default connect(mapStateToProps, { auth })(LoginSection);
+export default connect(null, { studentAuth })(LoginSection);

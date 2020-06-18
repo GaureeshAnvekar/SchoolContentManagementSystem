@@ -5,7 +5,7 @@ const config = require("config");
 const router = express.Router();
 const { check, validationResult } = require("express-validator/check");
 const authVerify = require("../../../customMiddleware/authVerify");
-
+const ObjectID = require("mongodb").ObjectID;
 const Schools = require("../../../models/Schools");
 const Students = require("../../../models/Students");
 
@@ -18,42 +18,30 @@ router.post(
   [
     authVerify,
     [
-      check("firstName", "Student's first name is required")
-        .not()
-        .isEmpty(),
-      check("lastName", "Student's last name is required")
-        .not()
-        .isEmpty(),
+      check("firstName", "Student's first name is required").not().isEmpty(),
+      check("lastName", "Student's last name is required").not().isEmpty(),
       check(
         "password",
         "Student's password is required with min 6 characters"
       ).isLength({ min: 6 }),
-      check("rollNo", "Student's roll no is required")
-        .not()
-        .isEmpty(),
-      check("classGrade", "Student's class grade is required")
-        .not()
-        .isEmpty(),
-      check("section", "Student's section is required")
-        .not()
-        .isEmpty(),
-      check("dob", "Student's date of birth is required")
-        .not()
-        .isEmpty(),
-      check("email", "Student's/Parent's email id is required")
-        .not()
-        .isEmpty()
-    ]
+      check("rollNo", "Student's roll no is required").not().isEmpty(),
+      check("classGrade", "Student's class grade is required").not().isEmpty(),
+      check("section", "Student's section is required").not().isEmpty(),
+      check("dob", "Student's date of birth is required").not().isEmpty(),
+      check("bloodGroup", "Student's blood group is required").not().isEmpty(),
+      check("email", "Student's/Parent's email id is required").not().isEmpty(),
+    ],
   ],
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      res.status(400).json({ errors: errors.array() });
+      res.status(404).json({ errors: errors.array() });
     }
 
     try {
       // See if a student exists with roll no (not sure)
       const {
+        schoolId,
         firstName,
         lastName,
         password,
@@ -61,14 +49,16 @@ router.post(
         classGrade,
         section,
         dob,
-        email
+        bloodGroup,
+        email,
       } = req.body;
 
       // Here school id should also be used to find a student. This info can be present as sub-domain
       let student = await Students.findOne({
+        school: new ObjectID(schoolId),
         classgrade: classGrade,
         section: section,
-        rollno: rollNo
+        rollno: rollNo,
       });
 
       // dob is DD-MM-YYYY, so dateArrr will contain DD, MM, YYYY
@@ -79,6 +69,7 @@ router.post(
         if (req.body.update == "true") {
           // update
           newData = {
+            username: firstName + lastName,
             firstname: firstName,
             lastname: lastName,
             password: password,
@@ -86,10 +77,16 @@ router.post(
             classgrade: classGrade,
             section: section,
             dob: new Date(dateArr[2], dateArr[1], dateArr[0]),
-            email: email
+            bloodgroup: bloodGroup,
+            email: email,
           };
           student = await Students.findOneAndUpdate(
-            { classgrade: classGrade, section: section, rollno: rollNo },
+            {
+              school: new ObjectID(schoolId),
+              classgrade: classGrade,
+              section: section,
+              rollno: rollNo,
+            },
             { $set: newData },
             { new: true }
           );
@@ -109,6 +106,8 @@ router.post(
       }
 
       student = new Students({
+        school: schoolId,
+        username: firstName + lastName,
         firstname: firstName,
         lastname: lastName,
         password: password,
@@ -116,7 +115,8 @@ router.post(
         classgrade: classGrade,
         section,
         dob: new Date(dateArr[2], dateArr[1], dateArr[0]),
-        email
+        bloodgroup: bloodGroup,
+        email,
       });
 
       // Also need to enter the school id for this student

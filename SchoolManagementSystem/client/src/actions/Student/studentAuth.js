@@ -1,45 +1,51 @@
+import React from "react";
 import axios from "axios";
-import { AUTH_SUCCESS, AUTH_FAIL, SET_ALERT } from "./types";
+import {
+  STUDENT_AUTH_SUCCESS,
+  STUDENT_AUTH_FAIL,
+  SET_LOGIN_TYPE,
+} from "../types";
 //Using setAlert action
-import { setAlert, removeAlert } from "./alert";
-import setAuthToken from "../utils/setAuthToken";
+import { setAlert, removeAlert } from "../alert";
+import setAuthToken from "../../utils/setAuthToken";
+import { setLoginType } from "../../actions/setLoginType";
 
 // Authenctication
-export const auth = ({ schoolId, username, password, loginType }) => async (
-  dispatch
-) => {
-  if (loginType == "admin") {
-    const endPoint = "/api/schools/authentication";
-  } else if (loginType == "staff") {
-    const endPoint = "/api/staff/authentication";
-  } else if ((loginType = "/api/employee/authentication")) {
-    const endPoint = "/api/student/authentication";
-  }
+export const studentAuth = (
+  schoolId = null,
+  username = null,
+  password = null,
+  loginType = null
+) => async (dispatch) => {
+  const endPoint = "http://localhost:5000/api/students/authentication";
 
   // Just send back the jwt for verification. This will be in header.
   if (localStorage.getItem("token")) {
     setAuthToken(localStorage.token);
 
     try {
-      const res = await axios.get(
-        "http://localhost:5000/api/schools/authentication"
-      );
+      console.log("Calling student auth api");
+      const res = await axios.get(endPoint);
       console.log("before dispatch");
       dispatch({
-        type: AUTH_SUCCESS,
+        type: STUDENT_AUTH_SUCCESS,
         payload: res.data,
       });
+
+      //dispatch logintype action
+      setLoginType(res.data.loginType);
     } catch (err) {
       console.log(JSON.stringify(err));
-      const errors = err.response.data.errors; // This are the validation (check) errors performed at express backend
+      // const errors = err.response.data.errors; // This are the validation (check) errors performed at express backend
       // Before dispatching setAlert, dispatch removeAlert to remove already displayed errors
       dispatch(removeAlert());
 
       dispatch({
-        type: AUTH_FAIL,
+        type: STUDENT_AUTH_FAIL,
       });
     }
   } else {
+    console.log("NO jwt inside");
     // If no JWT present, then manually entered username and password must be sent to server
     try {
       const body = JSON.stringify({
@@ -48,21 +54,23 @@ export const auth = ({ schoolId, username, password, loginType }) => async (
         password,
         loginType,
       });
-      const res = await axios.post(
-        "http://localhost:5000/api/schools/authentication",
-        body,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const res = await axios.post(endPoint, body, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       dispatch(removeAlert());
 
       dispatch({
-        type: AUTH_SUCCESS,
+        type: STUDENT_AUTH_SUCCESS,
         payload: res.data,
+      });
+
+      //dispatch logintype action
+      dispatch({
+        type: SET_LOGIN_TYPE,
+        payload: { loginType: loginType },
       });
     } catch (err) {
       const errors = err.response.data.errors; // This are the validation (check) errors performed at express backend
@@ -72,7 +80,7 @@ export const auth = ({ schoolId, username, password, loginType }) => async (
         // dispatch an alert action for each msg
         errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
         dispatch({
-          type: AUTH_FAIL,
+          type: STUDENT_AUTH_FAIL,
         });
       }
     }
