@@ -23,6 +23,7 @@
     "mongoose": "^5.8.7",
     "psl": "^1.7.0",
     "react-bootstrap": "^1.0.0-beta.16",
+    "react-datepicker": "^3.0.0",
     "request": "^2.88.0"
   },
   "devDependencies": {

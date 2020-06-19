@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const AttendanceStatus = (props) => {
+  const [dates, setStartDate] = useState({
+    startDate: null,
+    endDate: null,
+  });
+
   return (
     <div className='col-lg-8 col-md-8 col-sm-8' id='queryResultContainer'>
       <h5 style={{ margin: "0 auto", width: "30%" }}>
@@ -88,21 +96,32 @@ const AttendanceStatus = (props) => {
             </label>
           </div>
           <br />
-
-          <input
-            type='text'
-            id='startDate'
-            className='form-control'
-            placeholder='START DATE'
-            style={{ width: "170px", display: "inline-block" }}
-          />
+          <div style={{ display: "inline-block" }}>
+            <DatePicker
+              placeholderText='From Date'
+              className='form-control'
+              selected={dates.startDate}
+              onChange={(date) => setStartDate({ ...dates, startDate: date })}
+              style={{ width: "170px", display: "inline-block" }}
+            />
+          </div>
+          <div style={{ display: "inline-block" }}>
+            <DatePicker
+              placeholderText='Till Date'
+              className='form-control'
+              selected={dates.endDate}
+              onChange={(date) => setStartDate({ ...dates, endDate: date })}
+              style={{ width: "170px", display: "inline-block" }}
+            />
+          </div>
+          {/*
           <input
             type='text'
             id='endDate'
             className='form-control'
             placeholder='END DATE'
             style={{ width: "170px", display: "inline-block" }}
-          />
+          />*/}
 
           <label id='emptyFieldsError2'></label>
           <div className='table-responsive'>

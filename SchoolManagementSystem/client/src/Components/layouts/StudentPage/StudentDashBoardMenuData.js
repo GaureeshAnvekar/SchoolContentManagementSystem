@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import AttendanceStatus from "./StudentPage/AttendanceStatus";
 
-const DashBoardMenu = props => {
+import AttendanceStatus from "../StudentPage/AttendanceStatus";
+
+const StudentDashBoardMenuData = (props) => {
   const styles = {
-    backgroundColor: props.template.backgroundColor,
-    backgroundImage: props.template.backgroundImage
+    backgroundColor: props.templateInfo.backgroundColor,
+    backgroundImage: props.templateInfo.backgroundImage,
   };
 
   return (
@@ -99,12 +99,8 @@ const DashBoardMenu = props => {
   );
 };
 
-DashBoardMenu.propTypes = {
-  template: PropTypes.object.isRequired
+StudentDashBoardMenuData.propTypes = {
+  templateInfo: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
-  template: state.setTemplate
-});
-
-export default connect(mapStateToProps, null)(DashBoardMenu);
+export default StudentDashBoardMenuData;

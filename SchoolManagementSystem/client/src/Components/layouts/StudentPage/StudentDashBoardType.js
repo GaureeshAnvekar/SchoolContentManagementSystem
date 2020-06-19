@@ -1,9 +1,9 @@
 import React from "react";
-import dummyPic from "../../images/dummyPic.png";
+import dummyPic from "../../../images/dummyPic.png";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-const DashBoardType = props => {
+const StudentDashBoardType = (props) => {
   return (
     <div
       className='row'
@@ -12,7 +12,7 @@ const DashBoardType = props => {
         marginBottom: "15px",
         width: "100%",
         marginLeft: "0px",
-        marginRight: "0px"
+        marginRight: "0px",
       }}
     >
       <div className='col-xl-10 offset-xl-1' id='header'>
@@ -21,8 +21,8 @@ const DashBoardType = props => {
           style={{
             borderRadius: "50%",
             float: "right",
-            backgroundColor: props.template.backgroundColor,
-            backgroundImage: props.template.backgroundImage
+            backgroundColor: props.templateInfo.backgroundColor,
+            backgroundImage: props.templateInfo.backgroundImage,
           }}
         >
           <i
@@ -36,7 +36,7 @@ const DashBoardType = props => {
             position: "absolute",
             right: "20px",
             top: "70px",
-            fontSize: "12px"
+            fontSize: "12px",
           }}
         >
           <a className='logout'>
@@ -51,7 +51,7 @@ const DashBoardType = props => {
             marginLeft: "15px",
             //border: "0.5px solid black",
             width: "150px",
-            height: "160px"
+            height: "160px",
           }}
         />
 
@@ -66,32 +66,47 @@ const DashBoardType = props => {
               backgroundColor: "black",
               color: "black",
               marginTop: "5px",
-              marginBottom: "5px"
+              marginBottom: "5px",
             }}
           />
           <div id='detailsWhiteBox'>
             <div id='basicDataCol1' className='basicDataCols'>
-              <label className='dataLabels'>FirstName: Gaureesh</label>
+              <label className='dataLabels'>
+                FirstName: {props.studentInfo.firstName}
+              </label>
               <br />
-              <label className='dataLabels'>MiddleName: Gurudas</label>
+              <label className='dataLabels'>MiddleName:</label>
               <br />
-              <label className='dataLabels'>LastName: Anvekar</label>
+              <label className='dataLabels'>
+                LastName: {props.studentInfo.lastName}
+              </label>
             </div>
             <div id='basicDataCol2' className='basicDataCols'>
-              <label className='dataLabels'>RollNo:</label>
+              <label className='dataLabels'>
+                RollNo:{props.studentInfo.rollNo}
+              </label>
               <br />
-              <label className='dataLabels'>Standard:</label>
+              <label className='dataLabels'>
+                Standard:{props.studentInfo.classGrade}
+              </label>
               <br />
-              <label className='dataLabels'>DateOfBirth: 26-10-1992</label>
+              <label className='dataLabels'>
+                DateOfBirth:
+                {new Date(props.studentInfo.dob).toLocaleDateString("en-GB")}
+              </label>
             </div>
             <div
               id='basicDataCol3'
               className='basicDataCols'
               style={{ verticalAlign: "top" }}
             >
-              <label className='dataLabels'>BloodGroup:</label>
+              <label className='dataLabels'>
+                BloodGroup:{props.studentInfo.bloodGroup}
+              </label>
               <br />
-              <label className='dataLabels'>Gender: Male</label>
+              <label className='dataLabels'>
+                Gender:{props.studentInfo.gender}
+              </label>
             </div>
           </div>
         </div>
@@ -100,12 +115,13 @@ const DashBoardType = props => {
   );
 };
 
-DashBoardType.propTypes = {
-  template: PropTypes.object.isRequired
+StudentDashBoardType.propTypes = {
+  templateInfo: PropTypes.object.isRequired,
+  studentInfo: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
-  template: state.setTemplate
+const mapStateToProps = (state) => ({
+  studentInfo: state.studentAuth,
 });
 
-export default connect(mapStateToProps, null)(DashBoardType);
+export default connect(mapStateToProps, {})(StudentDashBoardType);

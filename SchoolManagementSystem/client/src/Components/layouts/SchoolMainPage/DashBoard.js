@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import SchoolHeader from "../SchoolHeader";
-import DashBoardType from "../DashBoardType";
-import DashBoardMenuDataContainer from "../DashBoardMenuDataContainer";
+import StudentDashBoardType from "../StudentPage/StudentDashBoardType";
+import StudentDashBoardMenuDataContainer from "../StudentPage/StudentDashBoardMenuDataContainer";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
 
 const Dashboard = (props) => {
   return (
@@ -18,8 +17,8 @@ const Dashboard = (props) => {
       }}
     >
       <SchoolHeader templateInfo={props.templateInfo} />
-      <DashBoardType templateInfo={props.templateInfo} />
-      <DashBoardMenuDataContainer templateInfo={props.templateInfo} />
+      <StudentDashBoardType templateInfo={props.templateInfo} />
+      <StudentDashBoardMenuDataContainer templateInfo={props.templateInfo} />
     </div>
   );
 };

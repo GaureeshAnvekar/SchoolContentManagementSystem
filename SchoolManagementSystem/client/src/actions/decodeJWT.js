@@ -32,6 +32,7 @@ export const decodeJWT = () => async (dispatch) => {
         type: DECODE_JWT_FAIL,
         payload: null,
       });
+      return false;
     }
   }
 };
