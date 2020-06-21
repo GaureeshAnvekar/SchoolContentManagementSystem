@@ -21,7 +21,7 @@ const LoginSection = (props) => {
     console.log(e.target.value);
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  console.log(JSON.stringify(props));
+
   const onSubmit = (e) => {
     e.preventDefault();
 

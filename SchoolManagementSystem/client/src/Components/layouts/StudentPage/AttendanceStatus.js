@@ -2,12 +2,76 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { MDBTable, MDBTableBody, MDBTableHead } from "mdbreact";
+import { attendanceAPI } from "../../../studentBackendAPI";
 
 const AttendanceStatus = (props) => {
-  const [dates, setStartDate] = useState({
+  const [attendanceType, setAttendanceType] = useState({
+    type: null,
+    month: null,
+    year: null,
     startDate: null,
     endDate: null,
   });
+
+  const tableCols = [
+    { label: "Date", field: "Date" },
+    { label: "Status", field: "Status" },
+  ];
+  const data = {
+    columns: tableCols,
+    rows: [
+      {
+        id: 1,
+        heading0: "Cell",
+        heading1: "Cell",
+        heading2: "Cell",
+        heading3: "Cell",
+        heading4: "Cell",
+        heading5: "Cell",
+        heading6: "Cell",
+        heading7: "Cell",
+        heading8: "Cell",
+      },
+      {
+        id: 2,
+        heading0: "Cell",
+        heading1: "Cell",
+        heading2: "Cell",
+        heading3: "Cell",
+        heading4: "Cell",
+        heading5: "Cell",
+        heading6: "Cell",
+        heading7: "Cell",
+        heading8: "Cell",
+      },
+      {
+        id: 3,
+        heading0: "Cell",
+        heading1: "Cell",
+        heading2: "Cell",
+        heading3: "Cell",
+        heading4: "Cell",
+        heading5: "Cell",
+        heading6: "Cell",
+        heading7: "Cell",
+        heading8: "Cell",
+      },
+    ],
+  };
+
+  // After changing radio button for attendance type
+  const onChange = (e) => {
+    setAttendanceType({ ...attendanceType, type: e.target.value });
+  };
+
+  // After clicking "Check Attendance"
+  const checkAttendanceClick = (e) => {
+    e.preventDefault();
+
+    // Make a request to backend for attendance status
+    attendanceAPI(attendanceType);
+  };
 
   return (
     <div className='col-lg-8 col-md-8 col-sm-8' id='queryResultContainer'>
@@ -30,8 +94,8 @@ const AttendanceStatus = (props) => {
               type='radio'
               className='form-check-input'
               name='attendanceType'
-              value='student'
-              //  onChange={(e) => onChange(e)}
+              value='monthly'
+              onChange={(e) => onChange(e)}
               required
             />
             <label>
@@ -86,8 +150,8 @@ const AttendanceStatus = (props) => {
               type='radio'
               className='form-check-input'
               name='attendanceType'
-              value='student'
-              //  onChange={(e) => onChange(e)}
+              value='specific'
+              onChange={(e) => onChange(e)}
               required
             />
             <label>
@@ -96,22 +160,26 @@ const AttendanceStatus = (props) => {
             </label>
           </div>
           <br />
-          <div style={{ display: "inline-block" }}>
+          <div style={{ display: "inline-block", width: "170px" }}>
             <DatePicker
               placeholderText='From Date'
               className='form-control'
-              selected={dates.startDate}
-              onChange={(date) => setStartDate({ ...dates, startDate: date })}
+              selected={attendanceType.startDate}
+              onChange={(date) =>
+                setAttendanceType({ ...attendanceType, startDate: date })
+              }
               style={{ width: "170px", display: "inline-block" }}
             />
           </div>
-          <div style={{ display: "inline-block" }}>
+          <div style={{ display: "inline-block", width: "170px" }}>
             <DatePicker
               placeholderText='Till Date'
               className='form-control'
-              selected={dates.endDate}
-              onChange={(date) => setStartDate({ ...dates, endDate: date })}
-              style={{ width: "170px", display: "inline-block" }}
+              selected={attendanceType.startDate}
+              onChange={(date) =>
+                setAttendanceType({ ...attendanceType, startDate: date })
+              }
+              style={{ display: "inline-block" }}
             />
           </div>
           {/*
@@ -137,8 +205,8 @@ const AttendanceStatus = (props) => {
               type='radio'
               className='form-check-input'
               name='attendanceType'
-              value='student'
-              //  onChange={(e) => onChange(e)}
+              value='complete'
+              onChange={(e) => onChange(e)}
               required
             />
             <label>3.) For complete attendance status till date.</label>
@@ -146,21 +214,21 @@ const AttendanceStatus = (props) => {
           <br />
           <div className='col-12' style={{ textAlign: "center" }}>
             <button
-              type='button'
+              type='submit'
               className='btn btn-primary btn-sm'
               id='tillDateAttendance'
               style={props.styles}
+              onClick={(e) => checkAttendanceClick(e)}
             >
               Check Attendance
             </button>
           </div>
         </div>
       </div>
-      <div className='table-responsive'>
-        <table className='table table-bordered table-striped'>
-          <tbody id='tableBody3'></tbody>
-        </table>
-      </div>
+      <MDBTable responsive>
+        <MDBTableHead columns={data.columns} />
+        <MDBTableBody rows={data.rows} />
+      </MDBTable>
     </div>
   );
 };
