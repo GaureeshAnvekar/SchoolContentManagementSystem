@@ -14,55 +14,15 @@ const AttendanceStatus = (props) => {
     endDate: null,
   });
 
-  const tableCols = [
-    { label: "Date", field: "Date" },
-    { label: "Status", field: "Status" },
-  ];
+  const tableCols = [];
   const data = {
     columns: tableCols,
-    rows: [
-      {
-        id: 1,
-        heading0: "Cell",
-        heading1: "Cell",
-        heading2: "Cell",
-        heading3: "Cell",
-        heading4: "Cell",
-        heading5: "Cell",
-        heading6: "Cell",
-        heading7: "Cell",
-        heading8: "Cell",
-      },
-      {
-        id: 2,
-        heading0: "Cell",
-        heading1: "Cell",
-        heading2: "Cell",
-        heading3: "Cell",
-        heading4: "Cell",
-        heading5: "Cell",
-        heading6: "Cell",
-        heading7: "Cell",
-        heading8: "Cell",
-      },
-      {
-        id: 3,
-        heading0: "Cell",
-        heading1: "Cell",
-        heading2: "Cell",
-        heading3: "Cell",
-        heading4: "Cell",
-        heading5: "Cell",
-        heading6: "Cell",
-        heading7: "Cell",
-        heading8: "Cell",
-      },
-    ],
+    rows: [],
   };
 
   // After changing radio button for attendance type
   const onChange = (e) => {
-    setAttendanceType({ ...attendanceType, type: e.target.value });
+    setAttendanceType({ ...attendanceType, [e.target.name]: e.target.value });
   };
 
   // After clicking "Check Attendance"
@@ -70,7 +30,17 @@ const AttendanceStatus = (props) => {
     e.preventDefault();
 
     // Make a request to backend for attendance status
-    attendanceAPI(attendanceType);
+    console.log(attendanceType);
+    var arrOfObjects = attendanceAPI(attendanceType);
+    console.log("ATTendance INFO");
+    console.log(arrOfObjects);
+
+    tableCols.push({ label: "Date", field: "Date" });
+    tableCols.push({ label: "Status", field: "Status" });
+
+    arrOfObjects.forEach(function (rowData, index) {
+      data.rows.push({ id: index, Date: rowData.date, Status: rowData.status });
+    });
   };
 
   return (
@@ -93,7 +63,7 @@ const AttendanceStatus = (props) => {
             <input
               type='radio'
               className='form-check-input'
-              name='attendanceType'
+              name='type'
               value='monthly'
               onChange={(e) => onChange(e)}
               required
@@ -107,10 +77,12 @@ const AttendanceStatus = (props) => {
           <select
             className='form-control'
             id='months'
+            name='month'
             style={{
               width: "170px",
               display: "inline-block",
             }}
+            onChange={(e) => onChange(e)}
           >
             <option value='0'>SELECT MONTH</option>
             <option value='1'>January</option>
@@ -129,11 +101,14 @@ const AttendanceStatus = (props) => {
           <select
             className='form-control'
             id='year'
+            name='year'
             style={{ width: "170px", display: "inline-block" }}
+            onChange={(e) => onChange(e)}
           >
             <option value='0'>SELECT YEAR</option>
-            <option value='2015'>2015</option>
-            <option value='2016'>2016</option>
+            <option value='2020'>2020</option>
+            <option value='2021'>2021</option>
+            <option value='2022'>2022</option>
           </select>
 
           <label style={{ marginBottom: "0px" }} id='emptyFieldsError'></label>
@@ -149,7 +124,7 @@ const AttendanceStatus = (props) => {
             <input
               type='radio'
               className='form-check-input'
-              name='attendanceType'
+              name='type'
               value='specific'
               onChange={(e) => onChange(e)}
               required
@@ -175,9 +150,9 @@ const AttendanceStatus = (props) => {
             <DatePicker
               placeholderText='Till Date'
               className='form-control'
-              selected={attendanceType.startDate}
+              selected={attendanceType.endDate}
               onChange={(date) =>
-                setAttendanceType({ ...attendanceType, startDate: date })
+                setAttendanceType({ ...attendanceType, endDate: date })
               }
               style={{ display: "inline-block" }}
             />
@@ -204,7 +179,7 @@ const AttendanceStatus = (props) => {
             <input
               type='radio'
               className='form-check-input'
-              name='attendanceType'
+              name='type'
               value='complete'
               onChange={(e) => onChange(e)}
               required

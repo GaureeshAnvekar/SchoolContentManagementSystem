@@ -2,10 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Alert from "./Landing/Alert";
-import { auth } from "../../actions/auth";
 import { studentAuth } from "../../actions/Student/studentAuth";
-import { setLoginType } from "../../actions/setLoginType";
-import { Redirect } from "react-router-dom";
 
 const LoginSection = (props) => {
   const [formData, setFormData] = useState({

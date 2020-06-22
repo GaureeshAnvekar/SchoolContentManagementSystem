@@ -45,6 +45,10 @@ app.use("/api/students/getStudents", getStudentsRoute);
 const deleteStudentRoute = require("./routes/api/students/delete");
 app.use("/api/students/delete", deleteStudentRoute);
 
+// Attendance Status of a student
+const attendanceStatusRoute = require("./routes/api/students/attendanceStatus");
+app.use("/api/students/attendanceStatus", attendanceStatusRoute);
+
 //app.get("/", (req, res) => res.send("API running"));
 
 app.listen(PORT, () => console.log(`Server started at ${PORT}`));
