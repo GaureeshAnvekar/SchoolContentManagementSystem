@@ -15,39 +15,39 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 // School registration router
-const schoolRegRoute = require("./routes/api/schools/registration");
-app.use("/api/schools/registration", schoolRegRoute);
+const schoolRegRouter = require("./routes/api/schools/registration");
+app.use("/api/schools/registration", schoolRegRouter);
 
 // Decode jwt router
-const decodeJWTRoute = require("./routes/api/decodeJWT");
-app.use("/api/decodeJWT", decodeJWTRoute);
+const decodeJWTRouter = require("./routes/api/decodeJWT");
+app.use("/api/decodeJWT", decodeJWTRouter);
 
 // School authentication router (authentication means get request for particular school)
-const schoolAuthRoute = require("./routes/api/schools/authentication");
-app.use("/api/schools/authentication", schoolAuthRoute);
+const schoolAuthRouter = require("./routes/api/schools/authentication");
+app.use("/api/schools/authentication", schoolAuthRouter);
 
-const schoolInfoRoute = require("./routes/api/schools/schoolInfo");
-app.use("/api/schools/schoolInfo", schoolInfoRoute);
+const schoolInfoRouter = require("./routes/api/schools/schoolInfo");
+app.use("/api/schools/schoolInfo", schoolInfoRouter);
 
 // Student registration router
-const studentRegRoute = require("./routes/api/students/registration");
-app.use("/api/students/registration", studentRegRoute);
+const studentRegRouter = require("./routes/api/students/registration");
+app.use("/api/students/registration", studentRegRouter);
 
 // Student authentication router (authentication means get request for particular student)
-const studentAuthRoute = require("./routes/api/students/authentication");
-app.use("/api/students/authentication", studentAuthRoute);
+const studentAuthRouter = require("./routes/api/students/authentication");
+app.use("/api/students/authentication", studentAuthRouter);
 
 // All students or specific student for a given school
-const getStudentsRoute = require("./routes/api/students/getStudents");
-app.use("/api/students/getStudents", getStudentsRoute);
+const getStudentsRouter = require("./routes/api/students/getStudents");
+app.use("/api/students/getStudents", getStudentsRouter);
 
 // Delete student from school
-const deleteStudentRoute = require("./routes/api/students/delete");
-app.use("/api/students/delete", deleteStudentRoute);
+const deleteStudentRouter = require("./routes/api/students/delete");
+app.use("/api/students/delete", deleteStudentRouter);
 
 // Attendance Status of a student
-const attendanceStatusRoute = require("./routes/api/students/attendanceStatus");
-app.use("/api/students/attendanceStatus", attendanceStatusRoute);
+const attendanceStatusRouter = require("./routes/api/students/attendanceStatus");
+app.use("/api/students/attendanceStatus", attendanceStatusRouter);
 
 //app.get("/", (req, res) => res.send("API running"));
 

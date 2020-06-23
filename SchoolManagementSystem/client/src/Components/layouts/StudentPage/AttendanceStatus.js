@@ -4,6 +4,10 @@ import "react-datepicker/dist/react-datepicker.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { MDBTable, MDBTableBody, MDBTableHead } from "mdbreact";
 import { attendanceAPI } from "../../../studentBackendAPI";
+import Alert from "../Landing/Alert";
+import { setAlert, removeAlert } from "../../../actions/alert";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 const AttendanceStatus = (props) => {
   const [attendanceType, setAttendanceType] = useState({
@@ -14,11 +18,10 @@ const AttendanceStatus = (props) => {
     endDate: null,
   });
 
-  const tableCols = [];
-  const data = {
-    columns: tableCols,
-    rows: [],
-  };
+  const [tableData, setTableData] = useState({
+    tableCols: [],
+    tableRows: [],
+  });
 
   // After changing radio button for attendance type
   const onChange = (e) => {
@@ -26,21 +29,37 @@ const AttendanceStatus = (props) => {
   };
 
   // After clicking "Check Attendance"
-  const checkAttendanceClick = (e) => {
+  const checkAttendanceClick = async (e) => {
     e.preventDefault();
 
     // Make a request to backend for attendance status
-    console.log(attendanceType);
-    var arrOfObjects = attendanceAPI(attendanceType);
-    console.log("ATTendance INFO");
-    console.log(arrOfObjects);
 
-    tableCols.push({ label: "Date", field: "Date" });
-    tableCols.push({ label: "Status", field: "Status" });
+    var returnObj = await attendanceAPI(attendanceType);
+    console.log("RETURN OBJ");
+    console.log(returnObj);
+    if (returnObj.success == 1) {
+      props.removeAlert();
 
-    arrOfObjects.forEach(function (rowData, index) {
-      data.rows.push({ id: index, Date: rowData.date, Status: rowData.status });
-    });
+      let rows = [];
+      returnObj.data.forEach(function (rowData, index) {
+        rows.push({
+          Date: new Date(rowData.date).toLocaleDateString("en-GB"),
+          Status: rowData.status == 1 ? "Present" : "Absent",
+        });
+      });
+
+      setTableData({
+        ...tableData,
+        tableCols: [
+          { label: "Date", field: "Date" },
+          { label: "Status", field: "Status" },
+        ],
+        tableRows: rows,
+      });
+    } else {
+      props.removeAlert();
+      props.setAlert(returnObj.error, "danger");
+    }
   };
 
   return (
@@ -200,12 +219,22 @@ const AttendanceStatus = (props) => {
           </div>
         </div>
       </div>
-      <MDBTable responsive>
-        <MDBTableHead columns={data.columns} />
-        <MDBTableBody rows={data.rows} />
-      </MDBTable>
+
+      <Alert />
+      <br />
+      <div>
+        <MDBTable responsive>
+          <MDBTableHead columns={tableData.tableCols} />
+          <MDBTableBody rows={tableData.tableRows} />
+        </MDBTable>
+      </div>
     </div>
   );
 };
 
-export default AttendanceStatus;
+AttendanceStatus.propTypes = {
+  removeAlert: PropTypes.func.isRequired,
+  setAlert: PropTypes.func.isRequired,
+};
+
+export default connect(null, { removeAlert, setAlert })(AttendanceStatus);

@@ -14,7 +14,12 @@ export const attendanceAPI = async (attendanceType = null) => {
         "Content-Type": "application/json",
       },
     });
+
+    return { success: 1, data: res.data };
   } catch (err) {
     const errors = err.response.data.errors;
+    console.log("ERRORS ");
+    console.log(errors);
+    return { success: -1, error: errors[0] };
   }
 };
