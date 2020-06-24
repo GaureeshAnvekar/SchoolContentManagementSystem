@@ -8,6 +8,7 @@ import Alert from "../Landing/Alert";
 import { setAlert, removeAlert } from "../../../actions/alert";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { PieChart } from "react-minimal-pie-chart";
 
 const AttendanceStatus = (props) => {
   const [attendanceType, setAttendanceType] = useState({
@@ -25,7 +26,12 @@ const AttendanceStatus = (props) => {
 
   // After changing radio button for attendance type
   const onChange = (e) => {
-    setAttendanceType({ ...attendanceType, [e.target.name]: e.target.value });
+    setAttendanceType({
+      ...attendanceType,
+      [e.target.name]: e.target.value,
+      startDate: null,
+      endDate: null,
+    });
   };
 
   // After clicking "Check Attendance"
@@ -35,9 +41,8 @@ const AttendanceStatus = (props) => {
     // Make a request to backend for attendance status
 
     var returnObj = await attendanceAPI(attendanceType);
-    console.log("RETURN OBJ");
-    console.log(returnObj);
-    if (returnObj.success == 1) {
+
+    if (returnObj.success == 1 && returnObj.data.length > 0) {
       props.removeAlert();
 
       let rows = [];
@@ -56,9 +61,22 @@ const AttendanceStatus = (props) => {
         ],
         tableRows: rows,
       });
+    } else if (returnObj.success == 1 && returnObj.data.length == 0) {
+      props.removeAlert();
+      props.setAlert("No data found", "danger");
+      setTableData({
+        ...tableData,
+        tableCols: null,
+        tableRows: null,
+      });
     } else {
       props.removeAlert();
       props.setAlert(returnObj.error, "danger");
+      setTableData({
+        ...tableData,
+        tableCols: null,
+        tableRows: null,
+      });
     }
   };
 
@@ -103,7 +121,7 @@ const AttendanceStatus = (props) => {
             }}
             onChange={(e) => onChange(e)}
           >
-            <option value='0'>SELECT MONTH</option>
+            <option value='-1'>SELECT MONTH</option>
             <option value='1'>January</option>
             <option value='2'>February</option>
             <option value='3'>March</option>
@@ -124,7 +142,7 @@ const AttendanceStatus = (props) => {
             style={{ width: "170px", display: "inline-block" }}
             onChange={(e) => onChange(e)}
           >
-            <option value='0'>SELECT YEAR</option>
+            <option value='-1'>SELECT YEAR</option>
             <option value='2020'>2020</option>
             <option value='2021'>2021</option>
             <option value='2022'>2022</option>
@@ -222,6 +240,51 @@ const AttendanceStatus = (props) => {
 
       <Alert />
       <br />
+      <div>
+        <PieChart
+          data={[
+            { title: "One", value: 10, color: "#E38627" },
+            { title: "Two", value: 15, color: "#C13C37" },
+            { title: "Three", value: 20, color: "#6A2135" },
+          ]}
+          radius={8}
+          center={[25, 10]}
+          label={({ dataEntry, textAnchor = "asdf" }) =>
+            `${Math.round(dataEntry.percentage)} %`
+          }
+          labelStyle={{
+            fontSize: "2px",
+            fontFamily: "sans-serif",
+          }}
+          viewBoxSize={[50, 20]}
+        />
+        ;
+      </div>
+      <div
+        style={{
+          display: "inline-block",
+          textAlign: "center",
+          width: "100%",
+          height: "50px",
+        }}
+      >
+        <div
+          style={{
+            height: "20px",
+            width: "20px",
+            backgroundColor: "red",
+            display: "inline-block",
+          }}
+        />
+        <div
+          style={{
+            height: "20px",
+            width: "20px",
+            backgroundColor: "green",
+            display: "inline-block",
+          }}
+        />
+      </div>
       <div>
         <MDBTable responsive>
           <MDBTableHead columns={tableData.tableCols} />

@@ -17,13 +17,14 @@ const ObjectID = require("mongodb").ObjectID;
 // @access   Public (Used by student)
 router.post("/", authVerify, async (req, res) => {
   const { type, month, year, startDate, endDate } = req.body;
+  console.log(req.body);
   if (type == null) {
     return res
       .status(400)
       .json({ errors: ["Select one of the attendance options"] });
   } else {
     if (type == "monthly") {
-      if (month == null || year == null) {
+      if (month == null || month == "-1" || year == "-1" || year == null) {
         return res.status(400).json({ errors: ["Select a month and a year"] });
       }
     } else if (type == "specific") {
