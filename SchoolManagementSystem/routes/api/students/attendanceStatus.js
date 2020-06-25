@@ -24,7 +24,7 @@ router.post("/", authVerify, async (req, res) => {
       .json({ errors: ["Select one of the attendance options"] });
   } else {
     if (type == "monthly") {
-      if (month == null || month == "-1" || year == "-1" || year == null) {
+      if (month == null || month == "0" || year == "0" || year == null) {
         return res.status(400).json({ errors: ["Select a month and a year"] });
       }
     } else if (type == "specific") {
@@ -45,8 +45,8 @@ router.post("/", authVerify, async (req, res) => {
     if (type == "monthly") {
       isoDateFrom = new Date(year, month - 1, 1);
       isoDateTo = new Date(year, month - 1, 31);
-      console.log("datefromiso " + isoDateFrom);
-      console.log("datetoiso " + isoDateTo);
+
+      // This return all rows
       attendance = await Attendance.find(
         {
           schoolId: new ObjectID(schoolId),
@@ -76,8 +76,30 @@ router.post("/", authVerify, async (req, res) => {
         { date: 1, status: 1, _id: 0 }
       ).sort({ date: -1 });
     }
-    console.log(typeof attendance);
-    return res.json(attendance);
+    //Caculate absent and present percentage for attendance rows
+    let presentCount = 0;
+    let absentCount = 0;
+    attendance.forEach(function (attendanceRow) {
+      if (attendanceRow.status == true) {
+        ++presentCount;
+      } else {
+        ++absentCount;
+      }
+    });
+
+    let presentPerc = (
+      (presentCount / (presentCount + absentCount)) *
+      100
+    ).toFixed(2);
+
+    let absentPerc = (
+      (absentCount / (presentCount + absentCount)) *
+      100
+    ).toFixed(2);
+
+    console.log(presentPerc);
+    console.log(absentPerc);
+    return res.json({ attendance, presentPerc, absentPerc });
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server error");

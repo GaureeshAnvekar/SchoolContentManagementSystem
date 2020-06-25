@@ -8,7 +8,8 @@ import Alert from "../Landing/Alert";
 import { setAlert, removeAlert } from "../../../actions/alert";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { PieChart } from "react-minimal-pie-chart";
+//import { PieChart } from "react-minimal-pie-chart";
+import { Pie } from "react-chartjs-2";
 
 const AttendanceStatus = (props) => {
   const [attendanceType, setAttendanceType] = useState({
@@ -24,13 +25,31 @@ const AttendanceStatus = (props) => {
     tableRows: [],
   });
 
+  const [pieData, setPieData] = useState({
+    presentPerc: null,
+    absentPerc: null,
+    labelData: [],
+  });
+
   // After changing radio button for attendance type
-  const onChange = (e) => {
+  const onChangeRadio = (e) => {
     setAttendanceType({
       ...attendanceType,
       [e.target.name]: e.target.value,
       startDate: null,
       endDate: null,
+    });
+
+    var monthDropDown = document.getElementById("months");
+    var yearDropDown = document.getElementById("year");
+    monthDropDown.selectedIndex = 0;
+    yearDropDown.selectedIndex = 0;
+  };
+
+  const onChangeSelect = (e) => {
+    setAttendanceType({
+      ...attendanceType,
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -42,15 +61,25 @@ const AttendanceStatus = (props) => {
 
     var returnObj = await attendanceAPI(attendanceType);
 
-    if (returnObj.success == 1 && returnObj.data.length > 0) {
+    if (returnObj.success == 1 && returnObj.data.attendance.length > 0) {
       props.removeAlert();
 
       let rows = [];
-      returnObj.data.forEach(function (rowData, index) {
+      returnObj.data.attendance.forEach(function (rowData, index) {
         rows.push({
           Date: new Date(rowData.date).toLocaleDateString("en-GB"),
           Status: rowData.status == 1 ? "Present" : "Absent",
         });
+      });
+
+      setPieData({
+        ...pieData,
+        presentPerc: returnObj.data.presentPerc,
+        absentPerc: returnObj.data.absentPerc,
+        labelData: [
+          "Absent " + "(" + returnObj.data.absentPerc + "%)",
+          "Present " + "(" + returnObj.data.presentPerc + "%)",
+        ],
       });
 
       setTableData({
@@ -61,9 +90,20 @@ const AttendanceStatus = (props) => {
         ],
         tableRows: rows,
       });
-    } else if (returnObj.success == 1 && returnObj.data.length == 0) {
+    } else if (
+      returnObj.success == 1 &&
+      returnObj.data.attendance.length == 0
+    ) {
       props.removeAlert();
       props.setAlert("No data found", "danger");
+
+      setPieData({
+        ...pieData,
+        presentPerc: null,
+        absentPerc: null,
+        labelData: [],
+      });
+
       setTableData({
         ...tableData,
         tableCols: null,
@@ -72,6 +112,13 @@ const AttendanceStatus = (props) => {
     } else {
       props.removeAlert();
       props.setAlert(returnObj.error, "danger");
+
+      setPieData({
+        ...pieData,
+        presentPerc: null,
+        absentPerc: null,
+        labelData: [],
+      });
       setTableData({
         ...tableData,
         tableCols: null,
@@ -102,7 +149,7 @@ const AttendanceStatus = (props) => {
               className='form-check-input'
               name='type'
               value='monthly'
-              onChange={(e) => onChange(e)}
+              onChange={(e) => onChangeRadio(e)}
               required
             />
             <label>
@@ -119,9 +166,9 @@ const AttendanceStatus = (props) => {
               width: "170px",
               display: "inline-block",
             }}
-            onChange={(e) => onChange(e)}
+            onChange={(e) => onChangeSelect(e)}
           >
-            <option value='-1'>SELECT MONTH</option>
+            <option value='0'>SELECT MONTH</option>
             <option value='1'>January</option>
             <option value='2'>February</option>
             <option value='3'>March</option>
@@ -140,9 +187,9 @@ const AttendanceStatus = (props) => {
             id='year'
             name='year'
             style={{ width: "170px", display: "inline-block" }}
-            onChange={(e) => onChange(e)}
+            onChange={(e) => onChangeSelect(e)}
           >
-            <option value='-1'>SELECT YEAR</option>
+            <option value='0'>SELECT YEAR</option>
             <option value='2020'>2020</option>
             <option value='2021'>2021</option>
             <option value='2022'>2022</option>
@@ -163,7 +210,7 @@ const AttendanceStatus = (props) => {
               className='form-check-input'
               name='type'
               value='specific'
-              onChange={(e) => onChange(e)}
+              onChange={(e) => onChangeRadio(e)}
               required
             />
             <label>
@@ -218,7 +265,7 @@ const AttendanceStatus = (props) => {
               className='form-check-input'
               name='type'
               value='complete'
-              onChange={(e) => onChange(e)}
+              onChange={(e) => onChangeRadio(e)}
               required
             />
             <label>3.) For complete attendance status till date.</label>
@@ -241,50 +288,20 @@ const AttendanceStatus = (props) => {
       <Alert />
       <br />
       <div>
-        <PieChart
-          data={[
-            { title: "One", value: 10, color: "#E38627" },
-            { title: "Two", value: 15, color: "#C13C37" },
-            { title: "Three", value: 20, color: "#6A2135" },
-          ]}
-          radius={8}
-          center={[25, 10]}
-          label={({ dataEntry, textAnchor = "asdf" }) =>
-            `${Math.round(dataEntry.percentage)} %`
-          }
-          labelStyle={{
-            fontSize: "2px",
-            fontFamily: "sans-serif",
+        <Pie
+          data={{
+            labels: pieData.labelData,
+            datasets: [
+              {
+                data: [pieData.absentPerc, pieData.presentPerc],
+                backgroundColor: ["rgb(66, 139, 202)", "rgb(92, 184, 92)"],
+              },
+            ],
           }}
-          viewBoxSize={[50, 20]}
-        />
-        ;
-      </div>
-      <div
-        style={{
-          display: "inline-block",
-          textAlign: "center",
-          width: "100%",
-          height: "50px",
-        }}
-      >
-        <div
-          style={{
-            height: "20px",
-            width: "20px",
-            backgroundColor: "red",
-            display: "inline-block",
-          }}
-        />
-        <div
-          style={{
-            height: "20px",
-            width: "20px",
-            backgroundColor: "green",
-            display: "inline-block",
-          }}
+          height='85%'
         />
       </div>
+      <br />
       <div>
         <MDBTable responsive>
           <MDBTableHead columns={tableData.tableCols} />

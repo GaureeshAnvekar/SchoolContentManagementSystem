@@ -10,7 +10,7 @@ const StudentDashBoardMenuData = (props) => {
   };
 
   return (
-    <div className='row'>
+    <div className='row' style={{ marginLeft: "0px", marginRight: "0px" }}>
       <div className='col-lg-3 col-md-3 col-sm-3' id='buttonMenu'>
         <div className='buttonContainer'>
           <button
