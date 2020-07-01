@@ -49,6 +49,10 @@ app.use("/api/students/delete", deleteStudentRouter);
 const attendanceStatusRouter = require("./routes/api/students/attendanceStatus");
 app.use("/api/students/attendanceStatus", attendanceStatusRouter);
 
+// Assignments of a student
+const assignmentsRouter = require("./routes/api/students/assignments");
+app.use("/api/students/assignments", assignmentsRouter);
+
 //app.get("/", (req, res) => res.send("API running"));
 
 app.listen(PORT, () => console.log(`Server started at ${PORT}`));

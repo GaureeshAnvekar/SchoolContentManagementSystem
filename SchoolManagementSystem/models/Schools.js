@@ -3,39 +3,39 @@ const mongoose = require("mongoose");
 const SchoolsSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true
+    required: true,
   },
   subdomain: {
     type: String,
-    required: true
+    required: true,
   },
   adminname: {
     type: String,
-    required: true
+    required: true,
   },
   adminpassword: {
     type: String,
-    required: true
+    required: true,
   },
   address: {
     type: String,
-    required: true
+    required: true,
   },
   contact: {
     type: Number,
-    required: true
+    required: true,
   },
   logo: {
     data: Buffer,
-    contentType: String
+    contentType: String,
   },
   template: {
-    type: Number
+    type: Number,
   },
   date: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now(),
+  },
 });
 
 module.exports = Schools = mongoose.model("schools", SchoolsSchema);

@@ -1,12 +1,14 @@
 const connectDB = require("./config/db");
+const ObjectID = require("mongodb").ObjectID;
 
 connectDB();
 const Attendance = require("./models/Attendance");
+const Assignments = require("./models/Assignments");
 
 func = async () => {
   let isoDateFrom = new Date(2020, 5, 25).toISOString();
   let isoDateTo = new Date(2021, 2, 31).toISOString();
-
+  /*
   let attendance = await Attendance.find(null, {
     date: 1,
     status: 1,
@@ -17,7 +19,13 @@ func = async () => {
     date: { $gte: isoDateFrom, $lte: isoDateTo },
   });*/
 
-  console.log(attendance[0]);
+  assignments = await Assignments.find({
+    schoolId: new ObjectID("5ecec70e8291d203f9a79a8b"),
+    std: 5,
+    section: "A",
+  });
+
+  console.log(assignments);
 };
 
 func();

@@ -2,11 +2,7 @@
  * JWT is verified.
  */
 
-const jwt = require("jsonwebtoken");
-const config = require("config");
-const bcrypt = require("bcryptjs");
 const Attendance = require("../../../models/Attendance");
-const Schools = require("../../../models/Schools");
 const express = require("express");
 const router = express.Router();
 const authVerify = require("../../../customMiddleware/authVerify");

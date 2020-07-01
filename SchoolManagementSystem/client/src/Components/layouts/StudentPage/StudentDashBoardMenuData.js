@@ -1,13 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import AttendanceStatus from "../StudentPage/AttendanceStatus";
+import Assignments from "../StudentPage/Assignments";
+import StudentDashBoardMenuDataContainer from "./StudentDashBoardMenuDataContainer";
 
 const StudentDashBoardMenuData = (props) => {
+  const [menuData, setMenuData] = useState(1);
+
   const styles = {
     backgroundColor: props.templateInfo.backgroundColor,
     backgroundImage: props.templateInfo.backgroundImage,
   };
+
+  const onclick = (e) => {
+    if (e.target.name == "Attendance") {
+      setMenuData(1);
+    } else if (e.target.name == "Assignments") {
+      setMenuData(2);
+    }
+  };
+
+  function renderSwitch(menuData) {
+    switch (menuData) {
+      case 1:
+        return <AttendanceStatus styles={styles} />;
+      case 2:
+        return <Assignments />;
+    }
+  }
 
   return (
     <div className='row' style={{ marginLeft: "0px", marginRight: "0px" }}>
@@ -16,6 +37,8 @@ const StudentDashBoardMenuData = (props) => {
           <button
             className='btn btn-primary btn-block attendanceStatus'
             style={styles}
+            onClick={(e) => onclick(e)}
+            name='Attendance'
           >
             Attendance Status
           </button>
@@ -24,6 +47,8 @@ const StudentDashBoardMenuData = (props) => {
           <button
             className='btn btn-primary btn-block assignmentDetails'
             style={styles}
+            onClick={(e) => onclick(e)}
+            name='Assignments'
           >
             Assignment Details
           </button>
@@ -94,7 +119,7 @@ const StudentDashBoardMenuData = (props) => {
         </div>
       </div>
 
-      <AttendanceStatus styles={styles} />
+      {renderSwitch(menuData)}
     </div>
   );
 };

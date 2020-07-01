@@ -315,6 +315,7 @@ const AttendanceStatus = (props) => {
 AttendanceStatus.propTypes = {
   removeAlert: PropTypes.func.isRequired,
   setAlert: PropTypes.func.isRequired,
+  styles: PropTypes.object.isRequired,
 };
 
 export default connect(null, { removeAlert, setAlert })(AttendanceStatus);
