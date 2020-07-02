@@ -53,6 +53,13 @@ app.use("/api/students/attendanceStatus", attendanceStatusRouter);
 const assignmentsRouter = require("./routes/api/students/assignments");
 app.use("/api/students/assignments", assignmentsRouter);
 
+// Pdfs of assignment for students
+const pdfsRouter = require("./routes/api/students/getPdf");
+app.use(
+  "/api/students/pdfs",
+  express.static("./routes/api/students/pdfs/test.pdf")
+);
+
 //app.get("/", (req, res) => res.send("API running"));
 
 app.listen(PORT, () => console.log(`Server started at ${PORT}`));

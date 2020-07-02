@@ -4,6 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { MDBTable, MDBTableBody, MDBTableHead } from "mdbreact";
 import { assignmentsAPI } from "../../../studentBackendAPI";
 import PropTypes from "prop-types";
+import { setAlert, removeAlert } from "../../../actions/alert";
+import Alert from "../Landing/Alert";
 
 const Assignments = (props) => {
   const [tableData, setTableData] = useState({
@@ -22,27 +24,38 @@ const Assignments = (props) => {
 
       if (returnObj.success) {
         let rows = [];
-        returnObj.data.forEach(function (rowData, index) {
-          rows.push({
-            Subject: rowData.subject,
-            Assignment: rowData.name,
-            Brief: rowData.brief,
-            Document: rowData.document,
-            Deadline: new Date(rowData.deadline).toLocaleDateString("en-GB"),
-          });
-        });
 
-        setTableData({
-          ...tableData,
-          tableCols: [
-            { label: "Subject", field: "Subject" },
-            { label: "Assignment", field: "Assignment" },
-            { label: "Brief", field: "Brief" },
-            { label: "Document", field: "Document" },
-            { label: "Deadline", field: "Deadline" },
-          ],
-          tableRows: rows,
-        });
+        if (returnObj.data.length == 0) {
+          props.removeAlert();
+          props.setAlert("No assignments alloted", "danger");
+        } else {
+          props.removeAlert();
+          returnObj.data.forEach(function (rowData, index) {
+            rows.push({
+              Subject: rowData.subject,
+              Assignment: rowData.name,
+              Brief: rowData.brief,
+              Document: (
+                <a href='http://localhost:5000/api/students/pdfs'>
+                  {rowData.document}
+                </a>
+              ),
+              Deadline: new Date(rowData.deadline).toLocaleDateString("en-GB"),
+            });
+          });
+
+          setTableData({
+            ...tableData,
+            tableCols: [
+              { label: "Subject", field: "Subject" },
+              { label: "Assignment", field: "Assignment" },
+              { label: "Brief", field: "Brief" },
+              { label: "Document", field: "Document" },
+              { label: "Deadline", field: "Deadline" },
+            ],
+            tableRows: rows,
+          });
+        }
       }
     };
 
@@ -63,7 +76,7 @@ const Assignments = (props) => {
           marginBottom: "5px",
         }}
       />
-
+      <Alert />
       <div>
         <MDBTable responsive>
           <MDBTableHead columns={tableData.tableCols} />
@@ -77,6 +90,8 @@ const Assignments = (props) => {
 Assignments.propTypes = {
   std: PropTypes.number.isRequired,
   section: PropTypes.string.isRequired,
+  removeAlert: PropTypes.func.isRequired,
+  setAlert: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -84,4 +99,4 @@ const mapStateToProps = (state) => ({
   section: state.studentAuth.section,
 });
 
-export default connect(mapStateToProps, {})(Assignments);
+export default connect(mapStateToProps, { removeAlert, setAlert })(Assignments);
