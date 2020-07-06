@@ -1,33 +1,32 @@
 import axios from "axios";
 import {
-  STUDENT_AUTH_SUCCESS,
-  STUDENT_AUTH_FAIL,
+  LIBRARY_AUTH_SUCCESS,
+  LIBRARY_AUTH_FAIL,
   SET_LOGIN_TYPE,
 } from "../types";
 //Using setAlert action
 import { setAlert, removeAlert } from "../alert";
 import setAuthToken from "../../utils/setAuthToken";
-import { setLoginType } from "../../actions/setLoginType";
+import { setLoginType } from "../setLoginType";
 
 // Authenctication
-export const studentAuth = (
+export const libraryAuth = (
   schoolId = null,
   username = null,
   password = null,
   loginType = null
 ) => async (dispatch) => {
-  const endPoint = "http://localhost:5000/api/students/authentication";
+  const endPoint = "http://localhost:5000/api/library/authentication";
 
   // Just send back the jwt for verification. This will be in header.
   if (localStorage.getItem("token")) {
     setAuthToken(localStorage.token);
 
     try {
-      console.log("Calling student auth api");
       const res = await axios.get(endPoint);
-      console.log("before dispatch");
+
       dispatch({
-        type: STUDENT_AUTH_SUCCESS,
+        type: LIBRARY_AUTH_SUCCESS,
         payload: res.data,
       });
 
@@ -40,11 +39,10 @@ export const studentAuth = (
       dispatch(removeAlert());
 
       dispatch({
-        type: STUDENT_AUTH_FAIL,
+        type: LIBRARY_AUTH_FAIL,
       });
     }
   } else {
-    console.log("NO jwt inside");
     // If no JWT present, then manually entered username and password must be sent to server
     try {
       const body = JSON.stringify({
@@ -62,7 +60,7 @@ export const studentAuth = (
       dispatch(removeAlert());
 
       dispatch({
-        type: STUDENT_AUTH_SUCCESS,
+        type: LIBRARY_AUTH_SUCCESS,
         payload: res.data,
       });
 
@@ -79,7 +77,7 @@ export const studentAuth = (
         // dispatch an alert action for each msg
         errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
         dispatch({
-          type: STUDENT_AUTH_FAIL,
+          type: LIBRARY_AUTH_FAIL,
         });
       }
     }

@@ -54,11 +54,14 @@ const assignmentsRouter = require("./routes/api/students/assignments");
 app.use("/api/students/assignments", assignmentsRouter);
 
 // Pdfs of assignment for students
-const pdfsRouter = require("./routes/api/students/getPdf");
 app.use(
   "/api/students/pdfs",
   express.static("./routes/api/students/pdfs/test.pdf")
 );
+
+// Library authentication of a school
+const libraryAuthRouter = require("./routes/api/library/authentication");
+app.use("/api/library/authentication", libraryAuthRouter);
 
 //app.get("/", (req, res) => res.send("API running"));
 

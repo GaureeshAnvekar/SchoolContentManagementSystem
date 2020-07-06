@@ -27,7 +27,7 @@ export const attendanceAPI = async (attendanceType = null) => {
 export const assignmentsAPI = async (requestBody = null) => {
   const endPoint = "http://localhost:5000/api/students/assignments";
 
-  //setAuthToken(localStorage.token);
+  setAuthToken(localStorage.token);
 
   try {
     const body = JSON.stringify(requestBody);

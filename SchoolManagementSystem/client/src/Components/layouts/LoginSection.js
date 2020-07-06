@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Alert from "./Landing/Alert";
 import { studentAuth } from "../../actions/Student/studentAuth";
+import { libraryAuth } from "../../actions/Library/libraryAuth";
 
 const LoginSection = (props) => {
   const [formData, setFormData] = useState({
@@ -26,6 +27,8 @@ const LoginSection = (props) => {
       //Dispatch student auth action
       props.studentAuth(props.schoolInfo.id, username, password, loginType);
       //console.log("login button " + props.studentIsAuthenticated);
+    } else if (loginType == "library") {
+      props.libraryAuth(props.schoolInfo.id, username, password, loginType);
     }
     // Dispatch auth action
   };
@@ -185,6 +188,7 @@ const LoginSection = (props) => {
 
 LoginSection.propTypes = {
   studentAuth: PropTypes.func.isRequired,
+  libraryAuth: PropTypes.func.isRequired,
 };
 
-export default connect(null, { studentAuth })(LoginSection);
+export default connect(null, { studentAuth, libraryAuth })(LoginSection);

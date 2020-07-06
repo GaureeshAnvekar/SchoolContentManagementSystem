@@ -4,6 +4,7 @@ import LoginSection from "./Components/layouts/LoginSection";
 import Home from "./Components/layouts/Landing/Home";
 import CreateAccount from "./Components/layouts/Landing/CreateAccount";
 import DashBoard from "./Components/layouts/SchoolMainPage/DashBoard";
+import LibraryDashBoard from "./Components/layouts/LibraryPage/LibraryDashBoard";
 import MainPage from "./Components/layouts/SchoolMainPage/MainPage";
 import AttendanceStatus from "./Components/layouts/StudentPage/AttendanceStatus";
 import PrivateRoute from "./Components/Routing/PrivateRoute";
@@ -143,6 +144,13 @@ const App = (props) => {
           schoolInfo={props.schoolInfo}
           templateInfo={props.templateInfo}
           component={DashBoard}
+        />
+        <PrivateRoute
+          path='/libraryDashBoard'
+          exact
+          schoolInfo={props.schoolInfo}
+          templateInfo={props.templateInfo}
+          component={LibraryDashBoard}
         />
 
         <Route

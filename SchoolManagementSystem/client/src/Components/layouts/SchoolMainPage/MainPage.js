@@ -17,12 +17,12 @@ const MainPage = (props) => {
     }
   }, []);
 
-  if (props.loginType !== null) {
+  if (props.loginType == "student") {
     return <Redirect to='./dashBoard' />;
+  } else if (props.loginType == "library") {
+    return <Redirect to='./libraryDashBoard' />;
   }
 
-  console.log("inside main ");
-  console.log(JSON.stringify(props));
   return (
     <div
       style={{
@@ -32,7 +32,7 @@ const MainPage = (props) => {
         padding: "0px",
       }}
     >
-      <SchoolHeader />
+      <SchoolHeader templateInfo={props.templateInfo} />
       <LoginSection
         schoolInfo={props.schoolInfo}
         templateInfo={props.templateInfo}
