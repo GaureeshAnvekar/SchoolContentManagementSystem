@@ -3,7 +3,7 @@ import SchoolHeader from "../SchoolHeader";
 import StudentDashBoardType from "../StudentPage/StudentDashBoardType";
 import StudentDashBoardMenuDataContainer from "../StudentPage/StudentDashBoardMenuDataContainer";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import DashBoardMenu from "../DashBoardMenu";
 
 const Dashboard = (props) => {
   return (
@@ -24,11 +24,7 @@ const Dashboard = (props) => {
 };
 
 Dashboard.propTypes = {
-  loginType: PropTypes.string.isRequired,
+  templateInfo: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  loginType: state.setLoginType.loginType,
-});
-
-export default connect(mapStateToProps, {})(Dashboard);
+export default DashBoardMenu;

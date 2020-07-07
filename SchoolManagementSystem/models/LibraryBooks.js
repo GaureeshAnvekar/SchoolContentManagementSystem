@@ -6,7 +6,7 @@ const LibraryBooksSchema = new mongoose.Schema({
     ref: "schools",
   },
   bookId: {
-    type: Number,
+    type: String,
   },
   title: {
     type: String,

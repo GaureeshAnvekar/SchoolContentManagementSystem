@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import SchoolHeader from "../SchoolHeader";
+import LibraryDashBoardMenuDataContainer from "./LibraryDashBoardMenuDataContainer";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
@@ -15,16 +16,13 @@ const LibraryDashboard = (props) => {
       }}
     >
       <SchoolHeader templateInfo={props.templateInfo} />
+      <LibraryDashBoardMenuDataContainer templateInfo={props.templateInfo} />
     </div>
   );
 };
 
 LibraryDashboard.propTypes = {
-  loginType: PropTypes.string.isRequired,
+  templateInfo: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  loginType: state.setLoginType.loginType,
-});
-
-export default connect(mapStateToProps, {})(LibraryDashboard);
+export default LibraryDashboard;

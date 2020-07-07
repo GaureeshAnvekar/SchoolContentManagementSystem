@@ -150,7 +150,6 @@ const AttendanceStatus = (props) => {
               name='type'
               value='monthly'
               onChange={(e) => onChangeRadio(e)}
-              required
             />
             <label>
               1.) For month wise attendance status, please select a month and

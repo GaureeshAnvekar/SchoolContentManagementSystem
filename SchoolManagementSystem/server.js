@@ -63,6 +63,10 @@ app.use(
 const libraryAuthRouter = require("./routes/api/library/authentication");
 app.use("/api/library/authentication", libraryAuthRouter);
 
+// Upload a new book for a school library
+const uploadBookRouter = require("./routes/api/library/uploadBook");
+app.use("/api/library/uploadBook", uploadBookRouter);
+
 //app.get("/", (req, res) => res.send("API running"));
 
 app.listen(PORT, () => console.log(`Server started at ${PORT}`));
