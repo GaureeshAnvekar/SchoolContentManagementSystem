@@ -30,7 +30,7 @@ const EnterNewBook = (props) => {
     console.log("bookdata ");
     console.log(bookData);
     try {
-      let data = await uploadBookAPI(bookData);
+      await uploadBookAPI(bookData);
       props.removeAlert();
       props.setAlert("Book uploaded successfully", "success");
     } catch (err) {
@@ -41,52 +41,7 @@ const EnterNewBook = (props) => {
     }
   };
   useEffect(() => {
-    // Make a request to backend for attendance status
-    /*
-    const apiCall = async () => {
-      var returnObj = await assignmentsAPI({
-        std: props.std,
-        section: props.section,
-      });
-
-      if (returnObj.success) {
-        let rows = [];
-
-        if (returnObj.data.length == 0) {
-          props.removeAlert();
-          props.setAlert("No assignments alloted", "danger");
-        } else {
-          props.removeAlert();
-          returnObj.data.forEach(function (rowData, index) {
-            rows.push({
-              Subject: rowData.subject,
-              Assignment: rowData.name,
-              Brief: rowData.brief,
-              Document: (
-                <a href='http://localhost:5000/api/students/pdfs'>
-                  {rowData.document}
-                </a>
-              ),
-              Deadline: <div />,
-            });
-          });
-
-          setTableData({
-            ...tableData,
-            tableCols: [
-              { label: "Subject", field: "Subject" },
-              { label: "Assignment", field: "Assignment" },
-              { label: "Brief", field: "Brief" },
-              { label: "Document", field: "Document" },
-              { label: "Deadline", field: "Deadline" },
-            ],
-            tableRows: rows,
-          });
-        }
-      }
-    };
-
-    apiCall(); */
+    props.removeAlert();
   }, []);
 
   return (
@@ -118,6 +73,7 @@ const EnterNewBook = (props) => {
                   name='bookId'
                   form='bookData'
                   onChange={(e) => onChange(e)}
+                  required
                 />
               </td>
             </tr>
@@ -132,6 +88,7 @@ const EnterNewBook = (props) => {
                   name='title'
                   form='bookData'
                   onChange={(e) => onChange(e)}
+                  required
                 />
               </td>
             </tr>
@@ -228,9 +185,8 @@ const EnterNewBook = (props) => {
           Upload Book
         </button>
       </div>
-      <br />
-
       <Alert />
+      <br />
     </div>
   );
 };

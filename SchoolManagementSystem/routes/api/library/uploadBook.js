@@ -41,6 +41,15 @@ router.post(
 
       let schoolId = res.locals.decoded.schoolId;
 
+      // See if book Id exists
+      let book = await LibraryBooks.findOne({ schoolId, bookId });
+
+      if (book) {
+        return res
+          .status(400)
+          .json({ errors: [{ msg: "Book Id already exists" }] });
+      }
+
       libraryBooks = new LibraryBooks({
         schoolId: new ObjectID(schoolId),
         bookId: bookId,

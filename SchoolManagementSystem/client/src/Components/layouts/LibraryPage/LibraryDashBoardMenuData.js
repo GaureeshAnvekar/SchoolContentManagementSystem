@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import EnterNewBook from "./EnterNewBook";
+import DeleteBook from "./DeleteBook";
 
 const LibraryDashBoardMenuData = (props) => {
   const [menuData, setMenuData] = useState(1);
@@ -11,9 +12,9 @@ const LibraryDashBoardMenuData = (props) => {
   };
 
   const onclick = (e) => {
-    if (e.target.name == "Attendance") {
+    if (e.target.name == "Upload") {
       setMenuData(1);
-    } else if (e.target.name == "Assignments") {
+    } else if (e.target.name == "Delete") {
       setMenuData(2);
     }
   };
@@ -23,7 +24,7 @@ const LibraryDashBoardMenuData = (props) => {
       case 1:
         return <EnterNewBook styles={styles} />;
       case 2:
-        return null;
+        return <DeleteBook styles={styles} />;
     }
   }
 
@@ -35,7 +36,7 @@ const LibraryDashBoardMenuData = (props) => {
             className='btn btn-primary btn-block attendanceStatus'
             style={styles}
             onClick={(e) => onclick(e)}
-            name='Attendance'
+            name='Upload'
           >
             Upload New Book
           </button>
@@ -45,7 +46,7 @@ const LibraryDashBoardMenuData = (props) => {
             className='btn btn-primary btn-block assignmentDetails'
             style={styles}
             onClick={(e) => onclick(e)}
-            name='Assignments'
+            name='Delete'
           >
             Delete Book
           </button>
@@ -54,6 +55,7 @@ const LibraryDashBoardMenuData = (props) => {
           <button
             className='btn btn-primary btn-block parentDetails'
             style={styles}
+            name='Issue'
           >
             Issue Book
           </button>
@@ -62,6 +64,7 @@ const LibraryDashBoardMenuData = (props) => {
           <button
             className='btn btn-primary btn-block feesDetails'
             style={styles}
+            name='Receive'
           >
             Receive Book
           </button>
@@ -70,6 +73,7 @@ const LibraryDashBoardMenuData = (props) => {
           <button
             className='btn btn-primary btn-block resultDetails'
             style={styles}
+            name='Search books'
           >
             Search Book
           </button>
@@ -78,6 +82,7 @@ const LibraryDashBoardMenuData = (props) => {
           <button
             className='btn btn-primary btn-block schoolEvents'
             style={styles}
+            name='Search borrowers'
           >
             Search Borrowers
           </button>
