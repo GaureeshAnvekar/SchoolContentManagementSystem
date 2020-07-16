@@ -6,10 +6,10 @@ const LibraryIssuedBooksSchema = new mongoose.Schema({
     ref: "schools",
   },
   regId: {
-    type: Number,
+    type: String,
   },
   bookId: {
-    type: Number,
+    type: String,
   },
   loanDate: {
     type: Date,

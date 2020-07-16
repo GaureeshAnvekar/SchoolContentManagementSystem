@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import EnterNewBook from "./EnterNewBook";
 import DeleteBook from "./DeleteBook";
+import IssueBook from "./IssueBook";
 
 const LibraryDashBoardMenuData = (props) => {
   const [menuData, setMenuData] = useState(1);
@@ -16,6 +17,8 @@ const LibraryDashBoardMenuData = (props) => {
       setMenuData(1);
     } else if (e.target.name == "Delete") {
       setMenuData(2);
+    } else if (e.target.name == "Issue") {
+      setMenuData(3);
     }
   };
 
@@ -25,6 +28,8 @@ const LibraryDashBoardMenuData = (props) => {
         return <EnterNewBook styles={styles} />;
       case 2:
         return <DeleteBook styles={styles} />;
+      case 3:
+        return <IssueBook styles={styles} />;
     }
   }
 
@@ -55,6 +60,7 @@ const LibraryDashBoardMenuData = (props) => {
           <button
             className='btn btn-primary btn-block parentDetails'
             style={styles}
+            onClick={(e) => onclick(e)}
             name='Issue'
           >
             Issue Book

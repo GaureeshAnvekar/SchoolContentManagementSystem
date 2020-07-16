@@ -1,5 +1,4 @@
 const express = require("express");
-const bcrypt = require("bcryptjs");
 const router = express.Router();
 const { check, validationResult } = require("express-validator/check");
 const ObjectID = require("mongodb").ObjectID;

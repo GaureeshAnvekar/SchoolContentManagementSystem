@@ -134,6 +134,15 @@ const EnterNewBook = (props) => {
                   name='mrp'
                   form='bookData'
                   required
+                  onKeyDown={(e) => {
+                    console.log(e.keyCode);
+                    if (e.keyCode === 8 || e.keyCode === 46) {
+                      return true;
+                    }
+                    if (isNaN(Number(e.key))) {
+                      return e.preventDefault();
+                    }
+                  }}
                   onChange={(e) => onChange(e)}
                 />
               </td>
@@ -150,6 +159,15 @@ const EnterNewBook = (props) => {
                   name='cost'
                   required
                   form='bookData'
+                  onKeyDown={(e) => {
+                    console.log(e.keyCode);
+                    if (e.keyCode === 8 || e.keyCode === 46) {
+                      return true;
+                    }
+                    if (isNaN(Number(e.key))) {
+                      return e.preventDefault();
+                    }
+                  }}
                   onChange={(e) => onChange(e)}
                 />
               </td>
@@ -166,6 +184,15 @@ const EnterNewBook = (props) => {
                   name='yearOfPurchase'
                   form='bookData'
                   required
+                  onKeyDown={(e) => {
+                    console.log(e.keyCode);
+                    if (e.keyCode === 8 || e.keyCode === 46) {
+                      return true;
+                    }
+                    if (isNaN(Number(e.key))) {
+                      return e.preventDefault();
+                    }
+                  }}
                   onChange={(e) => onChange(e)}
                 />
               </td>

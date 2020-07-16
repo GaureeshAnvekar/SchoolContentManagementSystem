@@ -71,6 +71,10 @@ app.use("/api/library/uploadBook", uploadBookRouter);
 const deleteBookRouter = require("./routes/api/library/deleteBook");
 app.use("/api/library/deleteBook", deleteBookRouter);
 
+// Issue a book for a school library
+const issueBookRouter = require("./routes/api/library/issueBook");
+app.use("/api/library/issueBook", issueBookRouter);
+
 //app.get("/", (req, res) => res.send("API running"));
 
 app.listen(PORT, () => console.log(`Server started at ${PORT}`));

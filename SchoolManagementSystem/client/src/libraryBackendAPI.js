@@ -44,3 +44,25 @@ export const deleteBookAPI = async (bookId = null) => {
     throw (new Error().errors = errors);
   }
 };
+
+export const issueBookAPI = async (issueData = null) => {
+  const endPoint = "http://localhost:5000/api/library/issueBook";
+
+  setAuthToken(localStorage.token);
+
+  try {
+    const body = JSON.stringify(issueData);
+
+    const res = await axios.post(endPoint, body, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    return 1;
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    throw (new Error().errors = errors);
+  }
+};
