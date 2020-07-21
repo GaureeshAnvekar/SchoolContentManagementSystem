@@ -93,7 +93,8 @@ const IssueBook = (props) => {
                   onChange={(date) => {
                     let dueDate = new Date(date);
                     dueDate.setDate(
-                      dueDate.getDate() + parseInt(issueData.dueDays)
+                      dueDate.getDate() +
+                        (issueData.dueDays ? parseInt(issueData.dueDays) : 0)
                     );
 
                     setIssueData({
@@ -114,13 +115,18 @@ const IssueBook = (props) => {
                   type='number'
                   className='form-control'
                   min='0'
+                  placeholder='0'
                   name='dueDays'
                   form='issueData'
                   required
                   style={{ width: "193px" }}
                   onKeyDown={(e) => {
                     console.log(e.keyCode);
-                    if (e.keyCode === 8 || e.keyCode === 46) {
+                    if (
+                      e.keyCode === 8 ||
+                      e.keyCode === 46 ||
+                      e.keyCode === 9
+                    ) {
                       return true;
                     }
                     if (isNaN(Number(e.key))) {
@@ -145,6 +151,7 @@ const IssueBook = (props) => {
                       dueDate: dueDate,
                     });
                   }}
+                  value={issueData.dueDays}
                 />
               </td>
             </tr>

@@ -66,3 +66,53 @@ export const issueBookAPI = async (issueData = null) => {
     throw (new Error().errors = errors);
   }
 };
+
+export const receiveBookAPI = async (receiveData = null) => {
+  const endPoint = "http://localhost:5000/api/library/receiveBook";
+
+  setAuthToken(localStorage.token);
+
+  let data = {
+    regId: receiveData.regId,
+    bookId: receiveData.bookId,
+    currBookDue: receiveData.currBookDue,
+    returnDate: receiveData.returnDate,
+  };
+  try {
+    const body = JSON.stringify(data);
+
+    const res = await axios.post(endPoint, body, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    return 1;
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    throw (new Error().errors = errors);
+  }
+};
+
+export const calculateDueAPI = async (bookId = null) => {
+  const endPoint = "http://localhost:5000/api/library/calculateDue";
+
+  setAuthToken(localStorage.token);
+
+  try {
+    const body = JSON.stringify(bookId);
+
+    const res = await axios.post(endPoint, body, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    return res.data.bookDue;
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    throw (new Error().errors = errors);
+  }
+};
