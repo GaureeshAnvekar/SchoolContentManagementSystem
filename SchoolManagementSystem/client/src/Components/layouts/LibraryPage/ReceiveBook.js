@@ -18,22 +18,41 @@ const ReceiveBook = (props) => {
     totalDue: 0,
   });
 
-  const onBookIdChange = (e) => {
-    props.removeAlert();
+  var receivedOnce = false;
+
+  const onClearClick = (e) => {
+    e.preventDefault();
     setReceiveData({
       ...receiveData,
-      bookId: e.target.value,
+      bookId: "",
+      regId: "",
+      perDayDueCharge: "",
+      currBookDue: 0,
+      totalDue: 0,
     });
 
+    document.getElementById("regId").disabled = true;
+    document.getElementById("perDayDueCharge").disabled = true;
+
+    props.removeAlert();
+  };
+
+  const onBookIdChange = (e) => {
+    props.removeAlert();
     if (e.target.value) {
       document.getElementById("regId").disabled = false;
       document.getElementById("perDayDueCharge").disabled = false;
+      setReceiveData({
+        ...receiveData,
+        bookId: e.target.value,
+      });
     } else {
       setReceiveData({
         ...receiveData,
         regId: "",
         perDayDueCharge: "",
         currBookDue: 0,
+        bookId: "",
       });
       document.getElementById("regId").disabled = true;
       document.getElementById("perDayDueCharge").disabled = true;
@@ -109,6 +128,8 @@ const ReceiveBook = (props) => {
           ...receiveData,
           currBookDue: 0,
         });
+
+        receivedOnce = true;
       } catch (err) {
         props.removeAlert();
 
@@ -150,8 +171,14 @@ const ReceiveBook = (props) => {
                   name='bookId'
                   form='receiveData'
                   onChange={(e) => onBookIdChange(e)}
+                  onBlur={(e) => {
+                    if (receiveData.perDayDueCharge) {
+                      onBlurDue(e);
+                    }
+                  }}
                   required
                   style={{ width: "193px" }}
+                  value={receiveData.bookId}
                 />
               </td>
             </tr>
@@ -273,6 +300,20 @@ const ReceiveBook = (props) => {
                   value={receiveData.totalDue}
                 />
               </td>
+            </tr>
+            <tr>
+              <td>
+                <button
+                  type='button'
+                  className='btn btn-primary btn-sm'
+                  id='tillDateAttendance'
+                  style={props.styles}
+                  onClick={(e) => onClearClick(e)}
+                >
+                  Clear
+                </button>
+              </td>
+              <td></td>
             </tr>
           </MDBTableBody>
         </MDBTable>

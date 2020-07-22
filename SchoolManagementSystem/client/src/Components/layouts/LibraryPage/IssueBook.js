@@ -18,6 +18,16 @@ const IssueBook = (props) => {
     type: null,
   });
 
+  const onClearClick = (e) => {
+    e.preventDefault();
+    setIssueData({
+      ...issueData,
+      bookId: "",
+      regId: "",
+    });
+
+    props.removeAlert();
+  };
   const onChange = (e) => {
     setIssueData({
       ...issueData,
@@ -74,6 +84,7 @@ const IssueBook = (props) => {
                   onChange={(e) => onChange(e)}
                   style={{ width: "193px" }}
                   required
+                  value={issueData.bookId}
                 />
               </td>
             </tr>
@@ -138,7 +149,7 @@ const IssueBook = (props) => {
                     if (e.target.value) {
                       increment = parseInt(e.target.value);
                     } else {
-                      increment = 0;
+                      increment = "";
                     }
 
                     let dueDate = new Date(issueData.loanDate);
@@ -184,6 +195,7 @@ const IssueBook = (props) => {
                   onChange={(e) => onChange(e)}
                   style={{ width: "193px" }}
                   required
+                  value={issueData.regId}
                 />
               </td>
             </tr>
@@ -216,6 +228,20 @@ const IssueBook = (props) => {
                   <b>Staff</b>
                 </label>
               </td>
+            </tr>
+            <tr>
+              <td>
+                <button
+                  type='button'
+                  className='btn btn-primary btn-sm'
+                  id='tillDateAttendance'
+                  style={props.styles}
+                  onClick={(e) => onClearClick(e)}
+                >
+                  Clear
+                </button>
+              </td>
+              <td></td>
             </tr>
             <tr></tr>
           </MDBTableBody>
