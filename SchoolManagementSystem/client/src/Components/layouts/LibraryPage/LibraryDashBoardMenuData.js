@@ -4,6 +4,7 @@ import EnterNewBook from "./EnterNewBook";
 import DeleteBook from "./DeleteBook";
 import IssueBook from "./IssueBook";
 import ReceiveBook from "./ReceiveBook";
+import SearchBooks from "./SearchBooks";
 
 const LibraryDashBoardMenuData = (props) => {
   const [menuData, setMenuData] = useState(1);
@@ -22,6 +23,8 @@ const LibraryDashBoardMenuData = (props) => {
       setMenuData(3);
     } else if (e.target.name == "Receive") {
       setMenuData(4);
+    } else if (e.target.name == "SearchBooks") {
+      setMenuData(5);
     }
   };
 
@@ -35,6 +38,8 @@ const LibraryDashBoardMenuData = (props) => {
         return <IssueBook styles={styles} />;
       case 4:
         return <ReceiveBook styles={styles} />;
+      case 5:
+        return <SearchBooks styles={styles} />;
     }
   }
 
@@ -85,7 +90,8 @@ const LibraryDashBoardMenuData = (props) => {
           <button
             className='btn btn-primary btn-block resultDetails'
             style={styles}
-            name='Search books'
+            onClick={(e) => onclick(e)}
+            name='SearchBooks'
           >
             Search Book
           </button>
@@ -94,7 +100,7 @@ const LibraryDashBoardMenuData = (props) => {
           <button
             className='btn btn-primary btn-block schoolEvents'
             style={styles}
-            name='Search borrowers'
+            name='SearchBorrowers'
           >
             Search Borrowers
           </button>

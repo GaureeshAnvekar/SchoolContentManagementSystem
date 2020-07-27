@@ -17,6 +17,8 @@ body {
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
   --success-color: #28a745;
+  --table-link-color: rgb(0, 0, 0);
+  --table-link-image: rgb(0, 0, 0);
 }
 
 #detailsBox {
@@ -237,4 +239,11 @@ button /*,input*/ {
   border-radius: 10px;
   border: 2px solid;
   border-color: rgb(229, 230, 233);
+}
+
+.page-item.active .page-link {
+  z-index: 3;
+  color: #fff;
+  background-color: var(--table-link-color);
+  background-image: var(--table-link-image);
 }

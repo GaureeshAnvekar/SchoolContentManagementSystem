@@ -17,14 +17,17 @@ const LibraryBooksSchema = new mongoose.Schema({
   publisher: {
     type: String,
   },
-  MRP: {
+  mrp: {
     type: Number,
   },
-  Cost: {
+  cost: {
     type: Number,
   },
-  YearOfPurchase: {
+  yearOfPurchase: {
     type: Number,
+  },
+  isAvailable: {
+    type: Boolean,
   },
 });
 

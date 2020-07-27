@@ -116,3 +116,23 @@ export const calculateDueAPI = async (bookId = null) => {
     throw (new Error().errors = errors);
   }
 };
+
+export const searchBooksAPI = async () => {
+  const endPoint = "http://localhost:5000/api/library/searchBooks";
+
+  setAuthToken(localStorage.token);
+
+  try {
+    const res = await axios.get(endPoint, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    return { success: 1, data: res.data };
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    throw (new Error().errors = errors);
+  }
+};
