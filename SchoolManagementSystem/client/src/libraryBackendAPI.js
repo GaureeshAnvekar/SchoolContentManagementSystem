@@ -136,3 +136,23 @@ export const searchBooksAPI = async () => {
     throw (new Error().errors = errors);
   }
 };
+
+export const searchBorrowersAPI = async () => {
+  const endPoint = "http://localhost:5000/api/library/searchBorrowers";
+
+  setAuthToken(localStorage.token);
+
+  try {
+    const res = await axios.get(endPoint, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    return { success: 1, data: res.data };
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    throw (new Error().errors = errors);
+  }
+};

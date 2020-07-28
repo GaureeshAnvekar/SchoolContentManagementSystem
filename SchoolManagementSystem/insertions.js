@@ -4,6 +4,8 @@ connectDB();
 const Attendance = require("./models/Attendance");
 const StandardSubject = require("./models/StandardSubject");
 const Assignments = require("./models/Assignments");
+const LibraryIssuedBooks = require("./models/LibraryIssuedBooks");
+const ObjectID = require("mongodb").ObjectID;
 /*
 attendance = new Attendance({
   schoolId: "5ecec70e8291d203f9a79a8b",
@@ -22,15 +24,13 @@ standardSubject = new StandardSubject({
   },
 });*/
 
-assignments = new Assignments({
+libraryIssuedBooks = new LibraryIssuedBooks({
   schoolId: "5ecec70e8291d203f9a79a8b",
-  name: "Trigonometry",
-  subject: "Math",
-  std: 5,
-  section: "A",
-  brief: "Find x",
-  document: "questions.pdf",
-  deadline: Date.now(),
+  bookId: "Trigonometry",
+  loanDate: new Date(),
+  dueDate: new Date(),
+  regId: new ObjectID("5ecebb4da5b981f4fc5ebbb1"),
+  type: "student",
 });
 
-assignments.save();
+libraryIssuedBooks.save();

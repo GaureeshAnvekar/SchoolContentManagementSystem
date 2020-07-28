@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { MDBDataTable } from "mdbreact";
-import { searchBooksAPI } from "../../../libraryBackendAPI";
+import { searchBorrowersAPI } from "../../../libraryBackendAPI";
 import PropTypes from "prop-types";
 import { setAlert, removeAlert } from "../../../actions/alert";
 import Alert from "../Landing/Alert";
 
-const SearchBooks = (props) => {
+const SearchBorrowers = (props) => {
   const [tableData, setTableData] = useState({
     tableCols: [],
     tableRows: [],
@@ -19,30 +19,34 @@ const SearchBooks = (props) => {
   bodyStyles.setProperty("--table-link-image", props.styles.backgroundImage);
 
   useEffect(() => {
-    // Make a request to backend for all books of library from a school
+    // Make a request to backend for all book borrowers from a school
 
     const apiCall = async () => {
       try {
-        var returnObj = await searchBooksAPI();
+        var returnObj = await searchBorrowersAPI();
 
         if (returnObj.success) {
           let rows = [];
 
           if (returnObj.data.length == 0) {
             props.removeAlert();
-            props.setAlert("No books available", "danger");
+            props.setAlert("No borrowers", "danger");
           } else {
             props.removeAlert();
             returnObj.data.forEach(function (rowData, index) {
               rows.push({
                 BookId: rowData.bookId,
-                Title: rowData.title,
-                Author: rowData.author,
-                Publisher: rowData.publisher,
-                MRP: rowData.mrp,
-                Cost: rowData.cost,
-                YearOfPurchase: rowData.yearOfPurchase,
-                IsAvailable: rowData.isAvailable,
+                LoanDate: new Date(rowData.loanDate).toLocaleDateString(
+                  "en-GB"
+                ),
+                DueDate: new Date(rowData.dueDate).toLocaleDateString("en-GB"),
+                RegId: rowData.regId._id,
+                Type: rowData.type,
+                FirstName: rowData.regId.firstname,
+                LastName: rowData.regId.lastname,
+                RollNo: rowData.regId.rollno,
+                ClassGrade: rowData.regId.classgrade,
+                Section: rowData.regId.section,
               });
             });
 
@@ -50,13 +54,15 @@ const SearchBooks = (props) => {
               ...tableData,
               tableCols: [
                 { label: "BookId", field: "BookId" },
-                { label: "Title", field: "Title" },
-                { label: "Author", field: "Author" },
-                { label: "Publisher", field: "Publisher" },
-                { label: "MRP", field: "MRP" },
-                { label: "Cost", field: "Cost" },
-                { label: "YearOfPurchase", field: "YearOfPurchase" },
-                { label: "IsAvailable", field: "IsAvailable" },
+                { label: "LoanDate", field: "LoanDate" },
+                { label: "DueDate", field: "DueDate" },
+                { label: "RegId", field: "RegId" },
+                { label: "Type", field: "Type" },
+                { label: "FirstName", field: "FirstName" },
+                { label: "LastName", field: "LastName" },
+                { label: "RollNo", field: "RollNo" },
+                { label: "ClassGrade", field: "ClassGrade" },
+                { label: "Section", field: "Section" },
               ],
               tableRows: rows,
             });
@@ -76,7 +82,7 @@ const SearchBooks = (props) => {
   return (
     <div className='col-lg-8 col-md-8 col-sm-8' id='queryResultContainer'>
       <h5 style={{ margin: "0 auto", width: "30%" }}>
-        <b>Search Books</b>
+        <b>Search Borrowers</b>
       </h5>
       <hr
         style={{
@@ -100,9 +106,9 @@ const SearchBooks = (props) => {
   );
 };
 
-SearchBooks.propTypes = {
+SearchBorrowers.propTypes = {
   removeAlert: PropTypes.func.isRequired,
   setAlert: PropTypes.func.isRequired,
 };
 
-export default connect(null, { removeAlert, setAlert })(SearchBooks);
+export default connect(null, { removeAlert, setAlert })(SearchBorrowers);

@@ -87,6 +87,10 @@ app.use("/api/library/receiveBook", receiveBookRouter);
 const searchBooksRouter = require("./routes/api/library/searchBooks");
 app.use("/api/library/searchBooks", searchBooksRouter);
 
+// Search book borrrowers from school
+const searchBorrowersRouter = require("./routes/api/library/searchBorrowers");
+app.use("/api/library/searchBorrowers", searchBorrowersRouter);
+
 //app.get("/", (req, res) => res.send("API running"));
 
 app.listen(PORT, () => console.log(`Server started at ${PORT}`));

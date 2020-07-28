@@ -4,6 +4,8 @@ const ObjectID = require("mongodb").ObjectID;
 connectDB();
 const Attendance = require("./models/Attendance");
 const Assignments = require("./models/Assignments");
+const LibraryIssuedBooks = require("./models/LibraryIssuedBooks");
+const Students = require("./models/Students");
 
 func = async () => {
   let isoDateFrom = new Date(2020, 5, 25).toISOString();
@@ -19,13 +21,10 @@ func = async () => {
     date: { $gte: isoDateFrom, $lte: isoDateTo },
   });*/
 
-  assignments = await Assignments.find({
+  libraryIssuedBooks = await LibraryIssuedBooks.find({
     schoolId: new ObjectID("5ecec70e8291d203f9a79a8b"),
-    std: 5,
-    section: "A",
-  });
-
-  console.log(assignments);
+  }).populate("regId", Students);
+  console.log(libraryIssuedBooks);
 };
 
 func();

@@ -6,7 +6,8 @@ const LibraryIssuedBooksSchema = new mongoose.Schema({
     ref: "schools",
   },
   regId: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "students",
   },
   bookId: {
     type: String,
