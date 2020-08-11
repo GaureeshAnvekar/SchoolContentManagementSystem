@@ -3,7 +3,8 @@ import SchoolHeader from "./Components/layouts/SchoolHeader";
 import LoginSection from "./Components/layouts/LoginSection";
 import Home from "./Components/layouts/Landing/Home";
 import CreateAccount from "./Components/layouts/Landing/CreateAccount";
-import DashBoard from "./Components/layouts/SchoolMainPage/DashBoard";
+//import DashBoard from "./Components/layouts/SchoolMainPage/DashBoard";
+import StudentDashBoard from "./Components/layouts/StudentPage/StudentDashBoard";
 import LibraryDashBoard from "./Components/layouts/LibraryPage/LibraryDashBoard";
 import MainPage from "./Components/layouts/SchoolMainPage/MainPage";
 import AttendanceStatus from "./Components/layouts/StudentPage/AttendanceStatus";
@@ -139,11 +140,11 @@ const App = (props) => {
           )}
         />
         <PrivateRoute
-          path='/dashBoard'
+          path='/studentDashBoard'
           exact
           schoolInfo={props.schoolInfo}
           templateInfo={props.templateInfo}
-          component={DashBoard}
+          component={StudentDashBoard}
         />
         <PrivateRoute
           path='/libraryDashBoard'

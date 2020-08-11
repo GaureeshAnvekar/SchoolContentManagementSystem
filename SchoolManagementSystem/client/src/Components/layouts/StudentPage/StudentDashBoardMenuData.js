@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import AttendanceStatus from "../StudentPage/AttendanceStatus";
 import Assignments from "../StudentPage/Assignments";
-import StudentDashBoardMenuDataContainer from "./StudentDashBoardMenuDataContainer";
+import VirtualLibrary from "../StudentPage/VirtualLibrary";
 
 const StudentDashBoardMenuData = (props) => {
   const [menuData, setMenuData] = useState(1);
@@ -18,6 +18,8 @@ const StudentDashBoardMenuData = (props) => {
       setMenuData(1);
     } else if (e.target.name == "Assignments") {
       setMenuData(2);
+    } else if (e.target.name == "Library") {
+      setMenuData(3);
     }
   };
 
@@ -27,6 +29,8 @@ const StudentDashBoardMenuData = (props) => {
         return <AttendanceStatus styles={styles} />;
       case 2:
         return <Assignments />;
+      case 3:
+        return <VirtualLibrary styles={styles} />;
     }
   }
 
@@ -57,8 +61,10 @@ const StudentDashBoardMenuData = (props) => {
           <button
             className='btn btn-primary btn-block parentDetails'
             style={styles}
+            onClick={(e) => onclick(e)}
+            name='Library'
           >
-            Parent Details
+            Virtual Library
           </button>
         </div>
         <div className='buttonContainer'>

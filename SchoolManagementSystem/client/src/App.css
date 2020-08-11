@@ -247,3 +247,9 @@ button /*,input*/ {
   background-color: var(--table-link-color);
   background-image: var(--table-link-image);
 }
+
+nav a {
+  color: #495057;
+  text-decoration: none;
+  background-color: transparent;
+}

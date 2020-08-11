@@ -18,7 +18,7 @@ const MainPage = (props) => {
 
   if (props.loginType == "student") {
     props.studentAuth();
-    return <Redirect to='./dashBoard' />;
+    return <Redirect to='./studentDashBoard' />;
   } else if (props.loginType == "library") {
     props.libraryAuth();
     return <Redirect to='./libraryDashBoard' />;

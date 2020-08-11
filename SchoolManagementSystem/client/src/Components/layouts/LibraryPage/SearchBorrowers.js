@@ -14,7 +14,7 @@ const SearchBorrowers = (props) => {
   });
 
   var bodyStyles = document.body.style;
-  console.log(props.styles);
+
   bodyStyles.setProperty("--table-link-color", props.styles.backgroundColor);
   bodyStyles.setProperty("--table-link-image", props.styles.backgroundImage);
 
