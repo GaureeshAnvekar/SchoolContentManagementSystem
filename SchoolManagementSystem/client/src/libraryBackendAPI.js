@@ -156,3 +156,65 @@ export const searchBorrowersAPI = async () => {
     throw (new Error().errors = errors);
   }
 };
+
+export const totalBooksCountAPI = async (genre = "") => {
+  const endPoint =
+    "http://localhost:5000/api/library/totalBooksCount?genre=" + genre;
+
+  setAuthToken(localStorage.studenttoken);
+
+  try {
+    const res = await axios.get(endPoint, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    return res.data;
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    throw (new Error().errors = errors);
+  }
+};
+
+export const paginationAPI = async (page = 0, genre = "") => {
+  const endPoint =
+    "http://localhost:5000/api/library/pagination?page=" +
+    page +
+    "&genre=" +
+    genre;
+
+  setAuthToken(localStorage.studenttoken);
+
+  try {
+    const res = await axios.get(endPoint, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    return res.data;
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    throw (new Error().errors = errors);
+  }
+};
+
+export const getQueryBooksAPI = async (query = null) => {
+  const endPoint =
+    "http://localhost:5000/api/library/pagination?query=" + query;
+
+  setAuthToken(localStorage.studenttoken);
+
+  try {
+    const res = await axios.get(endPoint);
+
+    return res.data;
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    throw (new Error().errors = errors);
+  }
+};

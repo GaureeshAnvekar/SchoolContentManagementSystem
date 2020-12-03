@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Easy School</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link
+href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+rel="stylesheet"
+/>
+<link
+href="./LandingStyles.css"
+rel="stylesheet"
+/>
+<!-- :#b5b5b5  #343434-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="./landing.js"></script>
+</head>
+<body style="background-color:rgb(223, 224, 228)">
+
+
+    
+     <header style="background-color:#222222">
+        <section style="text-align: center;width:100%;">
+          <i class="fa fa-university" aria-hidden="true" style="color:white"></i>
+          <h4
+            id='appName'
+            style="text-align:center; color:white; padding:5px;font-family:monoton;"
+            role='heading'
+          >
+         
+         
+            EASY  SCHOOL
+          </h4>
+        </section>
+          
+    </header>
+
+      <div class='d-flex flex-column align-items-center' style="background-color:rgb(223, 224, 228)">
+       <div class='col-lg-6 createAcct'>
+        <form class='form' id='acctDetails'>
+            <div class='form-group'>
+              <div class='form-group input-group'>
+                <div class='input-group-prepend'>
+                  <span class='input-group-text'>
+                    <i class='fa fa-university fa-fw'></i>
+                  </span>
+                </div>
+
+                <input
+                  type='text'
+                  class='input form-control'
+                  placeholder='Enter School Name'
+                  name='schoolName'
+                  value=""
+                  required
+                  id="schoolName"
+                />
+              </div>
+              <div class='form-group input-group'>
+                <div class='input-group-prepend'>
+                  <span class='input-group-text'>
+                    <i class='fa fa-link fa-fw'></i>
+                  </span>
+                </div>
+
+                <input
+                  type='text'
+                  class='input form-control'
+                  placeholder='Enter short school name for url'
+                  name='subdomain'
+                  value=""
+                  required
+                />
+              </div>
+              <div class='form-group input-group'>
+                <div class='input-group-prepend'>
+                  <span class='input-group-text'>
+                    <i class='fa fa-user fa-fw'></i>
+                  </span>
+                </div>
+
+                <input
+                  type='text'
+                  class='form-control'
+                  placeholder='Enter Admin Name'
+                  name='adminName'
+                  value=""
+                  required
+                />
+              </div>
+              <div class='form-group input-group'>
+                <div class='input-group-prepend'>
+                  <span class='input-group-text'>
+                    <i class='fa fa-key fa-fw'></i>
+                  </span>
+                </div>
+                <input
+                  type='password'
+                  class='form-control'
+                  placeholder='Enter Admin Password'
+                  name='adminPassword1'
+                  value=""
+                  required
+                />
+              </div>
+              <div class='form-group input-group'>
+                <div class='input-group-prepend'>
+                  <span class='input-group-text'>
+                    <i class='fa fa-key fa-fw'></i>
+                  </span>
+                </div>
+                <input
+                  type='password'
+                  class='form-control'
+                  placeholder='Confirm Admin Password'
+                  name='adminPassword2'
+                  value=""
+                  required
+                />
+              </div>
+              <div class='form-group input-group'>
+                <div class='input-group-prepend'>
+                  <span class='input-group-text'>
+                    <i class='fa fa-map-marker fa-fw'></i>
+                  </span>
+                </div>
+
+                <input
+                  type='text'
+                  class='form-control'
+                  placeholder='Enter School Address'
+                  name='address'
+                  value=""
+                  required
+                />
+              </div>
+              <div class='form-group input-group'>
+                <div class='input-group-prepend'>
+                  <span class='input-group-text'>
+                    <i class='fa fa-phone fa-fw'></i>
+                  </span>
+                </div>
+
+                <input
+                  type='text'
+                  class='form-control'
+                  placeholder='Enter Contact Number'
+                  name='contact'
+                  value=""
+                  required
+                />
+              </div>
+              <div class='form-group input-group'>
+                <div class='input-group-prepend'>
+                  <span class='input-group-text'>
+                    <i class='fa fa-image fa-fw'></i>
+                  </span>
+                </div>
+                <button id="logoButton" onclick="document.getElementById('getFile').click(); ">Choose a logo</button>
+                <label id="logoSelected" style="margin-left:5px;display:none;"> Logo selected!</label>
+                <input
+                  type='file'
+                  id='getFile'
+                  accept="image/*"
+             
+                  value=""
+                  required
+                  style="display:none"
+                />
+               
+              </div>
+              <label>Select a template:</label>
+              <div class="form-check" >
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                <label class="form-check-label" for="exampleRadios1">
+                 <img width="400px" style="border-radius:10px;border: 4px solid rgb(223, 222, 228);" src="./blue.png"></img>
+                </label>
+                <label class="form-check-label" style="vertical-align:top;">
+                    <a href="http://localhost:5000/bluePreview/" class="preview-anchors" target="_blank">Preview student page</a>
+                </label>
+              </div>
+              <div class="form-check" >
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                <label class="form-check-label" for="exampleRadios1">
+                 <img width="400px" style="border-radius:10px;border: 4px solid rgb(223, 222, 228);" src="./blue.png"></img>
+                </label>
+                <label class="form-check-label" style="vertical-align:top;">
+                    <a href="#">Preview student page</a>
+                </label>
+              </div>
+
+            </div>
+          </form>
+        </div>
+      </div>   
+      
+      <footer id='footer'>&#169 Copyright 2020 EasySchool</footer>
+     
+     
+
+</body>
+</html>

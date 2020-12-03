@@ -14,7 +14,7 @@ const Assignments = (props) => {
   });
 
   useEffect(() => {
-    // Make a request to backend for attendance status
+    // Make a request to backend for assignments
 
     const apiCall = async () => {
       var returnObj = await assignmentsAPI({
@@ -22,7 +22,7 @@ const Assignments = (props) => {
         section: props.section,
       });
 
-      if (returnObj.success) {
+      if (returnObj.success > 0) {
         let rows = [];
 
         if (returnObj.data.length == 0) {
@@ -60,11 +60,15 @@ const Assignments = (props) => {
     };
 
     apiCall();
+
+    return function cleanUp() {
+      props.removeAlert();
+    }
   }, []);
 
   return (
-    <div className='col-lg-8 col-md-8 col-sm-8' id='queryResultContainer'>
-      <h5 style={{ margin: "0 auto", width: "30%" }}>
+    <div >
+      <h5 style={{ margin: "0 auto", width: "30%", textAlign: "center" }}>
         <b>Assignments</b>
       </h5>
       <hr

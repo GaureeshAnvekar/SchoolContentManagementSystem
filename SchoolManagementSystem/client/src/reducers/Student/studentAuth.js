@@ -19,7 +19,7 @@ export default function (state = initialState, action) {
 
   switch (type) {
     case STUDENT_AUTH_SUCCESS:
-      localStorage.setItem("token", payload.jwt);
+      localStorage.setItem("studenttoken", payload.jwt);
       return {
         ...state,
         token: localStorage.token || payload.jwt,
@@ -36,7 +36,7 @@ export default function (state = initialState, action) {
       };
 
     case STUDENT_AUTH_FAIL:
-      localStorage.removeItem("token");
+      localStorage.removeItem("studenttoken");
       return {
         ...state,
         token: null,

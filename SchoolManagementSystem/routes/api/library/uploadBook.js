@@ -3,6 +3,7 @@ const router = express.Router();
 const { check, validationResult } = require("express-validator/check");
 const ObjectID = require("mongodb").ObjectID;
 const authVerify = require("../../../customMiddleware/authVerify");
+const getBookInfoAPI = require("../../../utils/externalAPI");
 
 const LibraryBooks = require("../../../models/LibraryBooks");
 
@@ -17,6 +18,7 @@ router.post(
     check("title", "Title is required").not().isEmpty(),
     check("author", "Author is required").not().isEmpty(),
     check("publisher", "Publisher is required").not().isEmpty(),
+    check("genre", "Genre is required").not().isEmpty(),
     check("mrp", "MRP is required").not().isEmpty(),
     check("cost", "Cost is required").not().isEmpty(),
     check("yearOfPurchase", "Year of Purchase is required").not().isEmpty(),
@@ -33,6 +35,7 @@ router.post(
         title,
         author,
         publisher,
+        genre,
         mrp,
         cost,
         yearOfPurchase,
@@ -49,15 +52,24 @@ router.post(
           .json({ errors: [{ msg: "Book Id already exists" }] });
       }
 
+      //Get more info about the book from google books api
+      const data = await getBookInfoAPI({ title: title, author: author });
+      console.log(data);
       libraryBooks = new LibraryBooks({
         schoolId: new ObjectID(schoolId),
         bookId: bookId,
-        title: title,
-        author: author,
+        title: data ? data.title : title,
+        author: data ? data.authors : [author],
         publisher: publisher,
+        genre: genre,
         mrp: mrp,
         cost: cost,
         yearOfPurchase: yearOfPurchase,
+        averageRating: data ? data.averageRating : null,
+        imageLink: data ? data.imageLinks.thumbnail : null,
+        previewLink: data ? data.previewLink : null,
+        writeRevLink: data ? data.infoLink : null,
+        isAvailable: true,
       });
 
       await libraryBooks.save();

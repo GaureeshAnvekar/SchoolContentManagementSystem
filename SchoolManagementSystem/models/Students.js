@@ -45,6 +45,10 @@ const StudentsSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  booksToNotify: {
+    type: Array,
+    required: false,
+  },
 });
 
 module.exports = Students = mongoose.model("students", StudentsSchema);

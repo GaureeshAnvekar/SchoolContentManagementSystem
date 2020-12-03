@@ -5,6 +5,7 @@ import setSchoolInfo from "./setSchoolInfo";
 import setTemplate from "./setTemplate";
 import setLoginType from "./setLoginType";
 import studentAuth from "./Student/studentAuth";
+import employeeAuth from "./Employee/employeeAuth";
 import libraryAuth from "./Library/libraryAuth";
 import decodeJWT from "./decodeJWT";
 
@@ -14,6 +15,7 @@ export default combineReducers({
   setSchoolInfo,
   setTemplate,
   studentAuth,
+  employeeAuth,
   libraryAuth,
   setLoginType,
   decodeJWT,

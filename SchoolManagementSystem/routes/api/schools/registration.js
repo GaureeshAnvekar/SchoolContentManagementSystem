@@ -5,6 +5,8 @@ const config = require("config");
 const router = express.Router();
 const { check, validationResult } = require("express-validator/check");
 const { body } = require("express-validator");
+const multer = require("multer");
+const upload = multer({dest: __dirname + '/uploads/images'});
 
 const Schools = require("../../../models/Schools");
 
@@ -13,6 +15,7 @@ const Schools = require("../../../models/Schools");
 // @access    Public
 router.post(
   "/",
+  /*
   [
     check("schoolName", "School name is required")
       .not()
@@ -34,7 +37,13 @@ router.post(
       .not()
       .isEmpty()
       .isNumeric(),
+    check("logo", "Please select a logo")
+      .not()
+      .isEmpty(),
     check("template", "Please select a template")
+      .not()
+      .isEmpty(),
+    check("subscriptionPlan", "Please select a subscription plan")
       .not()
       .isEmpty(),
 
@@ -44,13 +53,13 @@ router.post(
       }
       return true;
     })
-  ],
+  ],*/
   async (req, res) => {
-    console.log(req.body.adminName);
+    /*
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
-    }
+    }*/
 
     try {
       // See if school exists
@@ -62,9 +71,12 @@ router.post(
         adminPassword2,
         address,
         contact,
-        template
+        template,
+        subscriptionPlan,
+        subscriptionId
       } = req.body;
-      console.log("this " + adminPassword1);
+      
+      /*
       let school = await Schools.findOne({ schoolName });
       // console.log("admin name " + adminPassword);
       if (school) {
@@ -78,7 +90,7 @@ router.post(
         return res
           .status(400)
           .json({ errors: [{ msg: "Short name already exists" }] });
-      }
+      }*/
 
       school = new Schools({
         name: schoolName,
@@ -87,7 +99,9 @@ router.post(
         adminname: adminName,
         address: address,
         contact: contact,
-        template: template
+        template: template,
+        subscriptionPlan: subscriptionPlan,
+        subscriptionId: subscriptionId
       });
 
       // Encrypt password using bcrypt

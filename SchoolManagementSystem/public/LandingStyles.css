@@ -1,0 +1,104 @@
+@font-face {
+  font-family: monoton;
+  src: url(Monoton-Regular.ttf);
+}
+
+.steps {
+  box-sizing: border-box;
+  border-top: 1px solid #b5b5b5;
+  border-radius: 10px;
+  padding: 20px;
+
+  margin-bottom: 20px;
+  height: 50%;
+}
+
+.features {
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-top: 20px;
+
+  padding: 15px;
+  width: 92%;
+}
+
+.feature-desc {
+  color: rgb(74, 85, 104);
+  letter-spacing: -0.025em;
+  font-size: 1.125em;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.feature-heading {
+  color: rgba(34, 42, 57);
+  letter-spacing: -0.025em;
+  font-weight: 800;
+}
+
+.feature-video {
+  width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+  border: 4px solid rgb(229, 230, 233);
+  outline: none !important;
+}
+
+video:active {
+  outline: none !important;
+}
+
+.steps-desc {
+  color: #b5b5b5;
+  font-size: 1.125rem;
+  letter-spacing: 0.2px;
+  text-align: center;
+}
+
+#footer {
+  background-color: #222222;
+  text-align: center;
+  height: 100px;
+  margin-top: 50px;
+  font-size: 0.9375rem;
+  color: #b5b5b5;
+  vertical-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.createAcct {
+  box-sizing: border-box;
+  background-color: #e9ecef;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.form-check {
+  margin-top: 10px;
+}
+
+#logoButton {
+  border: 2px solid #ced4da;
+}
+
+#getStarted {
+  border-radius: 0.2em;
+  box-shadow: 0 0.05em 0.25em 0 rgba(0, 0, 0, 0.5);
+  color: #b5b5b5;
+  display: inline-block;
+  font-size: 1em;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+  padding: 1rem 3.5rem;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  background-color: #222222;
+}
+
+#getStarted:hover {
+  color: white;
+}

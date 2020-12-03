@@ -8,8 +8,13 @@ export const decodeJWT = () => async (dispatch) => {
   const endPoint = "http://localhost:5000/api/decodeJWT";
 
   // Just send back the jwt for verification. This will be in header.
-  if (localStorage.getItem("token")) {
-    setAuthToken(localStorage.token);
+  if (
+    localStorage.getItem("employeetoken") ||
+    localStorage.getItem("studenttoken")
+  ) {
+    localStorage.getItem("studenttoken")
+      ? setAuthToken(localStorage.getItem("studenttoken"))
+      : setAuthToken(localStorage.getItem("employeetoken"));
 
     try {
       const res = await axios.get(endPoint);

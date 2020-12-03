@@ -4,9 +4,13 @@ import PropTypes from "prop-types";
 import AttendanceStatus from "../StudentPage/AttendanceStatus";
 import Assignments from "../StudentPage/Assignments";
 import VirtualLibrary from "../StudentPage/VirtualLibrary";
+import OnlineLecture from "../StudentPage/OnlineLecture";
+import { UnmountClosed } from "react-collapse";
 
 const StudentDashBoardMenuData = (props) => {
   const [menuData, setMenuData] = useState(1);
+  const [colSize, setColSize] = useState(9);
+  const [openMenu, setOpenMenu] = useState(true);
 
   const styles = {
     backgroundColor: props.templateInfo.backgroundColor,
@@ -20,6 +24,8 @@ const StudentDashBoardMenuData = (props) => {
       setMenuData(2);
     } else if (e.target.name == "Library") {
       setMenuData(3);
+    } else if (e.target.name == "Lecture") {
+      setMenuData(4);
     }
   };
 
@@ -31,13 +37,37 @@ const StudentDashBoardMenuData = (props) => {
         return <Assignments />;
       case 3:
         return <VirtualLibrary styles={styles} />;
+      case 4:
+        return <OnlineLecture styles={styles} />;
     }
   }
 
   return (
     <div className='row' style={{ marginLeft: "0px", marginRight: "0px" }}>
       <div className='col-lg-3 col-md-3 col-sm-3' id='buttonMenu'>
+      <div className='buttonContainer'>
+          <div
+            className='menuIconDiv'
+            style={{
+              padding: "0px",
+              textAlign: "center",
+              backgroundColor: styles.backgroundColor,
+              backgroundImage: styles.backgroundImage,
+            }}
+            onClick={(e) => {
+              openMenu ? setColSize(12) : setColSize(9);
+
+              setOpenMenu(!openMenu);
+
+              window.scrollTo(0, document.body.scrollHeight);
+            }}
+          >
+            <i className='fa fa-bars' aria-hidden='true'></i>
+          </div>
+        </div>
+      <UnmountClosed isOpened={openMenu}>
         <div className='buttonContainer'>
+        
           <button
             className='btn btn-primary btn-block attendanceStatus'
             style={styles}
@@ -47,6 +77,8 @@ const StudentDashBoardMenuData = (props) => {
             Attendance Status
           </button>
         </div>
+        </UnmountClosed>
+        <UnmountClosed isOpened={openMenu}>
         <div className='buttonContainer'>
           <button
             className='btn btn-primary btn-block assignmentDetails'
@@ -57,6 +89,8 @@ const StudentDashBoardMenuData = (props) => {
             Assignment Details
           </button>
         </div>
+        </UnmountClosed>
+        <UnmountClosed isOpened={openMenu}>
         <div className='buttonContainer'>
           <button
             className='btn btn-primary btn-block parentDetails'
@@ -67,14 +101,20 @@ const StudentDashBoardMenuData = (props) => {
             Virtual Library
           </button>
         </div>
+        </UnmountClosed>
+        <UnmountClosed isOpened={openMenu}>
         <div className='buttonContainer'>
           <button
             className='btn btn-primary btn-block feesDetails'
             style={styles}
+            onClick={(e) => onclick(e)}
+            name='Lecture'
           >
-            Fees Details
+            Online Lecture
           </button>
         </div>
+        </UnmountClosed>
+        <UnmountClosed isOpened={openMenu}>
         <div className='buttonContainer'>
           <button
             className='btn btn-primary btn-block resultDetails'
@@ -83,6 +123,8 @@ const StudentDashBoardMenuData = (props) => {
             Result Details
           </button>
         </div>
+        </UnmountClosed>
+        <UnmountClosed isOpened={openMenu}>
         <div className='buttonContainer'>
           <button
             className='btn btn-primary btn-block schoolEvents'
@@ -91,6 +133,8 @@ const StudentDashBoardMenuData = (props) => {
             School Events
           </button>
         </div>
+        </UnmountClosed>
+        <UnmountClosed isOpened={openMenu}>
         <div className='buttonContainer'>
           <button
             className='btn btn-primary btn-block transportDetails'
@@ -99,6 +143,8 @@ const StudentDashBoardMenuData = (props) => {
             Transport Details
           </button>
         </div>
+        </UnmountClosed>
+        <UnmountClosed isOpened={openMenu}>
         <div className='buttonContainer'>
           <button
             className='btn btn-primary btn-block libraryBooks'
@@ -107,6 +153,8 @@ const StudentDashBoardMenuData = (props) => {
             Library Books
           </button>
         </div>
+        </UnmountClosed>
+        <UnmountClosed isOpened={openMenu}>
         <div className='buttonContainer'>
           <button
             className='btn btn-primary btn-block addressDetails'
@@ -115,6 +163,8 @@ const StudentDashBoardMenuData = (props) => {
             Address Details
           </button>
         </div>
+        </UnmountClosed>
+        <UnmountClosed isOpened={openMenu}>
         <div className='buttonContainer'>
           <button
             className='btn btn-primary btn-block contactDetails'
@@ -123,9 +173,14 @@ const StudentDashBoardMenuData = (props) => {
             Contact Details
           </button>
         </div>
+        </UnmountClosed>
       </div>
-
+      <div
+        className={`col-lg-${colSize} col-md-${colSize} col-sm-${colSize}`}
+        id='queryResultContainer'
+      >
       {renderSwitch(menuData)}
+      </div>
     </div>
   );
 };

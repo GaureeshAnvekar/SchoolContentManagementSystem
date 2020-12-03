@@ -5,9 +5,12 @@ import Home from "./Components/layouts/Landing/Home";
 import CreateAccount from "./Components/layouts/Landing/CreateAccount";
 //import DashBoard from "./Components/layouts/SchoolMainPage/DashBoard";
 import StudentDashBoard from "./Components/layouts/StudentPage/StudentDashBoard";
+import EmployeeDashBoard from "./Components/layouts/EmployeePage/EmployeeDashBoard";
 import LibraryDashBoard from "./Components/layouts/LibraryPage/LibraryDashBoard";
 import MainPage from "./Components/layouts/SchoolMainPage/MainPage";
 import AttendanceStatus from "./Components/layouts/StudentPage/AttendanceStatus";
+import EmployeeBeginLecture from "./Components/layouts/EmployeePage/EmployeeBeginLecture";
+import StudentBeginLecture from "./Components/layouts/StudentPage/StudentBeginLecture";
 import PrivateRoute from "./Components/Routing/PrivateRoute";
 import {
   BrowserRouter as Router,
@@ -48,7 +51,7 @@ const schoolInfoApi = async (subDomain, props) => {
 
   try {
     //Before creating action object and dispatching, make an http request.
-    console.log("Calling schoolINfo api");
+
     const res = await axios.post(
       "http://localhost:5000/api/schools/schoolInfo",
       body,
@@ -153,12 +156,27 @@ const App = (props) => {
           templateInfo={props.templateInfo}
           component={LibraryDashBoard}
         />
-
-        <Route
-          path='/AttendanceStatus'
+        <PrivateRoute
+          path='/employeeDashBoard'
           exact
-          component={AttendanceStatus}
-        ></Route>
+          schoolInfo={props.schoolInfo}
+          templateInfo={props.templateInfo}
+          component={EmployeeDashBoard}
+        />
+        <PrivateRoute
+          path='/employeeBeginLecture'
+          exact
+          schoolInfo={props.schoolInfo}
+          templateInfo={props.templateInfo}
+          component={EmployeeBeginLecture}
+        />
+        <PrivateRoute
+          path='/studentBeginLecture'
+          exact
+          schoolInfo={props.schoolInfo}
+          templateInfo={props.templateInfo}
+          component={StudentBeginLecture}
+        />
       </Switch>
     </Router>
   );

@@ -15,9 +15,7 @@ const StudentDashBoardMenuDataContainer = (props) => {
       }}
     >
       <div
-        className='offset-xl-1 col-xl-10'
-        id='DashBoardContainer'
-        style={{ padding: "20px", paddingRight: "0px" }}
+       className='offset-xl-1 col-xl-10' id='DashBoardContainer'
       >
         <StudentDashBoardMenuData templateInfo={props.templateInfo} />
       </div>

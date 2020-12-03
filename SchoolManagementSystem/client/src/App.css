@@ -19,6 +19,8 @@ body {
   --success-color: #28a745;
   --table-link-color: rgb(0, 0, 0);
   --table-link-image: rgb(0, 0, 0);
+  --theme-color: rgb(0, 0, 0);
+  --theme-image: rgb(0, 0, 0);
 }
 
 #detailsBox {
@@ -140,6 +142,7 @@ body {
   border-radius: 10px;
   border: 2px solid;
   border-color: rgb(229, 230, 233);
+  padding: 5px;
 }
 
 #userBasicDetails {
@@ -150,7 +153,8 @@ body {
   padding-left: 30px;
 }
 
-#detailsWhiteBox {
+#detailsWhiteBox,
+.onlineLecture {
   background-color: white;
   /*height: 100px;*/
   height: 50%;
@@ -192,8 +196,20 @@ button /*,input*/ {
   border-radius: 10px;
   border: 2px solid;
   border-color: rgb(229, 230, 233);
-  display: inline-block;
-  margin-right: 10px;
+  margin-right: 0px;
+  padding-bottom: 5px;
+}
+
+.menuIconDiv {
+  background-color: rgb(200, 200, 200);
+
+  border-color: rgb(229, 230, 233);
+  border-radius: 5px;
+  border: 2px;
+}
+
+.fa-bars {
+  color: rgb(255, 255, 255);
 }
 
 #queryResultContainer {
@@ -241,6 +257,25 @@ button /*,input*/ {
   border-color: rgb(229, 230, 233);
 }
 
+nav a {
+  color: #495057;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.checkmark {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  stroke: var(--checkmark-arrow-color);
+  stroke-width: var(--checkmark-arrow-thickness);
+  stroke-miterlimit: 10;
+
+  animation: fill 0.4s ease-in-out 0.4s forwards,
+    scale 0.3s ease-in-out 0.9s both;
+}
+
 .page-item.active .page-link {
   z-index: 3;
   color: #fff;
@@ -248,8 +283,145 @@ button /*,input*/ {
   background-image: var(--table-link-image);
 }
 
-nav a {
-  color: #495057;
-  text-decoration: none;
-  background-color: transparent;
+.page-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: black;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+}
+
+#searchBooks.list-search-bar[type="text"] {
+  border-radius: 1020px;
+}
+
+#searchBooks.list-search-bar[type="text"] {
+  border-radius: 1020px;
+}
+#searchBooks.form-control {
+  border: 1px solid #ddd;
+}
+
+#searchBooks.form-control {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  /*
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s,
+    -webkit-box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;*/
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.calendar__head,
+.calendar__day--start,
+.calendar__day--end,
+.calendar__day--selected {
+  background: var(--theme-color);
+  background-image: var(--theme-image);
+}
+
+.picker-input__text {
+  border-radius: 5px;
+}
+
+.MuiPickersToolbar-toolbar,
+.MuiPickerDTTabs-tabs,
+.MuiPickersDay-daySelected {
+  background-color: var(--theme-color);
+  background-image: var(--theme-image);
+}
+
+.ReactCollapse--collapse {
+  transition: height 400ms;
+}
+
+.react-resizable {
+  position: relative;
+}
+.react-resizable-handle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  box-sizing: border-box;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2IDYiIHN0eWxlPSJiYWNrZ3JvdW5kLWNvbG9yOiNmZmZmZmYwMCIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iNnB4Ij48ZyBvcGFjaXR5PSIwLjMwMiI+PHBhdGggZD0iTSA2IDYgTCAwIDYgTCAwIDQuMiBMIDQgNC4yIEwgNC4yIDQuMiBMIDQuMiAwIEwgNiAwIEwgNiA2IEwgNiA2IFoiIGZpbGw9IiMwMDAwMDAiLz48L2c+PC9zdmc+");
+  background-position: bottom right;
+  padding: 0 3px 3px 0;
+}
+.react-resizable-handle-sw {
+  bottom: 0;
+  left: 0;
+  cursor: sw-resize;
+  transform: rotate(90deg);
+}
+.react-resizable-handle-se {
+  bottom: 0;
+  right: 0;
+  cursor: se-resize;
+}
+.react-resizable-handle-nw {
+  top: 0;
+  left: 0;
+  cursor: nw-resize;
+  transform: rotate(180deg);
+}
+.react-resizable-handle-ne {
+  top: 0;
+  right: 0;
+  cursor: ne-resize;
+  transform: rotate(270deg);
+}
+.react-resizable-handle-w,
+.react-resizable-handle-e {
+  top: 50%;
+  margin-top: -10px;
+  cursor: ew-resize;
+}
+.react-resizable-handle-w {
+  left: 0;
+  transform: rotate(135deg);
+}
+.react-resizable-handle-e {
+  right: 0;
+  transform: rotate(315deg);
+}
+.react-resizable-handle-n,
+.react-resizable-handle-s {
+  left: 50%;
+  margin-left: -10px;
+  cursor: ns-resize;
+}
+.react-resizable-handle-n {
+  top: 0;
+  transform: rotate(225deg);
+}
+.react-resizable-handle-s {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+
+.message {
+  border-radius: 10px;
+  background-color: white;
+  border: 1px solid;
+  border-color: rgb(229, 230, 233);
+  font-size: 14px;
+  padding: 4px;
+  margin-bottom: 5px;
 }

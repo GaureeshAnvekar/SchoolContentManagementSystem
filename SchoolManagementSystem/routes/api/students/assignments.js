@@ -16,11 +16,11 @@ router.post("/", authVerify, async (req, res) => {
 
   try {
     let schoolId = res.locals.decoded.schoolId;
-    console.log(req.body);
+
     assignments = await Assignments.find(
       {
         schoolId: new ObjectID(schoolId),
-        std: 5,
+        std: std,
         section: section,
       },
       {
@@ -31,7 +31,7 @@ router.post("/", authVerify, async (req, res) => {
         deadline: 1,
       }
     );
-    console.log(assignments);
+   
 
     return res.json(assignments);
   } catch (err) {

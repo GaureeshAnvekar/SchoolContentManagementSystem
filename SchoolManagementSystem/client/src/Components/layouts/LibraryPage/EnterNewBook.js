@@ -13,6 +13,7 @@ const EnterNewBook = (props) => {
     title: null,
     author: null,
     publisher: null,
+    genre: null,
     mrp: null,
     cost: null,
     yearOfPurchase: null,
@@ -27,11 +28,10 @@ const EnterNewBook = (props) => {
 
   const uploadBookClick = async (e) => {
     e.preventDefault();
-    console.log("bookdata ");
-    console.log(bookData);
     try {
-      await uploadBookAPI(bookData);
       props.removeAlert();
+      await uploadBookAPI(bookData);
+
       props.setAlert("Book uploaded successfully", "success");
     } catch (err) {
       props.removeAlert();
@@ -120,6 +120,30 @@ const EnterNewBook = (props) => {
                   form='bookData'
                   onChange={(e) => onChange(e)}
                 />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Genre:</b>
+              </td>
+              <td>
+                <select
+                  type='text'
+                  className='form-control'
+                  name='genre'
+                  form='bookData'
+                  onChange={(e) => {
+                    if (e.target.value != "") {
+                      setBookData({ ...bookData, genre: e.target.value });
+                    }
+                  }}
+                >
+                  <option value=''>SELECT GENRE</option>
+                  <option value='novels'>Novels</option>
+                  <option value='fiction'>Fiction</option>
+                  <option value='non-fiction'>Non-fiction</option>
+                  <option value='technology'>Technology</option>
+                </select>
               </td>
             </tr>
             <tr>

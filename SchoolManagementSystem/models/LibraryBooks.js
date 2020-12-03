@@ -12,9 +12,12 @@ const LibraryBooksSchema = new mongoose.Schema({
     type: String,
   },
   author: {
-    type: String,
+    type: Array,
   },
   publisher: {
+    type: String,
+  },
+  genre: {
     type: String,
   },
   mrp: {
@@ -28,6 +31,18 @@ const LibraryBooksSchema = new mongoose.Schema({
   },
   isAvailable: {
     type: Boolean,
+  },
+  averageRating: {
+    type: Number,
+  },
+  imageLink: {
+    type: String,
+  },
+  previewLink: {
+    type: String,
+  },
+  writeRevLink: {
+    type: String,
   },
 });
 

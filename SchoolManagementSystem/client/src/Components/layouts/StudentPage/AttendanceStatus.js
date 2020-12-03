@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -12,6 +12,11 @@ import { connect } from "react-redux";
 import { Pie } from "react-chartjs-2";
 
 const AttendanceStatus = (props) => {
+  useEffect(() => {
+    return function cleanUp() {
+      props.removeAlert();
+    };
+  },[]);
   const [attendanceType, setAttendanceType] = useState({
     type: null,
     month: null,
@@ -111,6 +116,7 @@ const AttendanceStatus = (props) => {
       });
     } else {
       props.removeAlert();
+
       props.setAlert(returnObj.error, "danger");
 
       setPieData({
@@ -128,8 +134,8 @@ const AttendanceStatus = (props) => {
   };
 
   return (
-    <div className='col-lg-8 col-md-8 col-sm-8' id='queryResultContainer'>
-      <h5 style={{ margin: "0 auto", width: "30%" }}>
+    <div >
+      <h5 style={{ margin: "0 auto", width: "30%", textAlign: "center" }}>
         <b>Attendance Status</b>
       </h5>
       <hr
@@ -194,13 +200,9 @@ const AttendanceStatus = (props) => {
             <option value='2022'>2022</option>
           </select>
 
-          <label style={{ marginBottom: "0px" }} id='emptyFieldsError'></label>
-          <div className='table-responsive'>
-            <table className='table table-bordered table-striped'>
-              <tbody id='tableBody1'></tbody>
-            </table>
-          </div>
+
           <br />
+          <br/>
         </div>
         <div className='col-12'>
           <div className='form-check'>
@@ -217,7 +219,7 @@ const AttendanceStatus = (props) => {
               date and end date:
             </label>
           </div>
-          <br />
+         
           <div style={{ display: "inline-block", width: "170px" }}>
             <DatePicker
               placeholderText='From Date'
@@ -248,15 +250,10 @@ const AttendanceStatus = (props) => {
             placeholder='END DATE'
             style={{ width: "170px", display: "inline-block" }}
           />*/}
-
-          <label id='emptyFieldsError2'></label>
-          <div className='table-responsive'>
-            <table className='table table-bordered table-striped'>
-              <tbody id='tableBody2'></tbody>
-            </table>
-          </div>
+        <br/>
+        <br/>
         </div>
-        <br />
+
         <div className='col-12'>
           <div className='form-check'>
             <input

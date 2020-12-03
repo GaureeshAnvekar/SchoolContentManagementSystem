@@ -52,6 +52,8 @@ const StudentDashBoardType = (props) => {
             //border: "0.5px solid black",
             width: "150px",
             height: "160px",
+            border: "2px solid rgb(229, 230, 233)",
+            borderBottom: "6px solid rgb(229, 230, 233)",
           }}
         />
 

@@ -7,21 +7,31 @@ import { Redirect } from "react-router-dom";
 import { decodeJWT } from "../../../actions/decodeJWT";
 import { studentAuth } from "../../../actions/Student/studentAuth";
 import { libraryAuth } from "../../../actions/Library/libraryAuth";
+import { employeeAuth } from "../../../actions/Employee/employeeAuth";
 
 const MainPage = (props) => {
+  /*
   useEffect(() => {
     // Redirect to dashboard if correct JWT is present OR isAuth is true;
-    if (props.loginType == null && localStorage.getItem("token")) {
+    
+    if (
+      props.loginType == null &&
+      (localStorage.getItem("studenttoken") ||
+        localStorage.getItem("employeetoken"))
+    ) {
       props.decodeJWT();
     }
-  }, []);
+  }, []);  */
 
   if (props.loginType == "student") {
-    props.studentAuth();
+    // props.studentAuth();
     return <Redirect to='./studentDashBoard' />;
   } else if (props.loginType == "library") {
     props.libraryAuth();
     return <Redirect to='./libraryDashBoard' />;
+  } else if (props.loginType == "staff") {
+    //props.employeeAuth();
+    return <Redirect to='./employeeDashBoard' />;
   }
 
   return (
@@ -57,4 +67,5 @@ export default connect(mapStateToProps, {
   decodeJWT,
   studentAuth,
   libraryAuth,
+  employeeAuth,
 })(MainPage);

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Easy School</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link
+href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+rel="stylesheet"
+/>
+<link
+href="./public/LandingStyles.css"
+rel="stylesheet"
+/>
+<!-- :#b5b5b5  #343434-->
+<script
+src="https://www.paypal.com/sdk/js?client-id=AWGYoRLs6PT325L6Y3WruD2MB5j0-N17sDZRd1S3MdtfaTv7c_CI6YewrpZyEb0nv9Zv-KLBm1xdX_qZ&vault=true">
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="./public/landing.js"></script>
+<script>
+  $(document).ready(function() {
+      $(window).on("unload", function() {
+      localStorage.removeItem("logo");
+      localStorage.removeItem("schoolName");
+    });
+  });
+</script>
+</head>
+<body style="background-color:rgb(223, 224, 228)">
+
+
+    
+     <header style="background-color:#222222">
+        <section style="text-align: center;width:100%;">
+          <i class="fa fa-university" aria-hidden="true" style="color:white"></i>
+          <h4
+            id='appName'
+            style="text-align:center; color:white; padding:5px;font-family:monoton;"
+            role='heading'
+          >
+         
+         
+            EASY  SCHOOL
+          </h4>
+        </section>
+          
+    </header>
+
+      <div class='d-flex flex-column align-items-center' style="background-color:rgb(223, 224, 228)">
+       <div class='col-lg-6 createAcct'>
+        <form class='form' id='acctDetails' method="post"  type="submit"  enctype="multipart/form-data">
+            <div class='form-group'>
+              <label id="schoolNameErr" style="display:none;color:red;font-size:15px;">Enter school name</label>
+              <div class='form-group input-group'>
+                <div class='input-group-prepend'>
+                  <span class='input-group-text'>
+                    <i class='fa fa-university fa-fw'></i>
+                  </span>
+                </div>
+
+                <input
+                  type='text'
+                  class='input form-control'
+                  placeholder='Enter School Name'
+                  name='schoolName'
+                  value=""
+                  
+                  id="schoolName"
+                />
+               
+              </div>
+              <label id="schoolUrlErr" style="display:none;color:red;font-size:15px;">Enter school url</label>
+              <label id="schoolUrlErr2" style="display:none;color:red;font-size:15px;">Enter url with alphabets or numbers</label>
+              <label id="schoolUrlErr3" style="display:none;color:red;font-size:15px;">This url already exists</label>
+              <div class='form-group input-group'>
+                <div class='input-group-prepend'>
+                  <span class='input-group-text'>
+                    <i class='fa fa-link fa-fw'></i>
+                  </span>
+                </div>
+
+                <input
+                  type='text'
+                  class='input form-control'
+                  placeholder='Enter short school name for url'
+                  name='subdomain'
+                  id='schoolUrl'
+                  value=""
+                  
+                />
+              </div>
+              <label id="adminNameErr" style="display:none;color:red;font-size:15px;">Enter admin name</label>
+              <div class='form-group input-group'>
+                <div class='input-group-prepend'>
+                  <span class='input-group-text'>
+                    <i class='fa fa-user fa-fw'></i>
+                  </span>
+                </div>
+
+                <input
+                  type='text'
+                  class='form-control'
+                  placeholder='Enter Admin Name'
+                  name='adminName'
+                  value=""
+                  id='adminName'
+                  
+                />
+              </div>
+              <label id="adminPassword1Err" style="display:none;color:red;font-size:15px;">Enter admin password</label>
+              <div class='form-group input-group'>
+                <div class='input-group-prepend'>
+                  <span class='input-group-text'>
+                    <i class='fa fa-key fa-fw'></i>
+                  </span>
+                </div>
+                <input
+                  type='password'
+                  class='form-control'
+                  placeholder='Enter Admin Password'
+                  name='adminPassword1'
+                  value=""
+                  id='adminPassword1'
+                  
+                />
+              </div>
+              <label id="adminPassword2Err" style="display:none;color:red;font-size:15px;">Confirm admin password</label>
+              <label id="mismatchErr" style="display:none;color:red;font-size:15px;">Passwords do not match</label>
+              <div class='form-group input-group'>
+                <div class='input-group-prepend'>
+                  <span class='input-group-text'>
+                    <i class='fa fa-key fa-fw'></i>
+                  </span>
+                </div>
+                <input
+                  type='password'
+                  class='form-control'
+                  placeholder='Confirm Admin Password'
+                  name='adminPassword2'
+                  value=""
+                  id='adminPassword2'
+                  
+                />
+              </div>
+              <label id="addressErr" style="display:none;color:red;font-size:15px;">Enter school address</label>
+              <div class='form-group input-group'>
+                <div class='input-group-prepend'>
+                  <span class='input-group-text'>
+                    <i class='fa fa-map-marker fa-fw'></i>
+                  </span>
+                </div>
+
+                <input
+                  type='text'
+                  class='form-control'
+                  placeholder='Enter School Address'
+                  name='address'
+                  value=""
+                  id='address'
+                  
+                />
+              </div>
+              <label id="contactErr" style="display:none;color:red;font-size:15px;">Enter school contact</label>
+              <div class='form-group input-group'>
+                <div class='input-group-prepend'>
+                  <span class='input-group-text'>
+                    <i class='fa fa-phone fa-fw'></i>
+                  </span>
+                </div>
+
+                <input
+                  type='text'
+                  class='form-control'
+                  placeholder='Enter Contact Number'
+                  name='contact'
+                  value=""
+                  id='contact'
+                  
+                />
+              </div>
+              <label id="logoErr" style="display:none;color:red;font-size:15px;">Select a logo</label>
+              <div class='form-group input-group'>
+                <div class='input-group-prepend'>
+                  <span class='input-group-text'>
+                    <i class='fa fa-image fa-fw'></i>
+                  </span>
+                </div>
+                <button type="button" id="logoButton" onclick="document.getElementById('getFile').click(); ">Choose a logo</button>
+                <label id="logoSelected" style="margin-left:5px;display:none;"> Logo selected!</label>
+                <input
+                  type='file'
+                  id='getFile'
+                  accept="image/*"
+                  name='logo'
+                  value=""
+                  
+                  style="display:none"
+                />
+               
+              </div>
+            
+              <label>Select a template:</label>
+              <div class="form-check" >
+                <input class="form-check-input" type="radio" name="template" id="template" value="blue" checked>
+                <label class="form-check-label" for="template">
+                 <img width="400px" style="border-radius:10px;border: 4px solid rgb(223, 222, 228);" src="./public/blue.png"></img>
+                </label>
+                <label class="form-check-label" style="vertical-align:top;">
+                    <a href="./preview?template=blue" class="preview-anchors" target="_blank">Preview student page</a>
+                </label>
+              </div>
+              <div class="form-check" >
+                <input class="form-check-input" type="radio" name="template" id="template" value="black">
+                <label class="form-check-label" for="template">
+                 <img width="400px" style="border-radius:10px;border: 4px solid rgb(223, 222, 228);" src="./public/black.png"></img>
+                </label>
+                <label class="form-check-label" style="vertical-align:top;">
+                  <a href="./preview?template=black" class="preview-anchors" target="_blank">Preview student page</a>
+                </label>
+              </div>
+              <div class="form-check" >
+                <input class="form-check-input" type="radio" name="template" id="template" value="violet">
+                <label class="form-check-label" for="template">
+                 <img width="400px" style="border-radius:10px;border: 4px solid rgb(223, 222, 228);" src="./public/violet.png"></img>
+                </label>
+                <label class="form-check-label" style="vertical-align:top;">
+                  <a href="./preview?template=violet" class="preview-anchors" target="_blank">Preview student page</a>
+                </label>
+              </div>
+              <div class="form-check" >
+                <input class="form-check-input" type="radio" name="template" id="template" value="orange">
+                <label class="form-check-label" for="template">
+                 <img width="400px" style="border-radius:10px;border: 4px solid rgb(223, 222, 228);" src="./public/orange.png"></img>
+                </label>
+                <label class="form-check-label" style="vertical-align:top;">
+                  <a href="./preview?template=orange" class="preview-anchors" target="_blank">Preview student page</a>
+                </label>
+              </div>
+              <br/>
+              <label id="planErr" style="display:none;color:red;font-size:15px;">Select a subscription plan</label>
+              <div class='form-group input-group'>
+                <div class='input-group-prepend'>
+                  <span class='input-group-text'>
+                    <i class='fa fa-shopping-cart fa-fw'></i>
+                  </span>
+                </div>
+              
+                <select
+                  
+                  class='form-control'
+                  name='subscriptionPlan'
+                  id='subscriptionPlan'
+                >
+                <option value="" selected disabled hidden>Select a subscription plan</option>
+                <option value="P-0LW46667SH008500BL63MIMY">2 months trial + 1 year package for $1000</option>
+                <option value="P-7G964023448256802L63MOBQ">2 months trial + 2 years package for $1600</option>
+                </select>
+              </div>
+            </div>
+          </form>
+          <br/>
+          <br/>
+          <div id="paypal-button-container"></div>
+          <div  id="success" class="alert" style="color:white;background-color: #28a745;display:none;text-align:center;">
+
+          </div>
+          <script>
+            paypal.Buttons({
+
+createSubscription: function(data, actions) {
+  
+  if (window.checkAllFieldsEntered()) {
+    window.clearAllErrs();
+    return actions.subscription.create({
+
+      'plan_id': window.planId
+
+    });
+  }
+
+},
+
+
+onApprove: function(data, actions) {
+
+  
+  $("#acctDetails").submit(function(event) {
+      event.preventDefault();
+      let acctDetailsForm = new FormData(document.getElementById("acctDetails"));
+      acctDetailsForm.append("subscriptionId", data.subscriptionID);
+      const url = "./api/schools/registration";
+      fetch(url, { method : "POST",
+                  body: acctDetailsForm,
+      }).then(
+           // response => response.text() // .json(), etc.
+        // same as function(response) {return response.text();}
+      ).then(
+      //html => console.log(html)
+    );
+  });
+  $("#acctDetails").trigger("submit");
+
+ 
+  $("#success").css("display", "block");
+  $("#success").text("Your subscription Id is " + data.subscriptionID);
+}
+
+
+}).render('#paypal-button-container');
+          </script>
+        </div>
+      </div>   
+      
+      <footer id='footer'>&#169 Copyright 2020 EasySchool</footer>
+     
+     
+
+</body>
+</html>

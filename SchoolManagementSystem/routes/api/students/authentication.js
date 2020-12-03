@@ -76,6 +76,7 @@ router.post(
     try {
       // See if school exists
       const { schoolId, username, password, loginType } = req.body;
+
       let student = await Students.findOne({
         school: new ObjectID(schoolId),
         username: username,

@@ -19,8 +19,8 @@ export const studentAuth = (
   const endPoint = "http://localhost:5000/api/students/authentication";
 
   // Just send back the jwt for verification. This will be in header.
-  if (localStorage.getItem("token")) {
-    setAuthToken(localStorage.token);
+  if (/*localStorage.getItem("studenttoken")*/ false) {
+    setAuthToken(localStorage.studenttoken);
 
     try {
       console.log("Calling student auth api");

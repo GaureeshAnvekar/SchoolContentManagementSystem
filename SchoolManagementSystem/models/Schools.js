@@ -30,7 +30,13 @@ const SchoolsSchema = new mongoose.Schema({
     contentType: String,
   },
   template: {
-    type: Number,
+    type: String,
+  },
+  subscriptionPlan: {
+    type: String,
+  },
+  subscriptionId: {
+    type: String,
   },
   date: {
     type: Date,
