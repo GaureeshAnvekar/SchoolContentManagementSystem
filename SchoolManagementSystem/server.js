@@ -1,8 +1,10 @@
 const express = require("express");
 const connectDB = require("./config/db");
+const path = require("path");
 const cors = require("cors");
 const fs = require('fs');
 const paypal = require("paypal-rest-sdk");
+const subdomain = require('express-subdomain');
 //paypal config starts
 paypal.configure({
   'mode': 'sandbox', //sandbox or live
@@ -62,6 +64,30 @@ const { PeerServer } = require("peer");
 
 
 
+// react's index.html from build if school exists
+/*
+app.use(subdomain('joseph', (req, res, next) => {
+  console.log("inside");
+  //check if school exists in db, if yes give index.html from react's build
+  res.sendFile(path.join(__dirname, "/client/build/index.html"));
+}));
+// */
+
+app.use(subdomain('joseph', express.static(path.join(__dirname, '/client/build'))));
+
+
+app.get('/', function (req, res) { res.redirect('/home') });
+
+
+
+
+// static assets for react frontend
+app.use(express.static(path.join(__dirname, '/client/build')));
+//
+
+
+
+
 // globals
 global.currentMeetings = new Map();
 //init required middleware
@@ -78,7 +104,10 @@ app.set('view engine', 'ejs');
 app.use('/public', express.static(__dirname + '/public'));
 app.use('/preview/public', express.static(__dirname + '/public'));
 
-app.get('/', function (req, res) { res.redirect('/home') });
+
+
+
+
 
 app.use('/home', 
   express.static("./views/landingpages/index.html")

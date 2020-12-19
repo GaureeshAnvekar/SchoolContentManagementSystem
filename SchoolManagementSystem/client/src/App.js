@@ -115,7 +115,7 @@ function extractSubDomain(hostName) {
 
 const App = (props) => {
   var url = window.location.href;
-
+  console.log(url);
   //Check if url is easyschool.com OR some school main page like pauls.easyschool.com
   if (url.split(".").length >= 3) {
     if (props.schoolInfo.id == null) {
@@ -131,9 +131,9 @@ const App = (props) => {
     <Router>
       <Switch>
         <Route path='/CreateAccount' exact component={CreateAccount}></Route>
-        <Route path='/' exact component={Home}></Route>
+        <Route path='/ads' exact component={Home}></Route> 
         <Route
-          path='/School'
+          path='/'
           exact
           render={() => (
             <MainPage
