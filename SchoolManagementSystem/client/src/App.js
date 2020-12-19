@@ -54,7 +54,7 @@ const schoolInfoApi = async (subDomain, props) => {
 
     const res = await axios.post(
       //"http://localhost:5000/api/schools/schoolInfo",
-      "https://joseph.easyschool.com/api/schools/schoolInfo",
+      "https://easyschool.com/api/schools/schoolInfo",
       body,
       {
         headers: {
