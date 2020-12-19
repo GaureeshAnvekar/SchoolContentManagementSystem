@@ -53,7 +53,8 @@ const schoolInfoApi = async (subDomain, props) => {
     //Before creating action object and dispatching, make an http request.
 
     const res = await axios.post(
-      "http://localhost:5000/api/schools/schoolInfo",
+      //"http://localhost:5000/api/schools/schoolInfo",
+      "https://joseph.easyschool.com/api/schools/schoolInfo",
       body,
       {
         headers: {
