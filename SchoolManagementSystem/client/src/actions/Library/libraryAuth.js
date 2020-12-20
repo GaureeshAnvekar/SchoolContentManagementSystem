@@ -16,7 +16,7 @@ export const libraryAuth = (
   password = null,
   loginType = null
 ) => async (dispatch) => {
-  const endPoint = "http://localhost:5000/api/library/authentication";
+  const endPoint = "https://easyschool.academy/api/library/authentication";
 
   // Just send back the jwt for verification. This will be in header.
   if (localStorage.getItem("token")) {
