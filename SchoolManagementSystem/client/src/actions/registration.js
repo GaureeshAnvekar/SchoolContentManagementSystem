@@ -34,7 +34,7 @@ export const register = ({
     //Before creating action object and dispatching, make an http request
     console.log(adminName + " look here");
     const res = await axios.post(
-      "http://localhost:5000/api/schools/registration",
+      "http://easyschool.academy/api/schools/registration",
       body,
       {
         headers: {
