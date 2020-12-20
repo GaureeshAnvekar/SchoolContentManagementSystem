@@ -2,7 +2,7 @@ import axios from "axios";
 import setAuthToken from "./utils/setAuthToken";
 
 export const attendanceAPI = async (attendanceType = null) => {
-  const endPoint = "http://easyschool.academy/api/students/attendanceStatus";
+  const endPoint = "https://easyschool.academy/api/students/attendanceStatus";
 
   setAuthToken(localStorage.studenttoken);
 
