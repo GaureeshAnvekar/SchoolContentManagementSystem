@@ -10,8 +10,8 @@ import useScript from "../../../Components/useScript";
 import { Link } from "react-router-dom";
 
 const OnlineLecture = (props) => {
-  useScript("http://easyschool.academy/api/sockets/socket.io.js");
-  useScript("https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js");
+  useScript("https://easyschool.academy/api/sockets/socket.io.js");
+  useScript("httpss://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js");
 
   const [tableData, setTableData] = useState({
     tableCols: [],

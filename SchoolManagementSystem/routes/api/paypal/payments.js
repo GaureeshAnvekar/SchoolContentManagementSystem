@@ -13,8 +13,8 @@ const payments = (paypal, req, res) => {
             "payment_method": "paypal"
         },
         "redirect_urls": {
-            "return_url": "http://easyschool:5000/success",
-            "cancel_url": "http://easyschool:5000/cancel"
+            "return_url": "https://easyschool:5000/success",
+            "cancel_url": "https://easyschool:5000/cancel"
         },
         "transactions": [{
             "item_list": {

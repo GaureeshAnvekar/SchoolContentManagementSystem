@@ -22,7 +22,7 @@ export const auth = ({ schoolId, username, password, loginType }) => async (
 
     try {
       const res = await axios.get(
-        "http://easyschool.academy/api/schools/authentication"
+        "https://easyschool.academy/api/schools/authentication"
       );
       console.log("before dispatch");
       dispatch({
@@ -49,7 +49,7 @@ export const auth = ({ schoolId, username, password, loginType }) => async (
         loginType,
       });
       const res = await axios.post(
-        "http://easyschool.academy/api/schools/authentication",
+        "https://easyschool.academy/api/schools/authentication",
         body,
         {
           headers: {

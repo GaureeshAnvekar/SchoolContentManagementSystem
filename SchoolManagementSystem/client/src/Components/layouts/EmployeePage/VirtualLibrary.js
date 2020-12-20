@@ -328,7 +328,7 @@ const VirtualLibrary = (props) => {
         var book = queryBooks[i];
 
         var thumbnailBytes = await Axios.get(
-          "https://cors-anywhere.herokuapp.com/" + book.imageLink,
+          "httpss://cors-anywhere.herokuapp.com/" + book.imageLink,
           {
             responseType: "arraybuffer",
           }
@@ -416,7 +416,7 @@ const VirtualLibrary = (props) => {
         var book = paginatedResults[i];
 
         var thumbnailBytes = await Axios.get(
-          "https://cors-anywhere.herokuapp.com/" + book.imageLink,
+          "httpss://cors-anywhere.herokuapp.com/" + book.imageLink,
           {
             responseType: "arraybuffer",
           }

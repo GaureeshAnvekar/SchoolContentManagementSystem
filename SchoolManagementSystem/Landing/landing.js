@@ -10,7 +10,7 @@ $(document).ready(function(){
     })
 
     $("#schoolName").change(function() {
-        let url = "http://easyschool.academy/bluePreview?schoolName=";
+        let url = "https://easyschool.academy/bluePreview?schoolName=";
         let schoolName = $(this).val();
         let imgObj = $("#getFile").prop("files")[0];
         let read = new FileReader();

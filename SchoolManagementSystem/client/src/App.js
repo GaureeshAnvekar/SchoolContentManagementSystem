@@ -50,11 +50,11 @@ const schoolInfoApi = async (subDomain, props) => {
   });
 
   try {
-    //Before creating action object and dispatching, make an http request.
+    //Before creating action object and dispatching, make an https request.
 
     const res = await axios.post(
-      //"http://easyschool.academy/api/schools/schoolInfo",
-      "https://easyschool.academy/api/schools/schoolInfo",
+      //"https://easyschool.academy/api/schools/schoolInfo",
+      "httpss://easyschool.academy/api/schools/schoolInfo",
       body,
       {
         headers: {
@@ -83,7 +83,7 @@ const schoolInfoApi = async (subDomain, props) => {
 
 function extractHostname(url) {
   var hostname;
-  //find & remove protocol (http, ftp, etc.) and get hostname
+  //find & remove protocol (https, ftp, etc.) and get hostname
 
   if (url.indexOf("//") > -1) {
     hostname = url.split("/")[2];
