@@ -103,7 +103,7 @@ const socketConnection = (io) => {
       socket.on("file-upload", (data) => {
         
         let meetingId = data.meetingId;
-        let link = "https://easyschool.academy/api/uploads/temp?meetingId=" + meetingId + "&fileName=";
+        let link = "http://easyschool.academy/api/uploads/temp?meetingId=" + meetingId + "&fileName=";
         let allFileLinks = [];
         
         data.files.forEach((name) => {

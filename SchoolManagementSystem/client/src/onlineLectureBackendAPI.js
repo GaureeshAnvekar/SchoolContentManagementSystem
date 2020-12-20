@@ -2,7 +2,7 @@ import axios from "axios";
 import setAuthToken from "./utils/setAuthToken";
 
 export const scheduleLectureAPI = async (scheduleData = null) => {
-  const endPoint = "https://easyschool.academy/api/onlineLecture/scheduleLecture";
+  const endPoint = "http://easyschool.academy/api/onlineLecture/scheduleLecture";
 
   setAuthToken(localStorage.employeetoken);
 
@@ -25,7 +25,7 @@ export const scheduleLectureAPI = async (scheduleData = null) => {
 
 export const getAllScheduledLecturesAPI = async () => {
   const endPoint =
-    "https://easyschool.academy/api/onlineLecture/getAllScheduledLectures";
+    "http://easyschool.academy/api/onlineLecture/getAllScheduledLectures";
 
   setAuthToken(localStorage.employeetoken);
 
@@ -46,7 +46,7 @@ export const getAllScheduledLecturesAPI = async () => {
 
 export const cancelScheduledLectureAPI = async (scheduleToRemove) => {
   const endPoint =
-    "https://easyschool.academy/api/onlineLecture/cancelScheduledLecture";
+    "http://easyschool.academy/api/onlineLecture/cancelScheduledLecture";
 
   setAuthToken(localStorage.employeetoken);
 
@@ -69,7 +69,7 @@ export const cancelScheduledLectureAPI = async (scheduleToRemove) => {
 
 export const getStudentsLecturesAPI = async (requestBody = null) => {
   const endPoint =
-    "https://easyschool.academy/api/onlineLecture/getStudentsLectures";
+    "http://easyschool.academy/api/onlineLecture/getStudentsLectures";
 
   setAuthToken(localStorage.studenttoken);
 

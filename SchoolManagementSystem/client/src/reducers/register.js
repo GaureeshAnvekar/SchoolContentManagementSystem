@@ -12,7 +12,7 @@ export default function(state = initialState, action) {
   switch (type) {
     case REGISTER_SUCCESS:
       window.open(
-        "https://www." + payload.school.subdomain + ".easyschool.com:3000/school"
+        "http://www." + payload.school.subdomain + ".easyschool.com:3000/school"
       );
       return {
         ...state,

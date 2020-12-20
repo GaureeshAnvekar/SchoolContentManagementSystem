@@ -36,7 +36,7 @@ const Assignments = (props) => {
               Assignment: rowData.name,
               Brief: rowData.brief,
               Document: (
-                <a href='https://easyschool.academy/api/students/pdfs'>
+                <a href='http://easyschool.academy/api/students/pdfs'>
                   {rowData.document}
                 </a>
               ),

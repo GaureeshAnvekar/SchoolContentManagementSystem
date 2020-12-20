@@ -3,7 +3,7 @@ const axios = require("axios");
 // Google books api
 getBookInfoAPI = async (searchQuery = null) => {
   /*const endPoint =
-    "httpss://cors-anywhere.herokuapp.com/httpss://www.googleapis.com/books/v1/volumes?q=" +
+    "https://cors-anywhere.herokuapp.com/https://www.googleapis.com/books/v1/volumes?q=" +
     searchQuery.title +
     "+inauthor:" +
     searchQuery.author +
@@ -11,7 +11,7 @@ getBookInfoAPI = async (searchQuery = null) => {
   */
 
   const endPoint =
-    "httpss://cors-anywhere.herokuapp.com/httpss://www.googleapis.com/books/v1/volumes?q=" +
+    "https://cors-anywhere.herokuapp.com/https://www.googleapis.com/books/v1/volumes?q=" +
     searchQuery.title +
     "+inauthor:" +
     searchQuery.author +
@@ -21,7 +21,7 @@ getBookInfoAPI = async (searchQuery = null) => {
     console.log(endPoint);
     var res = await axios.get(endPoint, {
       headers: {
-        "X-Requested-With": "XMLhttpsRequest",
+        "X-Requested-With": "XMLhttpRequest",
         "Content-Type": "application/json",
       },
     });

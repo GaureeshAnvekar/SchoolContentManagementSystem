@@ -5,7 +5,7 @@ import setAuthToken from "../utils/setAuthToken";
 
 // Authenctication
 export const decodeJWT = () => async (dispatch) => {
-  const endPoint = "https://easyschool.academy/api/decodeJWT";
+  const endPoint = "http://easyschool.academy/api/decodeJWT";
 
   // Just send back the jwt for verification. This will be in header.
   if (

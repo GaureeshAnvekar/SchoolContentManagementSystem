@@ -25,7 +25,7 @@ const EmployeeBeginLecture = (props) => {
 
   if (!socket) {
   setSocket(window.io.connect(
-    "https://easyschool.academy?token=" +
+    "http://easyschool.academy?token=" +
       token +
       "&scheduleId=" +
       props.location.meetingId,
@@ -161,7 +161,7 @@ const EmployeeBeginLecture = (props) => {
         fileNames.push(files[x].name);
     }
 
-    const endPoint = "https://easyschool.academy/api/uploads";
+    const endPoint = "http://easyschool.academy/api/uploads";
 
     try {
       setDisplayProgress(true);
