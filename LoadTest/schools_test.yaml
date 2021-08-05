@@ -1,0 +1,34 @@
+config:
+  environments:
+    school1:
+      target: "http://joseph.easyschool.com:5000"
+      socketio:
+        path: "/api/sockets"
+        query:
+          token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjYyNmY4ZDhkNTMxMzA0MTY4YTNmZTEiLCJ1c2VyTmFtZSI6IkFsZXhNaWNoZW5lciIsInNjaG9vbElkIjoiNWVjZWM3MGU4MjkxZDIwM2Y5YTc5YThiIiwibG9naW5UeXBlIjoic3RhZmYiLCJpYXQiOjE2MjYzNjIwODEsImV4cCI6MTYyNjcyMjA4MX0.KUzLxeZ1LxrXe_HveMg9q1VL9xgwqyVc4x0Mk5rB2Aw"
+          scheduleId: "{{ $processEnvironment.SCHEDULE_ID }}"
+      phases:
+        - duration: 1
+          arrivalRate: 1
+      engines:
+        socketio-v3: {}
+    school2:
+      target: "http://joseph.easyschool.com:5000"
+      socketio:
+        path: "/api/sockets"
+        query:
+          token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjYyNmY4ZDhkNTMxMzA0MTY4YTNmZTEiLCJ1c2VyTmFtZSI6IkFsZXhNaWNoZW5lciIsInNjaG9vbElkIjoiNWVjZWM3MGU4MjkxZDIwM2Y5YTc5YThiIiwibG9naW5UeXBlIjoic3RhZmYiLCJpYXQiOjE2MjYzNjIwODEsImV4cCI6MTYyNjcyMjA4MX0.KUzLxeZ1LxrXe_HveMg9q1VL9xgwqyVc4x0Mk5rB2Aw"
+          scheduleId: "{{ $processEnvironment.SCHEDULE_ID }}"
+      phases:
+        - duration: 1
+          arrivalRate: 1
+      engines:
+        socketio-v3: {}
+
+scenarios:
+  - name: "Start Lecture"
+    engine: "socketio-v3"
+    flow:
+      - emit: ["join", "create-room"]
+          #channel: "create-room"
+      - think: 900

@@ -15,7 +15,7 @@ const EmployeeBeginLecture = (props) => {
 
   const styles = props.location.styles;
   const token = localStorage.getItem("studenttoken");
-  const [socket, setSocket] = useState(null);
+  let [socket, setSocket] = useState(null);
   const [peer, setPeer] = useState(null);
   const [loaded, setLoaded] = useState(null);
   const [displayProgress, setDisplayProgress] = useState(false);
@@ -24,15 +24,22 @@ const EmployeeBeginLecture = (props) => {
   const [openExitPopup, setOpenExitPopup] = useState(false);
 
   if (!socket) {
+    console.log("again");
   setSocket(window.io.connect(
+    "http://joseph.easyschool.com:5000?token=" +
+    token +
+    "&scheduleId=" +
+    props.location.meetingId,
+    /*
     "http://easyschool.academy?token=" +
       token +
       "&scheduleId=" +
-      props.location.meetingId,
+      props.location.meetingId,*/
     {
       path: "/api/sockets",
     }
   ));
+  socket = 1;
   }
 
 

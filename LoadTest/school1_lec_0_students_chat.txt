@@ -1,0 +1,593 @@
+Started phase 0, duration: 50s @ 01:20:57(+0530) 2021-08-05
+Report @ 01:21:07(+0530) 2021-08-05
+Elapsed time: 13 seconds
+  Scenarios launched:  9
+  Scenarios completed: 0
+  Requests completed:  45
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0
+    max: 0.8
+    median: 0
+    p95: 0.4
+    p99: 0.8
+  Codes:
+    0: 45
+  engine.socketio.emit: 45
+
+Report @ 01:21:17(+0530) 2021-08-05
+Elapsed time: 23 seconds
+  Scenarios launched:  10
+  Scenarios completed: 0
+  Requests completed:  57
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0
+    max: 0.5
+    median: 0
+    p95: 0.4
+    p99: 0.5
+  Codes:
+    0: 57
+  engine.socketio.emit: 57
+
+Report @ 01:21:27(+0530) 2021-08-05
+Elapsed time: 33 seconds
+  Scenarios launched:  10
+  Scenarios completed: 0
+  Requests completed:  63
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0
+    max: 0.5
+    median: 0
+    p95: 0.4
+    p99: 0.5
+  Codes:
+    0: 63
+  engine.socketio.emit: 63
+
+Report @ 01:21:37(+0530) 2021-08-05
+Elapsed time: 43 seconds
+  Scenarios launched:  10
+  Scenarios completed: 0
+  Requests completed:  73
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0
+    max: 4.1
+    median: 0.1
+    p95: 0.4
+    p99: 3.3
+  Codes:
+    0: 73
+  engine.socketio.emit: 73
+
+Report @ 01:21:47(+0530) 2021-08-05
+Elapsed time: 53 seconds
+  Scenarios launched:  10
+  Scenarios completed: 0
+  Requests completed:  80
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0
+    max: 0.6
+    median: 0.1
+    p95: 0.4
+    p99: 0.6
+  Codes:
+    0: 80
+  engine.socketio.emit: 80
+
+Report @ 01:21:57(+0530) 2021-08-05
+Elapsed time: 1 minute, 3 seconds
+  Scenarios launched:  1
+  Scenarios completed: 0
+  Requests completed:  45
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0
+    max: 0.6
+    median: 0.3
+    p95: 0.5
+    p99: 0.6
+  Codes:
+    0: 45
+  engine.socketio.emit: 45
+
+Report @ 01:22:07(+0530) 2021-08-05
+Elapsed time: 1 minute, 13 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  41
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0.2
+    max: 0.8
+    median: 0.3
+    p95: 0.6
+    p99: 0.8
+  Codes:
+    0: 41
+  engine.socketio.emit: 41
+
+Report @ 01:22:17(+0530) 2021-08-05
+Elapsed time: 1 minute, 23 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  41
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0.1
+    max: 0.7
+    median: 0.3
+    p95: 0.6
+    p99: 0.7
+  Codes:
+    0: 41
+  engine.socketio.emit: 41
+
+Report @ 01:22:27(+0530) 2021-08-05
+Elapsed time: 1 minute, 33 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  41
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0.1
+    max: 1.3
+    median: 0.3
+    p95: 0.7
+    p99: 1.3
+  Codes:
+    0: 41
+  engine.socketio.emit: 41
+
+Report @ 01:22:37(+0530) 2021-08-05
+Elapsed time: 1 minute, 43 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  41
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0.1
+    max: 0.6
+    median: 0.2
+    p95: 0.5
+    p99: 0.6
+  Codes:
+    0: 41
+  engine.socketio.emit: 41
+
+Report @ 01:22:47(+0530) 2021-08-05
+Elapsed time: 1 minute, 53 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  41
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0.1
+    max: 1.3
+    median: 0.3
+    p95: 0.6
+    p99: 1.3
+  Codes:
+    0: 41
+  engine.socketio.emit: 41
+
+Report @ 01:22:57(+0530) 2021-08-05
+Elapsed time: 2 minutes, 3 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  41
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0.1
+    max: 2.4
+    median: 0.3
+    p95: 1.4
+    p99: 2.4
+  Codes:
+    0: 41
+  engine.socketio.emit: 41
+
+Report @ 01:23:07(+0530) 2021-08-05
+Elapsed time: 2 minutes, 13 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  41
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0.1
+    max: 2.6
+    median: 0.3
+    p95: 1.1
+    p99: 2.6
+  Codes:
+    0: 41
+  engine.socketio.emit: 41
+
+Report @ 01:23:17(+0530) 2021-08-05
+Elapsed time: 2 minutes, 23 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  41
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0.2
+    max: 0.8
+    median: 0.3
+    p95: 0.7
+    p99: 0.8
+  Codes:
+    0: 41
+  engine.socketio.emit: 41
+
+Report @ 01:23:27(+0530) 2021-08-05
+Elapsed time: 2 minutes, 33 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  41
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0.1
+    max: 2.7
+    median: 0.3
+    p95: 0.9
+    p99: 2.7
+  Codes:
+    0: 41
+  engine.socketio.emit: 41
+
+Report @ 01:23:37(+0530) 2021-08-05
+Elapsed time: 2 minutes, 43 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  41
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0.1
+    max: 1.9
+    median: 0.3
+    p95: 0.8
+    p99: 1.9
+  Codes:
+    0: 41
+  engine.socketio.emit: 41
+
+Report @ 01:23:47(+0530) 2021-08-05
+Elapsed time: 2 minutes, 53 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  41
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0.1
+    max: 2.2
+    median: 0.2
+    p95: 0.5
+    p99: 2.2
+  Codes:
+    0: 41
+  engine.socketio.emit: 41
+
+Report @ 01:23:57(+0530) 2021-08-05
+Elapsed time: 3 minutes, 3 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  41
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0.1
+    max: 3.3
+    median: 0.2
+    p95: 1.6
+    p99: 3.3
+  Codes:
+    0: 41
+  engine.socketio.emit: 41
+
+Report @ 01:24:07(+0530) 2021-08-05
+Elapsed time: 3 minutes, 13 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  41
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0.1
+    max: 0.9
+    median: 0.3
+    p95: 0.8
+    p99: 0.9
+  Codes:
+    0: 41
+  engine.socketio.emit: 41
+
+Report @ 01:24:17(+0530) 2021-08-05
+Elapsed time: 3 minutes, 23 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  41
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0.1
+    max: 0.8
+    median: 0.2
+    p95: 0.7
+    p99: 0.8
+  Codes:
+    0: 41
+  engine.socketio.emit: 41
+
+Report @ 01:24:27(+0530) 2021-08-05
+Elapsed time: 3 minutes, 33 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  41
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0.1
+    max: 2.3
+    median: 0.2
+    p95: 0.7
+    p99: 2.3
+  Codes:
+    0: 41
+  engine.socketio.emit: 41
+
+Report @ 01:24:37(+0530) 2021-08-05
+Elapsed time: 3 minutes, 43 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  41
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0.1
+    max: 0.5
+    median: 0.2
+    p95: 0.5
+    p99: 0.5
+  Codes:
+    0: 41
+  engine.socketio.emit: 41
+
+Report @ 01:24:47(+0530) 2021-08-05
+Elapsed time: 3 minutes, 53 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  41
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0.1
+    max: 2.7
+    median: 0.2
+    p95: 0.5
+    p99: 2.7
+  Codes:
+    0: 41
+  engine.socketio.emit: 41
+
+Report @ 01:24:57(+0530) 2021-08-05
+Elapsed time: 4 minutes, 3 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  41
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0.1
+    max: 1.7
+    median: 0.2
+    p95: 1.1
+    p99: 1.7
+  Codes:
+    0: 41
+  engine.socketio.emit: 41
+
+Report @ 01:25:07(+0530) 2021-08-05
+Elapsed time: 4 minutes, 13 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  41
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0.1
+    max: 5.8
+    median: 0.2
+    p95: 0.7
+    p99: 5.8
+  Codes:
+    0: 41
+  engine.socketio.emit: 41
+
+Report @ 01:25:17(+0530) 2021-08-05
+Elapsed time: 4 minutes, 23 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  41
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0.1
+    max: 3.2
+    median: 0.2
+    p95: 0.5
+    p99: 3.2
+  Codes:
+    0: 41
+  engine.socketio.emit: 41
+
+Report @ 01:25:27(+0530) 2021-08-05
+Elapsed time: 4 minutes, 33 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  41
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0.1
+    max: 0.5
+    median: 0.2
+    p95: 0.5
+    p99: 0.5
+  Codes:
+    0: 41
+  engine.socketio.emit: 41
+
+Report @ 01:25:37(+0530) 2021-08-05
+Elapsed time: 4 minutes, 43 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  41
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0.1
+    max: 0.5
+    median: 0.2
+    p95: 0.5
+    p99: 0.5
+  Codes:
+    0: 41
+  engine.socketio.emit: 41
+
+Report @ 01:25:47(+0530) 2021-08-05
+Elapsed time: 4 minutes, 53 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  41
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0.1
+    max: 1.7
+    median: 0.2
+    p95: 0.9
+    p99: 1.7
+  Codes:
+    0: 41
+  engine.socketio.emit: 41
+
+Report @ 01:25:57(+0530) 2021-08-05
+Elapsed time: 5 minutes, 3 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  41
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0.1
+    max: 0.6
+    median: 0.2
+    p95: 0.5
+    p99: 0.6
+  Codes:
+    0: 41
+  engine.socketio.emit: 41
+
+Report @ 01:26:07(+0530) 2021-08-05
+Elapsed time: 5 minutes, 13 seconds
+  Scenarios launched:  0
+  Scenarios completed: 9
+  Requests completed:  32
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0.1
+    max: 0.5
+    median: 0.2
+    p95: 0.4
+    p99: 0.5
+  Codes:
+    0: 32
+  engine.socketio.emit: 32
+
+Report @ 01:26:17(+0530) 2021-08-05
+Elapsed time: 5 minutes, 23 seconds
+  Scenarios launched:  0
+  Scenarios completed: 10
+  Requests completed:  24
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0.1
+    max: 0.5
+    median: 0.2
+    p95: 0.5
+    p99: 0.5
+  Codes:
+    0: 24
+  engine.socketio.emit: 24
+
+Report @ 01:26:27(+0530) 2021-08-05
+Elapsed time: 5 minutes, 33 seconds
+  Scenarios launched:  0
+  Scenarios completed: 10
+  Requests completed:  18
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0.1
+    max: 2.4
+    median: 0.2
+    p95: 1.6
+    p99: 2.4
+  Codes:
+    0: 18
+  engine.socketio.emit: 18
+
+Report @ 01:26:37(+0530) 2021-08-05
+Elapsed time: 5 minutes, 43 seconds
+  Scenarios launched:  0
+  Scenarios completed: 11
+  Requests completed:  8
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0.2
+    max: 0.4
+    median: 0.2
+    p95: 0.4
+    p99: 0.4
+  Codes:
+    0: 8
+  engine.socketio.emit: 8
+
+Report @ 01:26:47(+0530) 2021-08-05
+Elapsed time: 5 minutes, 53 seconds
+  Scenarios launched:  0
+  Scenarios completed: 9
+  Requests completed:  1
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0.3
+    max: 0.3
+    median: 0.3
+    p95: 0.3
+    p99: 0.3
+  Codes:
+    0: 1
+  engine.socketio.emit: 1
+
+Report @ 01:26:47(+0530) 2021-08-05
+Elapsed time: 5 minutes, 53 seconds
+  Scenarios launched:  0
+  Scenarios completed: 1
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+All virtual users finished
+Summary report @ 01:26:47(+0530) 2021-08-05
+  Scenarios launched:  50
+  Scenarios completed: 50
+  Requests completed:  1430
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0
+    max: 5.8
+    median: 0.2
+    p95: 0.6
+    p99: 1.8
+  Scenario counts:
+    Students with lecture doubts: 41 (82%)
+    Silent students: 9 (18%)
+  Codes:
+    0: 1430
+  engine.socketio.emit: 1430
+

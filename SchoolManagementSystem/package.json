@@ -4,7 +4,7 @@
   "description": "Managment System for multiple schools",
   "main": "server.js",
   "scripts": {
-    "start": "node server",
+    "start": "node server2",
     "server": "nodemon server",
     "client": "npm run --prefix client start",
     "dev": "concurrently \"npm run server\" \"npm run client\""
@@ -12,12 +12,15 @@
   "author": "Gaurish Anvekar",
   "license": "MIT",
   "dependencies": {
+    "@socket.io/redis-adapter": "^7.0.0",
+    "@socket.io/sticky": "^1.0.1",
     "axios": "^0.20.0",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.4.1",
     "config": "^3.2.5",
     "cors": "^2.8.5",
     "ejs": "^3.1.5",
+    "engine.io": "^3.0.0",
     "express": "^4.17.1",
     "express-subdomain": "^1.0.5",
     "express-validator": "^6.3.1",
@@ -31,8 +34,10 @@
     "psl": "^1.7.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-datepicker": "^3.0.0",
+    "redis-server": "^1.2.2",
     "request": "^2.88.0",
-    "socket.io": "^2.3.0"
+    "socket.io": "^3.0.0",
+    "socket.io-redis": "^6.0.0"
   },
   "devDependencies": {
     "concurrently": "^5.0.2",

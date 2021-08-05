@@ -1,0 +1,62 @@
+config:
+  environments:
+    school1:
+      target: "http://joseph.easyschool.com:5000"
+      socketio:
+        path: "/api/sockets"
+        query:
+          token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZWQxNmJmYjcxZGM0MjA0ZWYzZGU1NmIiLCJ1c2VyTmFtZSI6ImdhdXJlZXNoYW52ZWthciIsInNjaG9vbElkIjoiNWVjZWM3MGU4MjkxZDIwM2Y5YTc5YThiIiwibG9naW5UeXBlIjoic3R1ZGVudCIsImlhdCI6MTYyNjM2MTUzOCwiZXhwIjoxNjI2NzIxNTM4fQ.EgOyfKmZysF2uljwZB7n3YZz6ytwT3mRKhc1tCypQnA"
+          scheduleId: "{{ $processEnvironment.SCHEDULE_ID }}"
+      phases:
+        - duration: 50
+          arrivalRate: 1
+      engines:
+        socketio-v3: {}
+      processor: "./functions.js"
+    school2:
+      target: "http://joseph.easyschool.com:5000"
+      socketio:
+        path: "/api/sockets"
+        query:
+          token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZWQxNmJmYjcxZGM0MjA0ZWYzZGU1NmIiLCJ1c2VyTmFtZSI6ImdhdXJlZXNoYW52ZWthciIsInNjaG9vbElkIjoiNWVjZWM3MGU4MjkxZDIwM2Y5YTc5YThiIiwibG9naW5UeXBlIjoic3R1ZGVudCIsImlhdCI6MTYyNjM2MTUzOCwiZXhwIjoxNjI2NzIxNTM4fQ.EgOyfKmZysF2uljwZB7n3YZz6ytwT3mRKhc1tCypQnA"
+          scheduleId: "{{ $processEnvironment.SCHEDULE_ID }}"
+      phases:
+        - duration: 50
+          arrivalRate: 1
+      engines:
+        socketio-v3: {}
+      processor: "./functions.js"
+
+scenarios:
+  - name: "Silent students"
+    weight: 25
+    engine: "socketio-v3"
+    flow:
+      - emit: ["join", "join-room"]
+      - emit: ["message", "join-room", "Test"]
+          #channel: "join-room"
+          #data: "Test"
+      - emit: ["join", "chat-message"]
+      - emit: ["message", "chat-message", "Good morning Professor"]
+          #channel: "chat-message"
+          #data: "Good morning Professor"
+      - think: 300
+  - name: "Students with lecture doubts"
+    weight: 75
+    engine: "socketio-v3"
+    flow:
+      - emit: ["join", "join-room"]
+      - emit: ["message", "join-room", "Test"]
+          #channel: "join-room"
+          #data: "Test"
+      - emit: ["join", "chat-message"]
+      - emit: ["message", "chat-message", "Good morning Professor"]
+          #channel: "chat-message"
+          #data: "Good morning Professor"
+      - loop:
+          - function: "setMessage"
+          - emit: ["message", "chat-message", {{message}}]
+              #channel: "chat-message"
+              #data: "{{ message }}"
+          - think: 10
+        count: 30

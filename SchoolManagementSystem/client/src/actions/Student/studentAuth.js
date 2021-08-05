@@ -16,8 +16,8 @@ export const studentAuth = (
   password = null,
   loginType = null
 ) => async (dispatch) => {
-  const endPoint = "https://easyschool.academy/api/students/authentication";
-
+  //const endPoint = "https://easyschool.academy/api/students/authentication";
+  const endPoint = "http://joseph.easyschool.com:5000/api/students/authentication";
   // Just send back the jwt for verification. This will be in header.
   if (/*localStorage.getItem("studenttoken")*/ false) {
     setAuthToken(localStorage.studenttoken);

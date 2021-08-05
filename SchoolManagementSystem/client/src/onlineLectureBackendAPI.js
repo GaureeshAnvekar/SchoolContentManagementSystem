@@ -24,8 +24,8 @@ export const scheduleLectureAPI = async (scheduleData = null) => {
 };
 
 export const getAllScheduledLecturesAPI = async () => {
-  const endPoint =
-    "http://easyschool.academy/api/onlineLecture/getAllScheduledLectures";
+  const endPoint = "http://joseph.easyschool.com:5000/api/onlineLecture/getAllScheduledLectures";
+    //"http://easyschool.academy/api/onlineLecture/getAllScheduledLectures";
 
   setAuthToken(localStorage.employeetoken);
 
@@ -68,8 +68,8 @@ export const cancelScheduledLectureAPI = async (scheduleToRemove) => {
 };
 
 export const getStudentsLecturesAPI = async (requestBody = null) => {
-  const endPoint =
-    "http://easyschool.academy/api/onlineLecture/getStudentsLectures";
+  const endPoint = "http://joseph.easyschool.com:5000/api/onlineLecture/getStudentsLectures";
+    //"http://easyschool.academy/api/onlineLecture/getStudentsLectures";
 
   setAuthToken(localStorage.studenttoken);
 

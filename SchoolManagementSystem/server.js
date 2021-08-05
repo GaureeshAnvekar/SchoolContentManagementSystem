@@ -1,4 +1,5 @@
 const express = require("express");
+const cluster = require("cluster");
 const connectDB = require("./config/db");
 const path = require("path");
 const cors = require("cors");
@@ -57,8 +58,13 @@ connectDB();
 
 const app = express();
 
+app.use(cors());
+
 const server = require("http").Server(app);
-const io = require("socket.io")(server, { path: "/api/sockets" });
+const io = require("socket.io")(server, { path: "/api/sockets", cors: {
+  origin: '*'
+}});
+
 
 const { PeerServer } = require("peer");
 
@@ -96,7 +102,7 @@ app.use(express.json({ extended: false })); //This is a middleware which took th
 //can directly be used inside console.log()
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+
 
 app.set('view engine', 'ejs');
 
