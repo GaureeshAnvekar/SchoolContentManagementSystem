@@ -68,8 +68,8 @@ export const cancelScheduledLectureAPI = async (scheduleToRemove) => {
 };
 
 export const getStudentsLecturesAPI = async (requestBody = null) => {
-  const endPoint = "https://joseph.easyschool.com:5000/api/onlineLecture/getStudentsLectures";
-    //"http://easyschool.academy/api/onlineLecture/getStudentsLectures";
+  //const endPoint = "https://joseph.easyschool.com:5000/api/onlineLecture/getStudentsLectures";
+   const endPoint = "https://easyschool.academy/api/onlineLecture/getStudentsLectures";
 
   setAuthToken(localStorage.studenttoken);
 
