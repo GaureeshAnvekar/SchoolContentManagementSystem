@@ -24,15 +24,16 @@ const StudentBeginLecture = (props) => {
 
   if (!socket) {
     setSocket(window.io.connect(
+      /*
       "http://joseph.easyschool.com:5000?token=" +
       token +
       "&scheduleId=" +
-      props.location.meetingId,
-      /*
+      props.location.meetingId,*/
+      
       "http://easyschool.academy?token=" +
         token +
         "&scheduleId=" +
-        props.location.meetingId,*/
+        props.location.meetingId,
       {
         path: "/api/sockets",
       }

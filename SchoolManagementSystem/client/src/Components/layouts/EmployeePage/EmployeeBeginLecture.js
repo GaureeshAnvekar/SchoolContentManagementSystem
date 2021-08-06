@@ -24,17 +24,18 @@ const EmployeeBeginLecture = (props) => {
   const [openExitPopup, setOpenExitPopup] = useState(false);
 
   if (!socket) {
-    console.log("again");
+    //console.log("again");
   setSocket(window.io.connect(
+    /*
     "http://joseph.easyschool.com:5000?token=" +
     token +
     "&scheduleId=" +
-    props.location.meetingId,
-    /*
+    props.location.meetingId,*/
+    
     "http://easyschool.academy?token=" +
       token +
       "&scheduleId=" +
-      props.location.meetingId,*/
+      props.location.meetingId,
     {
       path: "/api/sockets",
     }

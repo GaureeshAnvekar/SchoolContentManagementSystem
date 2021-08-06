@@ -20,8 +20,8 @@ import { Link } from "react-router-dom";
 //import { PieChart } from "react-minimal-pie-chart";
 
 const OnlineLecture = (props) => {
-  //useScript("http://easyschool.academy/api/sockets/socket.io.js");
-  useScript("http://joseph.easyschool.com:5000/api/sockets/socket.io.js");
+  useScript("http://easyschool.academy/api/sockets/socket.io.js");
+  //useScript("http://joseph.easyschool.com:5000/api/sockets/socket.io.js");
   useScript("https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js");
 
   const [scheduleOrStart, setScheduleOrStart] = useState(null);
