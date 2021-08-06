@@ -25,7 +25,7 @@ export const attendanceAPI = async (attendanceType = null) => {
 };
 
 export const assignmentsAPI = async (requestBody = null) => {
-  const endPoint = "http://easyschool.academy/api/students/assignments";
+  const endPoint = "https://easyschool.academy/api/students/assignments";
 
   setAuthToken(localStorage.studenttoken);
 
@@ -46,7 +46,7 @@ export const assignmentsAPI = async (requestBody = null) => {
 };
 
 export const saveBooksToNotifyAPI = async (booksToNotifyArr) => {
-  const endPoint = "http://easyschool.academy/api/students/saveBooksToNotify";
+  const endPoint = "https://easyschool.academy/api/students/saveBooksToNotify";
 
   setAuthToken(localStorage.studenttoken);
 
@@ -68,7 +68,7 @@ export const saveBooksToNotifyAPI = async (booksToNotifyArr) => {
 };
 
 export const getBooksToNotifyListAPI = async () => {
-  const endPoint = "http://easyschool.academy/api/students/getBooksToNotifyList";
+  const endPoint = "https://easyschool.academy/api/students/getBooksToNotifyList";
 
   setAuthToken(localStorage.studenttoken);
 

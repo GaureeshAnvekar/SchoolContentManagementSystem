@@ -2,7 +2,7 @@ import axios from "axios";
 import setAuthToken from "./utils/setAuthToken";
 
 export const uploadBookAPI = async (bookData = null) => {
-  const endPoint = "http://easyschool.academy/api/library/uploadBook";
+  const endPoint = "https://easyschool.academy/api/library/uploadBook";
 
   setAuthToken(localStorage.token);
 
@@ -24,7 +24,7 @@ export const uploadBookAPI = async (bookData = null) => {
 };
 
 export const deleteBookAPI = async (bookId = null) => {
-  const endPoint = "http://easyschool.academy/api/library/deleteBook";
+  const endPoint = "https://easyschool.academy/api/library/deleteBook";
 
   setAuthToken(localStorage.token);
 
@@ -46,7 +46,7 @@ export const deleteBookAPI = async (bookId = null) => {
 };
 
 export const issueBookAPI = async (issueData = null) => {
-  const endPoint = "http://easyschool.academy/api/library/issueBook";
+  const endPoint = "https://easyschool.academy/api/library/issueBook";
 
   setAuthToken(localStorage.token);
 
@@ -68,7 +68,7 @@ export const issueBookAPI = async (issueData = null) => {
 };
 
 export const receiveBookAPI = async (receiveData = null) => {
-  const endPoint = "http://easyschool.academy/api/library/receiveBook";
+  const endPoint = "https://easyschool.academy/api/library/receiveBook";
 
   setAuthToken(localStorage.token);
 
@@ -96,7 +96,7 @@ export const receiveBookAPI = async (receiveData = null) => {
 };
 
 export const calculateDueAPI = async (bookId = null) => {
-  const endPoint = "http://easyschool.academy/api/library/calculateDue";
+  const endPoint = "https://easyschool.academy/api/library/calculateDue";
 
   setAuthToken(localStorage.token);
 
@@ -118,7 +118,7 @@ export const calculateDueAPI = async (bookId = null) => {
 };
 
 export const searchBooksAPI = async () => {
-  const endPoint = "http://easyschool.academy/api/library/searchBooks";
+  const endPoint = "https://easyschool.academy/api/library/searchBooks";
 
   setAuthToken(localStorage.token);
 
@@ -138,7 +138,7 @@ export const searchBooksAPI = async () => {
 };
 
 export const searchBorrowersAPI = async () => {
-  const endPoint = "http://easyschool.academy/api/library/searchBorrowers";
+  const endPoint = "https://easyschool.academy/api/library/searchBorrowers";
 
   setAuthToken(localStorage.token);
 
@@ -159,7 +159,7 @@ export const searchBorrowersAPI = async () => {
 
 export const totalBooksCountAPI = async (genre = "") => {
   const endPoint =
-    "http://easyschool.academy/api/library/totalBooksCount?genre=" + genre;
+    "https://easyschool.academy/api/library/totalBooksCount?genre=" + genre;
 
   setAuthToken(localStorage.studenttoken);
 
@@ -180,7 +180,7 @@ export const totalBooksCountAPI = async (genre = "") => {
 
 export const paginationAPI = async (page = 0, genre = "") => {
   const endPoint =
-    "http://easyschool.academy/api/library/pagination?page=" +
+    "https://easyschool.academy/api/library/pagination?page=" +
     page +
     "&genre=" +
     genre;
@@ -204,7 +204,7 @@ export const paginationAPI = async (page = 0, genre = "") => {
 
 export const getQueryBooksAPI = async (query = null) => {
   const endPoint =
-    "http://easyschool.academy/api/library/pagination?query=" + query;
+    "https://easyschool.academy/api/library/pagination?query=" + query;
 
   setAuthToken(localStorage.studenttoken);
 
