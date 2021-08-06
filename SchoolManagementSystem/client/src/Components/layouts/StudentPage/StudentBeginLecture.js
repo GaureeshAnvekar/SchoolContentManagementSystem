@@ -47,7 +47,7 @@ const StudentBeginLecture = (props) => {
   const setupSocketConnection = (scheduleId) => {
     const peer = new window.Peer(undefined, {
       //host: "localhost",
-      host: "https://easyschool.academy",
+      host: "easyschool.academy",
       port: 9000,
       path: "/peerJS",
     });

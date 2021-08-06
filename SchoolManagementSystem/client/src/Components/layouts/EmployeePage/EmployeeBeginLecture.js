@@ -53,7 +53,7 @@ const EmployeeBeginLecture = (props) => {
 
     let peer = new window.Peer(undefined, {
       //host: "localhost",
-      host: "https://easyschool.academy",
+      host: "easyschool.academy",
       port: 9000,
       path: "/peerJS",
     });
