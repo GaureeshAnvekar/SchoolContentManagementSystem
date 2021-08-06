@@ -30,7 +30,7 @@ const StudentBeginLecture = (props) => {
       "&scheduleId=" +
       props.location.meetingId,*/
       
-      "http://easyschool.academy?token=" +
+      "https://easyschool.academy?token=" +
         token +
         "&scheduleId=" +
         props.location.meetingId,
