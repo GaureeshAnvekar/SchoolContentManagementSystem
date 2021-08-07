@@ -35,4 +35,4 @@ scenarios:
     flow:
       - emit: ["join", "create-room"]
           #channel: "create-room"
-      - think: 900
+      - think: 350

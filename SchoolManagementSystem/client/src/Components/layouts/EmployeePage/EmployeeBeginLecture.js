@@ -38,7 +38,7 @@ const EmployeeBeginLecture = (props) => {
       props.location.meetingId,
     {
       path: "/api/sockets",
-      transports: ['websocket'] // testing
+     // transports: ['websocket'] // testing
     }
   ));
   socket = 1;

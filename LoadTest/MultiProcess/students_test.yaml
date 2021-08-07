@@ -1,7 +1,7 @@
 config:
   environments:
     school1:
-      target: "https://easyschool.academy"
+      target: "https://easyschool.academy:5000"
       tls:
         rejectUnauthorized: false
       socketio:
@@ -16,7 +16,7 @@ config:
         socketio-v3: {}
       processor: "./functions.js"
     school2:
-      target: "https://easyschool.academy"
+      target: "https://easyschool.academy:5000"
       tls:
         rejectUnauthorized: false
       socketio:

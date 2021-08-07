@@ -1,7 +1,7 @@
 config:
   environments:
     school1:
-      target: "https://easyschool.academy"
+      target: "https://easyschool.academy:5000"
       tls:
         rejectUnauthorized: false
       socketio:
@@ -15,7 +15,7 @@ config:
       engines:
         socketio-v3: {}
     school2:
-      target: "https://easyschool.academy"
+      target: "https://easyschool.academy:5000"
       tls:
         rejectUnauthorized: false
       socketio:
@@ -35,4 +35,4 @@ scenarios:
     flow:
       - emit: ["join", "create-room"]
           #channel: "create-room"
-      - think: 900
+      - think: 350
