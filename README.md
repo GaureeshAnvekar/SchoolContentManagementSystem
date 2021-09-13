@@ -1,0 +1,2 @@
+# EasySchool
+https://easyschool.academy
