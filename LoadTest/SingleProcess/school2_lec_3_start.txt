@@ -1,7 +1,23 @@
-Started phase 0, duration: 1s @ 02:17:33(+0530) 2021-08-08
-Report @ 02:17:34(+0530) 2021-08-08
-Elapsed time: 4 seconds
+Started phase 0, duration: 1s @ 03:06:53(+0530) 2021-08-08
+Report @ 03:07:03(+0530) 2021-08-08
+Elapsed time: 14 seconds
   Scenarios launched:  1
+  Scenarios completed: 0
+  Requests completed:  1
+  Mean response/sec: NaN
+  Response time (msec):
+    min: 0.6
+    max: 0.6
+    median: 0.6
+    p95: 0.6
+    p99: 0.6
+  Codes:
+    0: 1
+  engine.socketio.emit: 1
+
+Report @ 03:07:13(+0530) 2021-08-08
+Elapsed time: 24 seconds
+  Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
   Mean response/sec: NaN
@@ -11,23 +27,464 @@ Elapsed time: 4 seconds
     median: NaN
     p95: NaN
     p99: NaN
-  Errors:
-    Error: xhr post error: 1
+
+Report @ 03:07:23(+0530) 2021-08-08
+Elapsed time: 34 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:07:33(+0530) 2021-08-08
+Elapsed time: 44 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:07:43(+0530) 2021-08-08
+Elapsed time: 54 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:07:53(+0530) 2021-08-08
+Elapsed time: 1 minute, 4 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:08:03(+0530) 2021-08-08
+Elapsed time: 1 minute, 14 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:08:13(+0530) 2021-08-08
+Elapsed time: 1 minute, 24 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:08:23(+0530) 2021-08-08
+Elapsed time: 1 minute, 34 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:08:33(+0530) 2021-08-08
+Elapsed time: 1 minute, 44 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:08:43(+0530) 2021-08-08
+Elapsed time: 1 minute, 54 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:08:53(+0530) 2021-08-08
+Elapsed time: 2 minutes, 4 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:09:03(+0530) 2021-08-08
+Elapsed time: 2 minutes, 14 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:09:13(+0530) 2021-08-08
+Elapsed time: 2 minutes, 24 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:09:23(+0530) 2021-08-08
+Elapsed time: 2 minutes, 34 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:09:33(+0530) 2021-08-08
+Elapsed time: 2 minutes, 44 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:09:43(+0530) 2021-08-08
+Elapsed time: 2 minutes, 54 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:09:53(+0530) 2021-08-08
+Elapsed time: 3 minutes, 4 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:10:03(+0530) 2021-08-08
+Elapsed time: 3 minutes, 14 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:10:13(+0530) 2021-08-08
+Elapsed time: 3 minutes, 24 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:10:23(+0530) 2021-08-08
+Elapsed time: 3 minutes, 34 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:10:33(+0530) 2021-08-08
+Elapsed time: 3 minutes, 44 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:10:43(+0530) 2021-08-08
+Elapsed time: 3 minutes, 54 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:10:53(+0530) 2021-08-08
+Elapsed time: 4 minutes, 4 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:11:03(+0530) 2021-08-08
+Elapsed time: 4 minutes, 14 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:11:13(+0530) 2021-08-08
+Elapsed time: 4 minutes, 24 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:11:23(+0530) 2021-08-08
+Elapsed time: 4 minutes, 34 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:11:33(+0530) 2021-08-08
+Elapsed time: 4 minutes, 44 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:11:43(+0530) 2021-08-08
+Elapsed time: 4 minutes, 54 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:11:53(+0530) 2021-08-08
+Elapsed time: 5 minutes, 4 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:12:03(+0530) 2021-08-08
+Elapsed time: 5 minutes, 14 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:12:13(+0530) 2021-08-08
+Elapsed time: 5 minutes, 24 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:12:23(+0530) 2021-08-08
+Elapsed time: 5 minutes, 34 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:12:33(+0530) 2021-08-08
+Elapsed time: 5 minutes, 44 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:12:43(+0530) 2021-08-08
+Elapsed time: 5 minutes, 54 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:12:44(+0530) 2021-08-08
+Elapsed time: 5 minutes, 55 seconds
+  Scenarios launched:  0
+  Scenarios completed: 1
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
 
 All virtual users finished
-Summary report @ 02:17:34(+0530) 2021-08-08
+Summary report @ 03:12:44(+0530) 2021-08-08
   Scenarios launched:  1
-  Scenarios completed: 0
-  Requests completed:  0
+  Scenarios completed: 1
+  Requests completed:  1
   Mean response/sec: NaN
   Response time (msec):
-    min: NaN
-    max: NaN
-    median: NaN
-    p95: NaN
-    p99: NaN
+    min: 0.6
+    max: 0.6
+    median: 0.6
+    p95: 0.6
+    p99: 0.6
   Scenario counts:
     Start Lecture: 1 (100%)
-  Errors:
-    Error: xhr post error: 1
+  Codes:
+    0: 1
+  engine.socketio.emit: 1
 

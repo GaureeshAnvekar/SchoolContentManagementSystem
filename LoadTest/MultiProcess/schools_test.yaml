@@ -1,11 +1,12 @@
 config:
   environments:
     school1:
-      target: "https://easyschool.academy"
+      target: "http://easyschool.academy:5000"
       tls:
         rejectUnauthorized: false
       socketio:
         path: "/api/sockets"
+        transports: ["websocket"]
         query:
           token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjYyNmY4ZDhkNTMxMzA0MTY4YTNmZTEiLCJ1c2VyTmFtZSI6IkFsZXhNaWNoZW5lciIsInNjaG9vbElkIjoiNWVjZWM3MGU4MjkxZDIwM2Y5YTc5YThiIiwibG9naW5UeXBlIjoic3RhZmYiLCJpYXQiOjE2MjYzNjIwODEsImV4cCI6MTYyNjcyMjA4MX0.KUzLxeZ1LxrXe_HveMg9q1VL9xgwqyVc4x0Mk5rB2Aw"
           scheduleId: "{{ $processEnvironment.SCHEDULE_ID }}"
@@ -15,11 +16,12 @@ config:
       engines:
         socketio-v3: {}
     school2:
-      target: "https://easyschool.academy"
+      target: "http://easyschool.academy:5000"
       tls:
         rejectUnauthorized: false
       socketio:
         path: "/api/sockets"
+        transports: ["websocket"]
         query:
           token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjYyNmY4ZDhkNTMxMzA0MTY4YTNmZTEiLCJ1c2VyTmFtZSI6IkFsZXhNaWNoZW5lciIsInNjaG9vbElkIjoiNWVjZWM3MGU4MjkxZDIwM2Y5YTc5YThiIiwibG9naW5UeXBlIjoic3RhZmYiLCJpYXQiOjE2MjYzNjIwODEsImV4cCI6MTYyNjcyMjA4MX0.KUzLxeZ1LxrXe_HveMg9q1VL9xgwqyVc4x0Mk5rB2Aw"
           scheduleId: "{{ $processEnvironment.SCHEDULE_ID }}"

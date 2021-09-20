@@ -58,9 +58,9 @@ const StudentDashBoardType = (props) => {
         />
 
         <div id='userBasicDetails'>
-          <h2 style={{ padding: "0px", margin: "0px" }}>
-            Welcome to Student page!
-          </h2>
+          <h3 style={{ padding: "0px", margin: "0px" }}>
+            <b>DashBoard</b>
+          </h3>
 
           <hr
             style={{
@@ -74,27 +74,27 @@ const StudentDashBoardType = (props) => {
           <div id='detailsWhiteBox'>
             <div id='basicDataCol1' className='basicDataCols'>
               <label className='dataLabels'>
-                FirstName: {props.studentInfo.firstName}
+                FirstName: {/*props.studentInfo.firstName*/}
               </label>
               <br />
-              <label className='dataLabels'>MiddleName:</label>
+              <label className='dataLabels'>MiddleName: </label>
               <br />
               <label className='dataLabels'>
-                LastName: {props.studentInfo.lastName}
+                LastName: {/*props.studentInfo.lastName*/}
               </label>
             </div>
             <div id='basicDataCol2' className='basicDataCols'>
               <label className='dataLabels'>
-                RollNo:{props.studentInfo.rollNo}
+                RollNo: {/*props.studentInfo.rollNo*/}
               </label>
               <br />
               <label className='dataLabels'>
-                Standard:{props.studentInfo.classGrade}
+                Standard: {/*props.studentInfo.classGrade*/}
               </label>
               <br />
               <label className='dataLabels'>
                 DateOfBirth:
-                {new Date(props.studentInfo.dob).toLocaleDateString("en-GB")}
+                {/*new Date(props.studentInfo.dob).toLocaleDateString("en-GB")*/}
               </label>
             </div>
             <div
@@ -103,11 +103,11 @@ const StudentDashBoardType = (props) => {
               style={{ verticalAlign: "top" }}
             >
               <label className='dataLabels'>
-                BloodGroup:{props.studentInfo.bloodGroup}
+                BloodGroup:{/*props.studentInfo.bloodGroup*/}
               </label>
               <br />
               <label className='dataLabels'>
-                Gender:{props.studentInfo.gender}
+                Gender:{/*props.studentInfo.gender*/}
               </label>
             </div>
           </div>

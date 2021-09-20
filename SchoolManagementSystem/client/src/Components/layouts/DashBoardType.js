@@ -57,7 +57,7 @@ const DashBoardType = (props) => {
 
         <div id='userBasicDetails'>
           <h2 style={{ padding: "0px", margin: "0px" }}>
-            Welcome to Student page!
+            DashBoard
           </h2>
 
           <hr
@@ -71,27 +71,27 @@ const DashBoardType = (props) => {
           />
           <div id='detailsWhiteBox'>
             <div id='basicDataCol1' className='basicDataCols'>
-              <label className='dataLabels'>FirstName: Gaureesh</label>
+              <label className='dataLabels'>FirstName: </label>
               <br />
-              <label className='dataLabels'>MiddleName: Gurudas</label>
+              <label className='dataLabels'>MiddleName: </label>
               <br />
-              <label className='dataLabels'>LastName: Anvekar</label>
+              <label className='dataLabels'>LastName: </label>
             </div>
             <div id='basicDataCol2' className='basicDataCols'>
-              <label className='dataLabels'>RollNo:</label>
+              <label className='dataLabels'>RollNo: </label>
               <br />
-              <label className='dataLabels'>Standard:</label>
+              <label className='dataLabels'>Standard: </label>
               <br />
-              <label className='dataLabels'>DateOfBirth: 26-10-1992</label>
+              <label className='dataLabels'>DateOfBirth: </label>
             </div>
             <div
               id='basicDataCol3'
               className='basicDataCols'
               style={{ verticalAlign: "top" }}
             >
-              <label className='dataLabels'>BloodGroup:</label>
+              <label className='dataLabels'>BloodGroup: </label>
               <br />
-              <label className='dataLabels'>Gender: Male</label>
+              <label className='dataLabels'>Gender: </label>
             </div>
           </div>
         </div>

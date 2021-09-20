@@ -26,7 +26,7 @@ const SchoolHeader = (props) => {
           id='schoolName'
           style={{ textAlign: "center", color: "white", fontFamily: "Cinzel" }}
         >
-          BUXI JAGABANDHU ENGLISH MEDIUM SCHOOL
+          ST. JOSEPH'S HIGH SCHOOL
         </h1>
       </div>
     </div>

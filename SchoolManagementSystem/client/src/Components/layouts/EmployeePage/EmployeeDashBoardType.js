@@ -58,9 +58,9 @@ const EmployeeDashBoardType = (props) => {
         />
 
         <div id='userBasicDetails'>
-          <h2 style={{ padding: "0px", margin: "0px" }}>
-            Welcome to Employee page!
-          </h2>
+          <h3 style={{ padding: "0px", margin: "0px" }}>
+            <b>DashBoard</b>
+          </h3>
 
           <hr
             style={{
@@ -74,24 +74,25 @@ const EmployeeDashBoardType = (props) => {
           <div id='detailsWhiteBox'>
             <div id='basicDataCol1' className='basicDataCols'>
               <label className='dataLabels'>
-                FirstName: {props.employeeInfo.firstName}
+                FirstName: {/*props.employeeInfo.firstName*/}
               </label>
               <br />
-              <label className='dataLabels'>MiddleName:</label>
+              <label className='dataLabels'>MiddleName: </label>
               <br />
               <label className='dataLabels'>
-                LastName: {props.employeeInfo.lastName}
+                LastName: {/*props.employeeInfo.lastName*/}
               </label>
             </div>
 
             <div id='basicDataCol2' className='basicDataCols'>
               <label className='dataLabels'>
                 DateOfBirth:{" "}
-                {new Date(props.employeeInfo.dob).toLocaleDateString("en-GB")}
+                
+                {/*new Date(props.employeeInfo.dob).toLocaleDateString("en-GB")*/}
               </label>
               <br />
               <label className='dataLabels'>
-                Gender: {props.employeeInfo.gender}
+                Gender: {/*props.employeeInfo.gender*/}
               </label>
               <br />
               <label className='dataLabels'>BloodGroup:{null}</label>

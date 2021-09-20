@@ -1,22 +1,22 @@
-Started phase 0, duration: 1s @ 02:17:32(+0530) 2021-08-08
-Report @ 02:17:42(+0530) 2021-08-08
-Elapsed time: 13 seconds
+Started phase 0, duration: 1s @ 03:06:52(+0530) 2021-08-08
+Report @ 03:07:02(+0530) 2021-08-08
+Elapsed time: 14 seconds
   Scenarios launched:  1
   Scenarios completed: 0
   Requests completed:  1
   Mean response/sec: NaN
   Response time (msec):
-    min: 4.3
-    max: 4.3
-    median: 4.3
-    p95: 4.3
-    p99: 4.3
+    min: 0.5
+    max: 0.5
+    median: 0.5
+    p95: 0.5
+    p99: 0.5
   Codes:
     0: 1
   engine.socketio.emit: 1
 
-Report @ 02:17:52(+0530) 2021-08-08
-Elapsed time: 23 seconds
+Report @ 03:07:12(+0530) 2021-08-08
+Elapsed time: 24 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -28,8 +28,8 @@ Elapsed time: 23 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:18:02(+0530) 2021-08-08
-Elapsed time: 33 seconds
+Report @ 03:07:22(+0530) 2021-08-08
+Elapsed time: 34 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -41,8 +41,8 @@ Elapsed time: 33 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:18:12(+0530) 2021-08-08
-Elapsed time: 43 seconds
+Report @ 03:07:32(+0530) 2021-08-08
+Elapsed time: 44 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -54,8 +54,8 @@ Elapsed time: 43 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:18:22(+0530) 2021-08-08
-Elapsed time: 53 seconds
+Report @ 03:07:42(+0530) 2021-08-08
+Elapsed time: 54 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -67,8 +67,8 @@ Elapsed time: 53 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:18:32(+0530) 2021-08-08
-Elapsed time: 1 minute, 3 seconds
+Report @ 03:07:52(+0530) 2021-08-08
+Elapsed time: 1 minute, 4 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -80,8 +80,8 @@ Elapsed time: 1 minute, 3 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:18:42(+0530) 2021-08-08
-Elapsed time: 1 minute, 13 seconds
+Report @ 03:08:02(+0530) 2021-08-08
+Elapsed time: 1 minute, 14 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -93,8 +93,8 @@ Elapsed time: 1 minute, 13 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:18:52(+0530) 2021-08-08
-Elapsed time: 1 minute, 23 seconds
+Report @ 03:08:12(+0530) 2021-08-08
+Elapsed time: 1 minute, 24 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -106,8 +106,8 @@ Elapsed time: 1 minute, 23 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:19:02(+0530) 2021-08-08
-Elapsed time: 1 minute, 33 seconds
+Report @ 03:08:22(+0530) 2021-08-08
+Elapsed time: 1 minute, 34 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -119,8 +119,8 @@ Elapsed time: 1 minute, 33 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:19:12(+0530) 2021-08-08
-Elapsed time: 1 minute, 43 seconds
+Report @ 03:08:32(+0530) 2021-08-08
+Elapsed time: 1 minute, 44 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -132,8 +132,8 @@ Elapsed time: 1 minute, 43 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:19:22(+0530) 2021-08-08
-Elapsed time: 1 minute, 53 seconds
+Report @ 03:08:42(+0530) 2021-08-08
+Elapsed time: 1 minute, 54 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -145,8 +145,8 @@ Elapsed time: 1 minute, 53 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:19:32(+0530) 2021-08-08
-Elapsed time: 2 minutes, 3 seconds
+Report @ 03:08:52(+0530) 2021-08-08
+Elapsed time: 2 minutes, 4 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -158,8 +158,8 @@ Elapsed time: 2 minutes, 3 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:19:42(+0530) 2021-08-08
-Elapsed time: 2 minutes, 13 seconds
+Report @ 03:09:02(+0530) 2021-08-08
+Elapsed time: 2 minutes, 14 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -171,8 +171,8 @@ Elapsed time: 2 minutes, 13 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:19:52(+0530) 2021-08-08
-Elapsed time: 2 minutes, 23 seconds
+Report @ 03:09:12(+0530) 2021-08-08
+Elapsed time: 2 minutes, 24 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -184,8 +184,8 @@ Elapsed time: 2 minutes, 23 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:20:02(+0530) 2021-08-08
-Elapsed time: 2 minutes, 33 seconds
+Report @ 03:09:22(+0530) 2021-08-08
+Elapsed time: 2 minutes, 34 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -197,8 +197,8 @@ Elapsed time: 2 minutes, 33 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:20:12(+0530) 2021-08-08
-Elapsed time: 2 minutes, 43 seconds
+Report @ 03:09:32(+0530) 2021-08-08
+Elapsed time: 2 minutes, 44 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -210,8 +210,8 @@ Elapsed time: 2 minutes, 43 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:20:22(+0530) 2021-08-08
-Elapsed time: 2 minutes, 53 seconds
+Report @ 03:09:42(+0530) 2021-08-08
+Elapsed time: 2 minutes, 54 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -223,8 +223,8 @@ Elapsed time: 2 minutes, 53 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:20:32(+0530) 2021-08-08
-Elapsed time: 3 minutes, 3 seconds
+Report @ 03:09:52(+0530) 2021-08-08
+Elapsed time: 3 minutes, 4 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -236,8 +236,8 @@ Elapsed time: 3 minutes, 3 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:20:42(+0530) 2021-08-08
-Elapsed time: 3 minutes, 13 seconds
+Report @ 03:10:02(+0530) 2021-08-08
+Elapsed time: 3 minutes, 14 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -249,8 +249,8 @@ Elapsed time: 3 minutes, 13 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:20:52(+0530) 2021-08-08
-Elapsed time: 3 minutes, 23 seconds
+Report @ 03:10:12(+0530) 2021-08-08
+Elapsed time: 3 minutes, 24 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -262,8 +262,8 @@ Elapsed time: 3 minutes, 23 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:21:04(+0530) 2021-08-08
-Elapsed time: 3 minutes, 35 seconds
+Report @ 03:10:22(+0530) 2021-08-08
+Elapsed time: 3 minutes, 34 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -275,8 +275,8 @@ Elapsed time: 3 minutes, 35 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:21:14(+0530) 2021-08-08
-Elapsed time: 3 minutes, 45 seconds
+Report @ 03:10:32(+0530) 2021-08-08
+Elapsed time: 3 minutes, 44 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -288,8 +288,8 @@ Elapsed time: 3 minutes, 45 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:21:24(+0530) 2021-08-08
-Elapsed time: 3 minutes, 55 seconds
+Report @ 03:10:42(+0530) 2021-08-08
+Elapsed time: 3 minutes, 54 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -301,8 +301,8 @@ Elapsed time: 3 minutes, 55 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:21:34(+0530) 2021-08-08
-Elapsed time: 4 minutes, 5 seconds
+Report @ 03:10:52(+0530) 2021-08-08
+Elapsed time: 4 minutes, 4 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -314,8 +314,8 @@ Elapsed time: 4 minutes, 5 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:21:44(+0530) 2021-08-08
-Elapsed time: 4 minutes, 15 seconds
+Report @ 03:11:02(+0530) 2021-08-08
+Elapsed time: 4 minutes, 14 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -327,8 +327,8 @@ Elapsed time: 4 minutes, 15 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:21:54(+0530) 2021-08-08
-Elapsed time: 4 minutes, 25 seconds
+Report @ 03:11:12(+0530) 2021-08-08
+Elapsed time: 4 minutes, 24 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -340,8 +340,8 @@ Elapsed time: 4 minutes, 25 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:22:04(+0530) 2021-08-08
-Elapsed time: 4 minutes, 35 seconds
+Report @ 03:11:22(+0530) 2021-08-08
+Elapsed time: 4 minutes, 34 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -353,8 +353,8 @@ Elapsed time: 4 minutes, 35 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:22:14(+0530) 2021-08-08
-Elapsed time: 4 minutes, 45 seconds
+Report @ 03:11:32(+0530) 2021-08-08
+Elapsed time: 4 minutes, 44 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -366,8 +366,8 @@ Elapsed time: 4 minutes, 45 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:22:24(+0530) 2021-08-08
-Elapsed time: 4 minutes, 55 seconds
+Report @ 03:11:42(+0530) 2021-08-08
+Elapsed time: 4 minutes, 54 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -379,8 +379,8 @@ Elapsed time: 4 minutes, 55 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:22:34(+0530) 2021-08-08
-Elapsed time: 5 minutes, 5 seconds
+Report @ 03:11:52(+0530) 2021-08-08
+Elapsed time: 5 minutes, 4 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -392,8 +392,8 @@ Elapsed time: 5 minutes, 5 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:22:44(+0530) 2021-08-08
-Elapsed time: 5 minutes, 15 seconds
+Report @ 03:12:02(+0530) 2021-08-08
+Elapsed time: 5 minutes, 14 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -405,8 +405,8 @@ Elapsed time: 5 minutes, 15 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:22:54(+0530) 2021-08-08
-Elapsed time: 5 minutes, 25 seconds
+Report @ 03:12:12(+0530) 2021-08-08
+Elapsed time: 5 minutes, 24 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -418,8 +418,8 @@ Elapsed time: 5 minutes, 25 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:23:04(+0530) 2021-08-08
-Elapsed time: 5 minutes, 35 seconds
+Report @ 03:12:22(+0530) 2021-08-08
+Elapsed time: 5 minutes, 34 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -431,8 +431,8 @@ Elapsed time: 5 minutes, 35 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:23:14(+0530) 2021-08-08
-Elapsed time: 5 minutes, 45 seconds
+Report @ 03:12:32(+0530) 2021-08-08
+Elapsed time: 5 minutes, 44 seconds
   Scenarios launched:  0
   Scenarios completed: 0
   Requests completed:  0
@@ -444,21 +444,21 @@ Elapsed time: 5 minutes, 45 seconds
     p95: NaN
     p99: NaN
 
-Report @ 02:23:24(+0530) 2021-08-08
+Report @ 03:12:42(+0530) 2021-08-08
+Elapsed time: 5 minutes, 54 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 03:12:43(+0530) 2021-08-08
 Elapsed time: 5 minutes, 55 seconds
-  Scenarios launched:  0
-  Scenarios completed: 0
-  Requests completed:  0
-  Mean response/sec: NaN
-  Response time (msec):
-    min: NaN
-    max: NaN
-    median: NaN
-    p95: NaN
-    p99: NaN
-
-Report @ 02:23:26(+0530) 2021-08-08
-Elapsed time: 5 minutes, 57 seconds
   Scenarios launched:  0
   Scenarios completed: 1
   Requests completed:  0
@@ -471,17 +471,17 @@ Elapsed time: 5 minutes, 57 seconds
     p99: NaN
 
 All virtual users finished
-Summary report @ 02:23:26(+0530) 2021-08-08
+Summary report @ 03:12:43(+0530) 2021-08-08
   Scenarios launched:  1
   Scenarios completed: 1
   Requests completed:  1
   Mean response/sec: NaN
   Response time (msec):
-    min: 4.3
-    max: 4.3
-    median: 4.3
-    p95: 4.3
-    p99: 4.3
+    min: 0.5
+    max: 0.5
+    median: 0.5
+    p95: 0.5
+    p99: 0.5
   Scenario counts:
     Start Lecture: 1 (100%)
   Codes:
