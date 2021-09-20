@@ -14,7 +14,7 @@
   "dependencies": {
     "@socket.io/redis-adapter": "^7.0.0",
     "@socket.io/sticky": "^1.0.1",
-    "axios": "^0.20.0",
+    "axios": "^0.21.2",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.4.1",
     "config": "^3.2.5",
