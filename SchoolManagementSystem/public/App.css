@@ -265,8 +265,8 @@ nav a {
 
 .checkmark {
   display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0;
+  margin-right: 0;
   border-radius: 50%;
   stroke: var(--checkmark-arrow-color);
   stroke-width: var(--checkmark-arrow-thickness);
