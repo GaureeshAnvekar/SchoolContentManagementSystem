@@ -32,7 +32,7 @@ import { auth } from "./actions/auth";
 import { studentAuth } from "./actions/Student/studentAuth";
 import { decodeJWT } from "./actions/decodeJWT";
 
-//simport "./App.css";
+import "./App.css";
 
 var schoolId;
 var templateNum;
