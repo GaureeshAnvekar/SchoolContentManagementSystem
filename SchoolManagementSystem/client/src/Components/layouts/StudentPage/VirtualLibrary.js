@@ -287,7 +287,7 @@ const VirtualLibrary = (props) => {
                         : "none",
                     }}
                   >
-                    <Checkmark id={bookObj.id} size='small' color='green' />{" "}
+                    <Checkmark id={bookObj.id} size='medium' color='green' />{" "}
                   </span>
                 </p>
               ) : null}
