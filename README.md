@@ -1,2 +1,2 @@
 # EasySchool
-https://easyschool.academy
+https://easyschool.institute
